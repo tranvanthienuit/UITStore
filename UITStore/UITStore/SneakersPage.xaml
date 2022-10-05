@@ -58,6 +58,7 @@
                                                     </FormattedString>
                                                 </Label.FormattedText>
                                             </Label>
+                                            <Button Text="View Detail" Clicked="viewDetail"/>
                                         </Grid>
                                     </DataTemplate>
                                 </CollectionView.ItemTemplate>

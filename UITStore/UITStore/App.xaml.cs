@@ -12,7 +12,7 @@ namespace UITStore
         {
             InitializeComponent();
 
-            MainPage = new SneakersPage();
+            MainPage = new NavigationPage(new SneakersPage());
         }
 
         protected override void OnStart()

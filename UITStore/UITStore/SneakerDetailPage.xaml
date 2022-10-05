@@ -5,7 +5,8 @@
              x:Class="UITStore.SneakerDetailPage">
      <ContentPage.Content>
         <ScrollView>
-            <!-- Main structure-->
+            <StackLayout BindingContext="{Binding _sneakers}">
+                <!-- Main structure-->
             <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,*">
 
                 <!-- 4. Sneakers menu-->
@@ -28,7 +29,7 @@
                      WidthRequest="300"
                      HeightRequest="300"  />
                 <!-- Main sneaker -->
-                <Image Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Source="MainSneaker" HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFill" HeightRequest="350"  />
+                <Image Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Source="Picture" HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFill" HeightRequest="350"  />
                 <!-- Sneaker size -->
                 <StackLayout Grid.Column="0" Grid.Row="2" Padding="35,-20,0,0" VerticalOptions="Start" Orientation="Horizontal">
                     <Label Text="US 7" FontAttributes="Bold"/>
@@ -61,7 +62,7 @@
                      <Label.FormattedText>
                            <FormattedString>
                               <Span Text="$ " FontSize="25"/>
-                              <Span Text="179" FontAttributes="Bold" FontSize="40"/>
+                              <Span Text="{Binding Price}" FontAttributes="Bold" FontSize="40"/>
                            </FormattedString>
                      </Label.FormattedText>
                 </Label>
@@ -74,6 +75,7 @@
                    <Button Grid.Row="2" Grid.Column="1" Margin="10,0,20,0" CornerRadius="20" VerticalOptions="Center" HeightRequest="60" Background="Black" TextColor="White" FontAttributes="Bold" Text="ADD TO CART"/>
                 </Grid>
             </Grid>
+            </StackLayout>
       </ScrollView>
     </ContentPage.Content>
 </ContentPage>
