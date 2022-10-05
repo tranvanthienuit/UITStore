@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace UITStore
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Home : ContentPage
+    public partial class Store : ContentPage
     {
-        public Home()
+        public Store()
         {
             InitializeComponent();
         }

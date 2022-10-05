@@ -1,5 +1,4 @@
-﻿using System;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
@@ -12,7 +11,7 @@ namespace UITStore
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new SneakersPage());
+            MainPage = new NavigationPage( new MainPage());
         }
 
         protected override void OnStart()
