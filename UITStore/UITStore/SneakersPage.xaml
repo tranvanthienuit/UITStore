@@ -51,13 +51,13 @@
                             <Button Grid.Row="0" Grid.Column="1" Margin="0,7,5,0" ImageSource="Heart24"
                                     VerticalOptions="Start" HorizontalOptions="End" HeightRequest="40"
                                     WidthRequest="40" CornerRadius="20" BackgroundColor="White" />
-                            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Name}"
+                            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Name}" TextColor="Black"
                                    Margin="0,13,0,6" />
                             <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
                                 <Label.FormattedText>
                                     <FormattedString>
                                         <Span Text="$ " />
-                                        <Span Text="{Binding Price}" FontAttributes="Bold" FontSize="22" />
+                                        <Span Text="{Binding Price}" FontAttributes="Bold" FontSize="22" TextColor="SlateGray"/>
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>
