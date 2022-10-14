@@ -30,6 +30,9 @@ namespace UITStore
             InitializeComponent();
             initSneaker();
             listSneaker.ItemsSource = _sneakersList;
+            // lấy dữ liệu từ store
+            string ten = Application.Current.Properties["user"] as string;
+            Console.WriteLine(ten);
         }
 
         private async void viewDetail(object sender, EventArgs e)

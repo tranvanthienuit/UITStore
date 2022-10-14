@@ -11,6 +11,9 @@ namespace UITStore
         public Login()
         {
             InitializeComponent();
+            // cách để lưu dữ liệu tạm thời thời
+            Application.Current.Properties["user"] = "vanthien";
+            Application.Current.SavePropertiesAsync();
         }
 
         private async void signin(object sender, EventArgs e)
