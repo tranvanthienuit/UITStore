@@ -4,10 +4,33 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UITStore.Register">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Hello, world!"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand" />
+        <StackLayout Margin="10">
+            <Label HorizontalOptions="CenterAndExpand">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="UITStore" FontAttributes="Bold" FontSize="30" TextColor="Black" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label Text="Sign Up" FontAttributes="Bold" FontSize="20" TextColor="Purple"
+                   VerticalOptions="Center" HorizontalOptions="Center" Margin="0, 0, 0, 30" />
+            <Frame Margin="10,0,10,40" CornerRadius="30" BorderColor="CornflowerBlue">
+                <StackLayout>
+                    <Entry x:Name="username" Placeholder="Username" FontSize="15" />
+                    <Entry x:Name="password" IsPassword="True" Placeholder="Password" FontSize="15"/>
+                    <Entry x:Name="fullname" IsPassword="True" Placeholder="Full-Name" FontSize="15"/>
+                    <Entry x:Name="telephone" IsPassword="True" Placeholder="Telephone" FontSize="15"/>
+                    <Entry x:Name="address" IsPassword="True" Placeholder="Address" FontSize="15"/>
+                    <Button Text="Sign Up" Clicked="signup" Margin="50,10,50,0" FontSize="18"
+                            FontAttributes="Bold"
+                            BackgroundColor="CornflowerBlue" TextColor="White" />
+
+                    <Label Text="You Have Account. Let's Sign In" Margin="0,40,0,0"
+                           FontSize="18" HorizontalOptions="Center" />
+                    <Button Text="Sign In" Clicked="signin" FontSize="18" FontAttributes="Bold"
+                            BackgroundColor="White" TextColor="Purple" />
+                </StackLayout>
+            </Frame>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
