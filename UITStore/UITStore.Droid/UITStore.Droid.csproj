@@ -67,13 +67,17 @@
         <AndroidResource Include="Resources\drawable\Heart.png" />
         <AndroidResource Include="Resources\drawable\Heart24.png" />
         <AndroidResource Include="Resources\drawable\Heart_.png" />
+        <AndroidResource Include="Resources\drawable\HomeIcon.png" />
         <AndroidResource Include="Resources\drawable\Lines.png" />
         <AndroidResource Include="Resources\drawable\MainSneaker.png" />
+        <AndroidResource Include="Resources\drawable\NewsIcon.png" />
         <AndroidResource Include="Resources\drawable\Points.png" />
         <AndroidResource Include="Resources\drawable\Sneakers1.png" />
         <AndroidResource Include="Resources\drawable\Sneakers2.png" />
         <AndroidResource Include="Resources\drawable\Sneakers3.png" />
         <AndroidResource Include="Resources\drawable\Sneakers4.png" />
+        <AndroidResource Include="Resources\drawable\StoreIcon.png" />
+        <AndroidResource Include="Resources\drawable\UserIcon.png" />
         <AndroidResource Include="Resources\layout\Tabbar.axml" />
         <AndroidResource Include="Resources\layout\Toolbar.axml" />
         <AndroidResource Include="Resources\values\styles.xml" />

@@ -5,9 +5,26 @@
              x:Class="UITStore.Login">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Hello, world!"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand" />
+            <StackLayout>
+                <Image Source="cinestar.png" HeightRequest="100" WidthRequest="400"
+                       HorizontalOptions="Center" VerticalOptions="End" Margin="30"/>
+                <Label Text="ĐĂNG NHẬP" FontAttributes="Bold" FontSize="25" TextColor="Purple"
+                       VerticalOptions="Center" HorizontalOptions="Center" Margin="0, 0, 0, 30"/>
+                <Label Text="Tài khoản" FontSize="18" FontAttributes="Bold"
+                       Margin="5,0"/>
+                <Entry x:Name="UsernameEntry" Placeholder="Username or Email" FontSize="18"
+                       Margin="5,0,0,20"/>
+                <Label Text="Mật khẩu" FontSize="18" FontAttributes="Bold" Margin="5,0"/>
+                <Entry x:Name="PasswordEntry" Placeholder="Password" FontSize="18" Margin="5,0,0,20"/>
+                <Button x:Name="DN" Text="Đăng nhập" Clicked="login" Margin="50,0,50,0" FontSize="18" FontAttributes="Bold" 
+                        BackgroundColor="Purple" TextColor="White"/>
+
+                <Label Text="Nếu bạn chưa có tài khoản. Hãy đăng ký" Margin="0,90,0,0"
+                       FontSize="18" HorizontalOptions="Center"/>
+                <Button x:Name="DK" Text="Đăng ký" Clicked="register" FontSize="18" FontAttributes="Bold" 
+                        BackgroundColor="White" TextColor="Purple"/>
+
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

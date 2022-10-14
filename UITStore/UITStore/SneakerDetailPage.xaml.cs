@@ -8,14 +8,15 @@ namespace UITStore
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SneakerDetailPage : ContentPage
     {
-        public SneakerDetailPage(string productName, string productPicture, string productPrice)
+        public SneakerDetailPage(Sneakers sneakers)
         {
             InitializeComponent(); 
             Sneakers _sneakers = new Sneakers()
         {
-            Name = productName,
-            Picture = productPicture,
-            Price = productPrice
+            name = sneakers.name,
+            picture = sneakers.picture,
+            price = sneakers.price,
+            description = sneakers.description
         };
         BindingContext = _sneakers;
         }

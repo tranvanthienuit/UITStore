@@ -2,8 +2,10 @@
 {
     public class Sneakers
     {
-        public string Picture { get; set; }
-        public string Name { get; set; }
-        public string Price { get; set; }
+        public string picture { get; set; }
+        public string name { get; set; }
+        public string price { get; set; }
+        
+        public string description { get; set; }
     }
 }
