@@ -2,7 +2,7 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="UITStore.Register">
+             x:Class="UITStore.UserPage.Register">
     <ContentPage.Content>
         <StackLayout Margin="10">
             <Label HorizontalOptions="CenterAndExpand">

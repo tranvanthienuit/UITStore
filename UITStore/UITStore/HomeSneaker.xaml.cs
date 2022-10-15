@@ -1,13 +1,14 @@
 using System;
 using System.Collections.ObjectModel;
 using SneakersUIApp.Models;
+using UITStore.views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace UITStore
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SneakersPage : ContentPage
+    public partial class HomeSneaker : ContentPage
     {
         private ObservableCollection<Sneakers> _sneakersList;
 
@@ -25,7 +26,7 @@ namespace UITStore
             };
         }
 
-        public SneakersPage()
+        public HomeSneaker()
         {
             InitializeComponent();
             initSneaker();

@@ -3,7 +3,7 @@ using SneakersUIApp.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace UITStore
+namespace UITStore.views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SneakerDetailPage : ContentPage

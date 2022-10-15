@@ -15,4 +15,19 @@
         <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
         <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="UserPage\Login.xaml.cs">
+        <DependentUpon>Login.xaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="UserPage\Register.xaml.cs">
+        <DependentUpon>Register.xaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Views\SneakerDetailPage.xaml.cs">
+        <DependentUpon>SneakerDetailPage.xaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
 </Project>
