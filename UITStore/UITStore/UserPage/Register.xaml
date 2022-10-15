@@ -17,10 +17,10 @@
             <Frame Margin="10,0,10,40" CornerRadius="30" BorderColor="CornflowerBlue">
                 <StackLayout>
                     <Entry x:Name="username" Placeholder="Username" FontSize="15" />
-                    <Entry x:Name="password" IsPassword="True" Placeholder="Password" FontSize="15"/>
-                    <Entry x:Name="fullname" IsPassword="True" Placeholder="Full-Name" FontSize="15"/>
-                    <Entry x:Name="telephone" IsPassword="True" Placeholder="Telephone" FontSize="15"/>
-                    <Entry x:Name="address" IsPassword="True" Placeholder="Address" FontSize="15"/>
+                    <Entry x:Name="password" IsPassword="True" Placeholder="Password" FontSize="15" />
+                    <Entry x:Name="fullname" Placeholder="Full-Name" FontSize="15" />
+                    <Entry x:Name="telephone" Placeholder="Telephone" FontSize="15" />
+                    <Entry x:Name="address" Placeholder="Address" FontSize="15" />
                     <Button Text="Sign Up" Clicked="signup" Margin="50,10,50,0" FontSize="18"
                             FontAttributes="Bold"
                             BackgroundColor="CornflowerBlue" TextColor="White" />

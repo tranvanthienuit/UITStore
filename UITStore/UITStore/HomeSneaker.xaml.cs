@@ -12,9 +12,19 @@ namespace UITStore
     {
         private ObservableCollection<Sneakers> _sneakersList;
 
-        void initSneaker()
+        public HomeSneaker()
         {
-            _sneakersList = new ObservableCollection<Sneakers>()
+            InitializeComponent();
+            initSneaker();
+            listSneaker.ItemsSource = _sneakersList;
+            // lấy dữ liệu từ store
+            var ten = Application.Current.Properties["user"] as string;
+            Console.WriteLine(ten);
+        }
+
+        private void initSneaker()
+        {
+            _sneakersList = new ObservableCollection<Sneakers>
             {
                 new Sneakers { name = "NMD_R1 candy", price = "162", picture = "Sneakers1", description = "tuyet voi" },
                 new Sneakers
@@ -26,16 +36,6 @@ namespace UITStore
             };
         }
 
-        public HomeSneaker()
-        {
-            InitializeComponent();
-            initSneaker();
-            listSneaker.ItemsSource = _sneakersList;
-            // lấy dữ liệu từ store
-            string ten = Application.Current.Properties["user"] as string;
-            Console.WriteLine(ten);
-        }
-
         private async void viewDetail(object sender, EventArgs e)
         {
             var btn = (Button)sender;
@@ -44,15 +44,11 @@ namespace UITStore
 
         private void SearchBar_OnTextChanged(object sender, TextChangedEventArgs e)
         {
-            ObservableCollection<Sneakers> sneakersList = new ObservableCollection<Sneakers>();
+            var sneakersList = new ObservableCollection<Sneakers>();
             var key = e.NewTextValue;
             foreach (var item in _sneakersList)
-            {
                 if (item.name.ToLower().Contains(key.ToLower()))
-                {
                     sneakersList.Add(item);
-                }
-            }
 
             listSneaker.ItemsSource = sneakersList;
         }

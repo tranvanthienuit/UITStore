@@ -1,4 +1,3 @@
-using System;
 using SneakersUIApp.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -10,15 +9,15 @@ namespace UITStore.views
     {
         public SneakerDetailPage(Sneakers sneakers)
         {
-            InitializeComponent(); 
-            Sneakers _sneakers = new Sneakers()
-        {
-            name = sneakers.name,
-            picture = sneakers.picture,
-            price = sneakers.price,
-            description = sneakers.description
-        };
-        BindingContext = _sneakers;
+            InitializeComponent();
+            var _sneakers = new Sneakers
+            {
+                name = sneakers.name,
+                picture = sneakers.picture,
+                price = sneakers.price,
+                description = sneakers.description
+            };
+            BindingContext = _sneakers;
         }
     }
 }

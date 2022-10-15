@@ -13,18 +13,19 @@
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                <Frame CornerRadius="20" BorderColor="CornflowerBlue" Margin="0,50,0,0" HorizontalOptions="CenterAndExpand">
+                <Frame CornerRadius="20" BorderColor="CornflowerBlue" Margin="0,50,0,0"
+                       HorizontalOptions="CenterAndExpand">
                     <StackLayout>
-                        <Entry x:Name="UsernameEntry" Placeholder="Username" FontSize="18"
+                        <Entry x:Name="username" Placeholder="Username" FontSize="18"
                                Margin="5,0,0,20" />
-                        <Entry x:Name="PasswordEntry" Placeholder="Password" FontSize="18" Margin="5,0,0,20" />
-                        <Button x:Name="DN" Text="Login" Clicked="signin" Margin="50,30,50,0" FontSize="18"
+                        <Entry x:Name="password" Placeholder="Password" FontSize="18" Margin="5,0,0,20" />
+                        <Button Text="Login" Clicked="signin" Margin="50,30,50,0" FontSize="18"
                                 FontAttributes="Bold"
                                 BackgroundColor="CornflowerBlue" TextColor="White" />
 
                         <Label Text="You Don't Have Account. Let's Sign Up" Margin="0,40,0,0"
                                FontSize="18" HorizontalOptions="Center" />
-                        <Button x:Name="DK" Text="Sign Up" Clicked="signup" FontSize="18" FontAttributes="Bold"
+                        <Button Text="Sign Up" Clicked="signup" FontSize="18" FontAttributes="Bold"
                                 BackgroundColor="White" TextColor="Purple" />
                     </StackLayout>
                 </Frame>
