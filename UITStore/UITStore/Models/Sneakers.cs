@@ -1,4 +1,4 @@
-﻿namespace SneakersUIApp.Models
+﻿namespace UITStore.Models
 {
     public class Sneakers
     {

@@ -1,4 +1,4 @@
-using SneakersUIApp.Models;
+using UITStore.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

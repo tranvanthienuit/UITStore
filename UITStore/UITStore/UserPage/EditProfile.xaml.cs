@@ -1,5 +1,4 @@
-using System;
-using SneakersUIApp.Models;
+using UITStore.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,17 +13,15 @@ namespace UITStore.UserPage
         {
             InitializeComponent();
             User = Application.Current.Properties["user"] as User;
-            BindingContext = User;
-        }
-
-        private void Update(object sender, EventArgs e)
-        {
-            var name = username.Text;
-            var pass = password.Text;
-            var full_name = fullname.Text;
-            var tele = telephone.Text;
-            var address_ = address.Text;
-            Console.WriteLine(name + pass);
+            //truyền userViews extend từ INotifyPropertyChanged ra ngoài khi các tham số của userViews ở views thay đổi
+            //thì sẽ được cập nhật các tham số đó ở trong class userViews qua đó cập nhật các giá trị
+            UserViews userViews = new UserViews();
+            userViews.username = User.username;
+            userViews.password = User.password;
+            userViews.fullname = User.fullname;
+            userViews.telephone = User.telephone;
+            userViews.address = User.address;
+            BindingContext = userViews;
         }
     }
 }

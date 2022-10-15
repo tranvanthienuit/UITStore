@@ -1,6 +1,6 @@
 using System;
 using System.Collections.ObjectModel;
-using SneakersUIApp.Models;
+using UITStore.Models;
 using UITStore.views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

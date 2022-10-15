@@ -1,5 +1,5 @@
 using System;
-using SneakersUIApp.Models;
+using UITStore.Models;
 using UITStore.UserPage;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
