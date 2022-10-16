@@ -16,12 +16,12 @@
                    VerticalOptions="Center" HorizontalOptions="Center" Margin="0, 0, 0, 30" />
             <Frame Margin="10,0,10,40" CornerRadius="30" BorderColor="CornflowerBlue">
                 <StackLayout>
-                    <Entry x:Name="username" Placeholder="Username" FontSize="15" />
-                    <Entry x:Name="password" IsPassword="True" Placeholder="Password" FontSize="15" />
-                    <Entry x:Name="fullname" Placeholder="Full-Name" FontSize="15" />
-                    <Entry x:Name="telephone" Placeholder="Telephone" FontSize="15" />
-                    <Entry x:Name="address" Placeholder="Address" FontSize="15" />
-                    <Button Text="Sign Up" Clicked="signup" Margin="50,10,50,0" FontSize="18"
+                    <Entry Text="{Binding username}" Placeholder="Username" FontSize="15" />
+                    <Entry Text="{Binding password}" IsPassword="True" Placeholder="Password" FontSize="15" />
+                    <Entry Text="{Binding fullname}" Placeholder="Full-Name" FontSize="15" />
+                    <Entry Text="{Binding telephone}" Placeholder="Telephone" FontSize="15" />
+                    <Entry Text="{Binding address}" Placeholder="Address" FontSize="15" />
+                    <Button Text="Sign Up" Clicked="signUp" Margin="50,10,50,0" FontSize="18"
                             FontAttributes="Bold"
                             BackgroundColor="CornflowerBlue" TextColor="White" />
 

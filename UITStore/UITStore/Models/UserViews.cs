@@ -1,16 +1,22 @@
-using System;
 using System.ComponentModel;
-using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace UITStore.Models
 {
     public class UserViews : INotifyPropertyChanged
     {
+        public string _address;
+
+        public string _fullname;
+
+        public string _password;
+
+        public string _telephone;
         public string _username;
+
         public string username
         {
-            get { return _username; }
+            get => _username;
             set
             {
                 _username = value;
@@ -18,10 +24,9 @@ namespace UITStore.Models
             }
         }
 
-        public string _password;
         public string password
         {
-            get { return _password; }
+            get => _password;
             set
             {
                 _password = value;
@@ -29,10 +34,9 @@ namespace UITStore.Models
             }
         }
 
-        public string _fullname;
         public string fullname
         {
-            get { return _fullname; }
+            get => _fullname;
             set
             {
                 _fullname = value;
@@ -40,10 +44,9 @@ namespace UITStore.Models
             }
         }
 
-        public string _telephone;
         public string telephone
         {
-            get { return _telephone; }
+            get => _telephone;
             set
             {
                 _telephone = value;
@@ -51,10 +54,9 @@ namespace UITStore.Models
             }
         }
 
-        public string _address;
         public string address
         {
-            get { return _address; }
+            get => _address;
             set
             {
                 _address = value;
@@ -64,16 +66,26 @@ namespace UITStore.Models
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public ICommand editUser => new Command(editUserExist);
-
-        void editUserExist()
+        public bool editUserExist()
         {
-            User user = new User();
-            user.username = this._username;
-            user.password = this._password;
-            user.fullname = this._fullname;
-            user.telephone = this._telephone;
-            user.address = this._address;
+            var user = new User
+            {
+                username = _username, password = _password, fullname = _fullname, telephone = _telephone,
+                address = _address
+            };
+            
+            return true;
+        }
+
+        public bool addNewUser()
+        {
+            var user = new User
+            {
+                username = _username, password = _password, fullname = _fullname, telephone = _telephone,
+                address = _address
+            };
+            Application.Current.Properties["user"] = user;
+            return true;
         }
     }
 }

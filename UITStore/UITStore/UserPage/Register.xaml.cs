@@ -1,4 +1,5 @@
 using System;
+using UITStore.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -7,20 +8,28 @@ namespace UITStore.UserPage
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Register : ContentPage
     {
+        public UserViews userViews;
+
         public Register()
         {
             InitializeComponent();
-        }
-
-        private async void signup(object sender, EventArgs e)
-        {
-            DisplayAlert("Successfull", "", "Yes", "");
-            await Navigation.PushAsync(new Login());
+            userViews = new UserViews();
+            BindingContext = userViews;
         }
 
         private async void signin(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Login());
+        }
+
+        private async void signUp(object sender, EventArgs e)
+        {
+            var result = userViews.addNewUser();
+            if (result)
+            {
+                var signResult = await DisplayAlert("Successfull", "You sign up, successfully", "Yes", "No");
+                if (signResult) await Navigation.PushAsync(new Login());
+            }
         }
     }
 }

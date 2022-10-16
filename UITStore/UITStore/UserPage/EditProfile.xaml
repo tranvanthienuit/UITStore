@@ -7,12 +7,12 @@
         <StackLayout>
             <Frame Margin="10,0,10,40" CornerRadius="30" BorderColor="CornflowerBlue">
                 <StackLayout>
-                    <Entry Text="{Binding UserViews.username}" Placeholder="{Binding username}" FontSize="15" />
-                    <Entry Text="{Binding UserViews.password}" Placeholder="{Binding password}" FontSize="15" />
-                    <Entry Text="{Binding UserViews.fullname}" Placeholder="{Binding fullname}" FontSize="15" />
-                    <Entry Text="{Binding UserViews.telephone}" Placeholder="{Binding telephone}" FontSize="15" />
-                    <Entry Text="{Binding UserViews.address}" Placeholder="{Binding address}" FontSize="15" />
-                    <Button Text="Update" Command="{Binding editUser}" Margin="50,10,50,0" FontSize="18"
+                    <Entry Text="{Binding username}" Placeholder="{Binding username}" FontSize="15" />
+                    <Entry Text="{Binding password}" Placeholder="{Binding password}" FontSize="15" />
+                    <Entry Text="{Binding fullname}" Placeholder="{Binding fullname}" FontSize="15" />
+                    <Entry Text="{Binding telephone}" Placeholder="{Binding telephone}" FontSize="15" />
+                    <Entry Text="{Binding address}" Placeholder="{Binding address}" FontSize="15" />
+                    <Button Text="Update" Clicked="updateProfile" Margin="50,10,50,0" FontSize="18"
                             FontAttributes="Bold"
                             BackgroundColor="CornflowerBlue" TextColor="White" />
                 </StackLayout>
