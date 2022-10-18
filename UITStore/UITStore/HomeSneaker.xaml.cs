@@ -26,13 +26,26 @@ namespace UITStore
         {
             _sneakersList = new ObservableCollection<Sneakers>
             {
-                new Sneakers { name = "NMD_R1 candy", price = "162", picture = "Sneakers1", description = "tuyet voi" },
                 new Sneakers
-                    { name = "NMD_R1 pink white", price = "142", picture = "Sneakers2", description = "tuyet voi" },
+                {
+                    sneakerId = "sneaker1", name = "NMD_R1 candy", price = "162", picture = "Sneakers1",
+                    description = "tuyet voi"
+                },
                 new Sneakers
-                    { name = "NMD_R1 mint pink", price = "179", picture = "Sneakers3", description = "tuyet voi" },
+                {
+                    sneakerId = "sneaker2", name = "NMD_R1 pink white", price = "142", picture = "Sneakers2",
+                    description = "tuyet voi"
+                },
                 new Sneakers
-                    { name = "NMD_R1 white mint", price = "154", picture = "Sneakers4", description = "tuyet voi" }
+                {
+                    sneakerId = "sneaker3", name = "NMD_R1 mint pink", price = "179", picture = "Sneakers3",
+                    description = "tuyet voi"
+                },
+                new Sneakers
+                {
+                    sneakerId = "sneaker4", name = "NMD_R1 white mint", price = "154", picture = "Sneakers4",
+                    description = "tuyet voi"
+                }
             };
         }
 
