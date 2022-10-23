@@ -22,17 +22,17 @@ namespace UITStore.UserPage
             // cách để lưu dữ liệu tạm thời thời
             var name = username.Text;
             var pass = password.Text;
-            if (name == _user.username && pass == _user.password)
-            {
-                Application.Current.Properties["user"] = _user;
-                await Application.Current.SavePropertiesAsync();
-                await Navigation.PushAsync(new MainPage());
-                Application.Current.MainPage = new NavigationPage(new MainPage());
-            }
-            else
-            {
-                DisplayAlert("Error", "Your username or password is correct.\rPlease, Sign in again !", "Yes", "No");
-            }
+            // if (name == _user.username && pass == _user.password)
+            // {
+            Application.Current.Properties["user"] = _user;
+            await Application.Current.SavePropertiesAsync();
+            await Navigation.PushAsync(new MainPage());
+            Application.Current.MainPage = new NavigationPage(new MainPage());
+            // }
+            // else
+            // {
+            //     DisplayAlert("Error", "Your username or password is correct.\rPlease, Sign in again !", "Yes", "No");
+            // }
         }
 
 

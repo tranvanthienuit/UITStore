@@ -32,32 +32,29 @@ namespace UITStore.views
             {
                 if (Application.Current.Properties.ContainsKey("store"))
                 {
-                    string listSneaker = Application.Current.Properties["store"] as string;
+                    var listSneaker = Application.Current.Properties["store"] as string;
                     Console.WriteLine(listSneaker);
-                    int countSneaker = 1;
+                    var countSneaker = 1;
                     Console.WriteLine(this.countSneaker.Text.GetType());
-                    if (this.countSneaker.Text != "")
-                    {
-                        countSneaker = int.Parse(this.countSneaker.Text);
-                    }
+                    if (this.countSneaker.Text != "") countSneaker = int.Parse(this.countSneaker.Text);
 
-                    List<SneakerBy> sneakersList = JsonConvert.DeserializeObject<List<SneakerBy>>(listSneaker);
+                    var sneakersList = JsonConvert.DeserializeObject<List<SneakerBy>>(listSneaker);
                     if (sneakersList != null)
                     {
-                        bool checkItem = false;
+                        var checkItem = false;
                         foreach (var item in sneakersList)
-                        {
                             if (item.Sneakers.sneakerId == sneaker.sneakerId)
                             {
                                 item.count += countSneaker;
                                 checkItem = true;
                             }
-                        }
+
                         if (checkItem == false)
                         {
-                            SneakerBy sneakerBy = new SneakerBy() { Sneakers = sneaker, count = countSneaker };
+                            var sneakerBy = new SneakerBy { Sneakers = sneaker, count = countSneaker };
                             sneakersList.Add(sneakerBy);
                         }
+
                         var jsonValueToSave = JsonConvert.SerializeObject(sneakersList);
                         Application.Current.Properties["store"] = jsonValueToSave;
                     }
@@ -66,14 +63,11 @@ namespace UITStore.views
                 }
                 else
                 {
-                    int countSneaker = 1;
-                    if (this.countSneaker.Text != "")
-                    {
-                        countSneaker = int.Parse(this.countSneaker.Text);
-                    }
+                    var countSneaker = 1;
+                    if (this.countSneaker.Text != "") countSneaker = int.Parse(this.countSneaker.Text);
 
-                    List<SneakerBy> sneakersList = new List<SneakerBy>();
-                    SneakerBy sneakerBy = new SneakerBy() { Sneakers = sneaker, count = countSneaker };
+                    var sneakersList = new List<SneakerBy>();
+                    var sneakerBy = new SneakerBy { Sneakers = sneaker, count = countSneaker };
                     sneakersList.Add(sneakerBy);
                     var jsonValueToSave = JsonConvert.SerializeObject(sneakersList);
                     Application.Current.Properties["store"] = jsonValueToSave;

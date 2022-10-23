@@ -36,8 +36,8 @@
                         <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
                                Text="{Binding description}"
                                LineHeight="1.6" />
-                        <Entry x:Name="countSneaker" Text="" Placeholder="1" Keyboard="Numeric"/>
-                        <Button Grid.Row="2" Grid.Column="1" 
+                        <Entry x:Name="countSneaker" Text="" Placeholder="1" Keyboard="Numeric" />
+                        <Button Grid.Row="2" Grid.Column="1"
                                 Clicked="addToStore"
                                 Margin="10,0,20,0" CornerRadius="20"
                                 VerticalOptions="Center" HeightRequest="60" Background="Black" TextColor="White"

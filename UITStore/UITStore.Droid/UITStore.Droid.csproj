@@ -72,6 +72,8 @@
         <AndroidResource Include="Resources\drawable\Lines.png" />
         <AndroidResource Include="Resources\drawable\MainSneaker.png" />
         <AndroidResource Include="Resources\drawable\NewsIcon.png" />
+        <AndroidResource Include="Resources\drawable\news_1_1.jfif" />
+        <AndroidResource Include="Resources\drawable\news_1_2.jfif" />
         <AndroidResource Include="Resources\drawable\Points.png" />
         <AndroidResource Include="Resources\drawable\Sneakers1.png" />
         <AndroidResource Include="Resources\drawable\Sneakers2.png" />

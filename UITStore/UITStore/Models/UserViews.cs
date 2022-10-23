@@ -73,7 +73,7 @@ namespace UITStore.Models
                 username = _username, password = _password, fullname = _fullname, telephone = _telephone,
                 address = _address
             };
-            
+
             return true;
         }
 
