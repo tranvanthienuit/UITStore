@@ -1,7 +1,9 @@
 ﻿using System;
 using System.IO;
+using System.Threading.Tasks;
 using SQLite;
 using UITStore.Models;
+using Xamarin.Forms;
 
 namespace ProjSQLite
 {
@@ -49,16 +51,24 @@ namespace ProjSQLite
         //   }
         //   catch { return false; }
         // }
-        public bool updateUser(User user)
+        public async Task<bool> updateUser(User user)
         {
-        //fixme
+            //fixme
             try
             {
                 var connection = new SQLiteConnection(Path.Combine(folder, "uitStore.db"));
-                connection.Update(user);
+                User oldUser = getUser(user.username, user.password);
+                oldUser.username = user.username;
+                oldUser.password = user.password;
+                oldUser.fullname = user.fullname;
+                oldUser.telephone = user.telephone;
+                oldUser.address = user.address;
+                connection.Update(oldUser);
+                Application.Current.Properties["user"] = user;
+                await Application.Current.SavePropertiesAsync();
                 return true;
             }
-            catch
+            catch (Exception e)
             {
                 return false;
             }

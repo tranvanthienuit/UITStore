@@ -76,16 +76,8 @@ namespace UITStore.Models
                 username = _username, password = _password, fullname = _fullname, telephone = _telephone,
                 address = _address
             };
-            if (db.updateUser(user))
+            if (db.updateUser(user).Result)
             {
-                var oleUser = Application.Current.Properties["user"] as User;
-                oleUser.username = _username;
-                oleUser.password = _password;
-                oleUser.fullname = _fullname;
-                oleUser.telephone = _telephone;
-                oleUser.address = _address;
-                Application.Current.Properties["user"] = user;
-                await Application.Current.SavePropertiesAsync();
                 return true;
             }
 
