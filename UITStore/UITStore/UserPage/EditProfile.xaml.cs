@@ -33,8 +33,8 @@ namespace UITStore.UserPage
 
         private async void updateProfile(object sender, EventArgs e)
         {
-            var result = userViews.editUserExist();
-            if (result)
+            var result = userViews.updateUserExist();
+            if (result.Result)
             {
                 var signResult = await DisplayAlert("Successfull", "You update, successfully", "Yes", "No");
                 if (signResult) await Navigation.PushAsync(new UserProfile());

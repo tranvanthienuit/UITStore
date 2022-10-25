@@ -27,7 +27,7 @@ namespace UITStore.UserPage
             var result = userViews.addNewUser();
             if (result)
             {
-                var signResult = await DisplayAlert("Successfull", "You sign up, successfully", "Yes", "No");
+                var signResult = await DisplayAlert("Successfully", "You sign up, successfully", "Yes", "No");
                 if (signResult) await Navigation.PushAsync(new Login());
             }
         }

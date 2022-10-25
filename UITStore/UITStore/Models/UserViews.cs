@@ -1,4 +1,6 @@
 using System.ComponentModel;
+using System.Threading.Tasks;
+using ProjSQLite;
 using Xamarin.Forms;
 
 namespace UITStore.Models
@@ -66,15 +68,28 @@ namespace UITStore.Models
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public bool editUserExist()
+        public async Task<bool> updateUserExist()
         {
+            var db = new Database();
             var user = new User
             {
                 username = _username, password = _password, fullname = _fullname, telephone = _telephone,
                 address = _address
             };
+            if (db.updateUser(user))
+            {
+                var oleUser = Application.Current.Properties["user"] as User;
+                oleUser.username = _username;
+                oleUser.password = _password;
+                oleUser.fullname = _fullname;
+                oleUser.telephone = _telephone;
+                oleUser.address = _address;
+                Application.Current.Properties["user"] = user;
+                await Application.Current.SavePropertiesAsync();
+                return true;
+            }
 
-            return true;
+            return false;
         }
 
         public bool addNewUser()
@@ -84,8 +99,14 @@ namespace UITStore.Models
                 username = _username, password = _password, fullname = _fullname, telephone = _telephone,
                 address = _address
             };
-            Application.Current.Properties["user"] = user;
-            return true;
+            var db = new Database();
+            if (db.addUser(user))
+            {
+                Application.Current.Properties["user"] = user;
+                return true;
+            }
+
+            return false;
         }
     }
 }

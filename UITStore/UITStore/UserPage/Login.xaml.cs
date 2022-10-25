@@ -1,5 +1,5 @@
 using System;
-using UITStore.Models;
+using ProjSQLite;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -8,7 +8,7 @@ namespace UITStore.UserPage
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Login : ContentPage
     {
-        private User _user;
+        private Database _database;
 
         public Login()
         {
@@ -17,22 +17,22 @@ namespace UITStore.UserPage
 
         private async void signin(object sender, EventArgs e)
         {
-            _user = new User
-                { username = "admin", password = "admin", fullname = "admin", address = "ktx", telephone = "012345" };
+            _database = new Database();
+            var user = _database.getUser(username.Text, password.Text);
             // cách để lưu dữ liệu tạm thời thời
-            var name = username.Text;
-            var pass = password.Text;
-            // if (name == _user.username && pass == _user.password)
-            // {
-            Application.Current.Properties["user"] = _user;
-            await Application.Current.SavePropertiesAsync();
-            await Navigation.PushAsync(new MainPage());
-            Application.Current.MainPage = new NavigationPage(new MainPage());
-            // }
-            // else
-            // {
-            //     DisplayAlert("Error", "Your username or password is correct.\rPlease, Sign in again !", "Yes", "No");
-            // }
+            // var name = username.Text;
+            // var pass = password.Text;
+            if (user != null)
+            {
+                Application.Current.Properties["user"] = user;
+                await Application.Current.SavePropertiesAsync();
+                await Navigation.PushAsync(new MainPage());
+                Application.Current.MainPage = new NavigationPage(new MainPage());
+            }
+            else
+            {
+                DisplayAlert("Error", "Your username or password is correct.\rPlease, Sign in again !", "Yes", "No");
+            }
         }
 
 
