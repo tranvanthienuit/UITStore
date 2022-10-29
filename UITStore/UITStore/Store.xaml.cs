@@ -35,13 +35,9 @@ namespace UITStore
             else
             {
                 if (Application.Current.Properties["pay"] as string == "true")
-                {
                     Pay.Text = "Order Ordered";
-                }
                 else
-                {
                     Pay.Text = "You Now";
-                }
             }
 
 

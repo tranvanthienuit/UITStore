@@ -88,7 +88,8 @@
                     </CollectionView>
                 </Grid>
             </ScrollView>
-            <Button Clicked="payNow" x:Name="Pay" TextColor="White" FontAttributes="Bold" BackgroundColor="Black" CornerRadius="10" Margin="5,5,10,20" HeightRequest="50"/>
+            <Button Clicked="payNow" x:Name="Pay" TextColor="White" FontAttributes="Bold" BackgroundColor="Black"
+                    CornerRadius="10" Margin="5,5,10,20" HeightRequest="50" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

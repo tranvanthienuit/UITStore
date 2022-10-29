@@ -74,6 +74,7 @@ namespace UITStore.views
                     Application.Current.Properties["store"] = jsonValueToSave;
                     await Application.Current.SavePropertiesAsync();
                 }
+
                 Application.Current.Properties["pay"] = "false";
                 DisplayAlert("Congratulation", "Sneaker is added to store", "Yes", "No");
                 Application.Current.MainPage = new NavigationPage(new MainPage());

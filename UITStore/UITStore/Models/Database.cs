@@ -57,7 +57,7 @@ namespace ProjSQLite
             try
             {
                 var connection = new SQLiteConnection(Path.Combine(folder, "uitStore.db"));
-                User oldUser = getUser(user.username, user.password);
+                var oldUser = getUser(user.username, user.password);
                 oldUser.username = user.username;
                 oldUser.password = user.password;
                 oldUser.fullname = user.fullname;

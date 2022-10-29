@@ -4,8 +4,8 @@ namespace UITStore.Models
 {
     public class User
     {
-        [PrimaryKey, AutoIncrement]
-        public int ID { get; set; }
+        [PrimaryKey] [AutoIncrement] public int ID { get; set; }
+
         public string username { get; set; }
         public string password { get; set; }
         public string fullname { get; set; }

@@ -76,10 +76,7 @@ namespace UITStore.Models
                 username = _username, password = _password, fullname = _fullname, telephone = _telephone,
                 address = _address
             };
-            if (db.updateUser(user).Result)
-            {
-                return true;
-            }
+            if (db.updateUser(user).Result) return true;
 
             return false;
         }
