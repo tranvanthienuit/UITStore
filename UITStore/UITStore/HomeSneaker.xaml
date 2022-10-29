@@ -4,7 +4,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="UITStore.HomeSneaker"
-             BackgroundColor="Azure">
+             Title="Home"
+             BackgroundColor="#efefef">
     <ContentPage.Content>
         <ScrollView>
             <Grid Padding="25,0,0,0" ColumnDefinitions="Auto,*,*,Auto" RowDefinitions="Auto,Auto,*">
