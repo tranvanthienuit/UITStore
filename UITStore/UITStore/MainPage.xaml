@@ -8,6 +8,7 @@
             BarBackgroundColor="White"
             BarTextColor="Black"
             BackgroundColor="Beige"
+            Title="Home"
             x:Class="UITStore.MainPage">
     <local:HomeSneaker Title="Home" IconImageSource="HomeIcon.png" />
     <local:News Title="News" IconImageSource="NewsIcon.png" />
