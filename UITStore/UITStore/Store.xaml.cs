@@ -28,6 +28,23 @@ namespace UITStore
             }
 
             InitializeComponent();
+            if (Application.Current.Properties["pay"] as string == "notbuy")
+            {
+                Pay.Text = "Let's select item you want";
+            }
+            else
+            {
+                if (Application.Current.Properties["pay"] as string == "true")
+                {
+                    Pay.Text = "Order Ordered";
+                }
+                else
+                {
+                    Pay.Text = "You Now";
+                }
+            }
+
+
             listSneaker.ItemsSource = sneakerList;
         }
 
@@ -47,6 +64,15 @@ namespace UITStore
                     sneakersList.Add(item);
 
             listSneaker.ItemsSource = sneakersList;
+        }
+
+        private async void payNow(object sender, EventArgs e)
+        {
+            await DisplayAlert("Congratulation", "You ordered, successfully", "Yes", "No");
+            Application.Current.Properties["pay"] = "true";
+            await Application.Current.SavePropertiesAsync();
+            await Navigation.PushAsync(new MainPage());
+            Application.Current.MainPage = new NavigationPage(new MainPage());
         }
     }
 }

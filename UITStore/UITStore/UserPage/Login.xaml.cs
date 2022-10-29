@@ -25,6 +25,7 @@ namespace UITStore.UserPage
             if (user != null)
             {
                 Application.Current.Properties["user"] = user;
+                Application.Current.Properties["pay"] = "notbuy";
                 await Application.Current.SavePropertiesAsync();
                 await Navigation.PushAsync(new MainPage());
                 Application.Current.MainPage = new NavigationPage(new MainPage());

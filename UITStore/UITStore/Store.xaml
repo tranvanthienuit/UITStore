@@ -68,6 +68,16 @@
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
+                                    <Label Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Number" />
+                                                <Span Text="{Binding count}" FontAttributes="Bold"
+                                                      FontSize="22"
+                                                      TextColor="SlateGray" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
                                     <Button Text="View Detail" Clicked="viewDetail" Grid.Row="4" Grid.ColumnSpan="2"
                                             VerticalOptions="Center" />
                                 </Grid>
@@ -76,6 +86,7 @@
                     </CollectionView>
                 </Grid>
             </ScrollView>
+            <Button Clicked="payNow" x:Name="Pay" TextColor="White" FontAttributes="Bold" BackgroundColor="Black" CornerRadius="10" Margin="5,5,10,20" HeightRequest="50"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -17,6 +17,7 @@ namespace UITStore.views
             InitializeComponent();
             var _sneakers = new Sneakers
             {
+                sneakerId = sneakers.sneakerId,
                 name = sneakers.name,
                 picture = sneakers.picture,
                 price = sneakers.price,
@@ -73,7 +74,7 @@ namespace UITStore.views
                     Application.Current.Properties["store"] = jsonValueToSave;
                     await Application.Current.SavePropertiesAsync();
                 }
-
+                Application.Current.Properties["pay"] = "false";
                 DisplayAlert("Congratulation", "Sneaker is added to store", "Yes", "No");
                 Application.Current.MainPage = new NavigationPage(new MainPage());
             }
