@@ -1,5 +1,5 @@
 ﻿using ProjSQLite;
-using UITStore.UserPage;
+using UITStore.Views.UserPage;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

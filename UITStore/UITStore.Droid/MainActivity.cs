@@ -8,7 +8,7 @@ using Android.OS;
 
 namespace UITStore.Droid
 {
-    [Activity(Label = "UITStore", Theme = "@style/MainTheme", MainLauncher = true,
+    [Activity(Label = "CTSneaker", Theme = "@style/MainTheme", MainLauncher = true, Icon = "@mipmap/icon",
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
