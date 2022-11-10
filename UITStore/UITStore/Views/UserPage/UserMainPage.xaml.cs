@@ -17,13 +17,18 @@ namespace UITStore.Views.UserPage
             InitializeComponent();
         }
 
-        private async void logout_Clicked(object sender, EventArgs e)
+        private async void Logout_Clicked(object sender, EventArgs e)
         {
             bool answer = await DisplayAlert("Warning", "Do you really want to logout?", "Yes", "No");
             if(answer)
             {
                 _ = Navigation.PushAsync(new Login());
             }
+        }
+
+        private void Profile_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Profile());
         }
     }
 }

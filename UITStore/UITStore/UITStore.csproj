@@ -19,6 +19,12 @@
     </ItemGroup>
 
     <ItemGroup>
+        <Compile Update="Blogs.xaml.cs">
+          <DependentUpon>Blogs.xaml</DependentUpon>
+        </Compile>
+        <Compile Update="BlogDetail.xaml.cs">
+          <DependentUpon>BlogDetail.xaml</DependentUpon>
+        </Compile>
         <Compile Update="Views\UserPage\Login.xaml.cs">
             <DependentUpon>Login.xaml</DependentUpon>
             <SubType>Code</SubType>
@@ -38,6 +44,9 @@
     </ItemGroup>
 
     <ItemGroup>
+      <EmbeddedResource Update="Views\UserPage\Profile.xaml">
+        <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      </EmbeddedResource>
       <EmbeddedResource Update="Views\UserPage\UserMainPage.xaml">
         <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       </EmbeddedResource>

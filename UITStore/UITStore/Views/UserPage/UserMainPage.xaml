@@ -4,7 +4,7 @@
              x:Class="UITStore.Views.UserPage.UserMainPage" BackgroundColor="#efefef">
     <ContentPage.Content>
         <StackLayout>
-            <Frame BorderColor="#FF914D" Margin="5" Padding="0" CornerRadius="20" BackgroundColor="#FFF4ED">
+            <Frame BorderColor="#FF914D" Margin="10" Padding="0" CornerRadius="20" BackgroundColor="#E1F3FD">
                 <Grid x:Name="Header_User" Margin="10">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="100"></RowDefinition>
@@ -15,7 +15,7 @@
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Label Text="User" HorizontalTextAlignment="Center" LineBreakMode="TailTruncation" FontSize="20" FontAttributes="Bold" TextColor="Orange"></Label>
+                    <Label Text="User" HorizontalTextAlignment="Center" LineBreakMode="TailTruncation" FontSize="20" FontAttributes="Bold" TextColor="Orange" MaxLines="1"></Label>
                     <Frame Margin="10" Padding="0" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" CornerRadius="100" VerticalOptions="Center" HorizontalOptions="Center">
                         <Image Source="Sneakers1.png" ></Image>
                     </Frame>
@@ -53,34 +53,41 @@
                 </Grid>
             </Frame>
             <StackLayout Margin="10">
-                <AbsoluteLayout HorizontalOptions="Center">
-                    <Frame Padding="0" CornerRadius="10">
-                        <Button BackgroundColor="#FFD8A9" HeightRequest="60" WidthRequest="340"></Button>
+                <Grid ColumnDefinitions="*, 7*" RowDefinitions="50">
+                    <Frame Padding="0" CornerRadius="10" Grid.Column="0" Grid.ColumnSpan="2">
+                        <Button x:Name="Profile" BackgroundColor="#FFD8A9" Clicked="Profile_Clicked"></Button>
                     </Frame>
-                    <Image Source="ProfileIcon.png" AbsoluteLayout.LayoutBounds="10, 0, 30, 60"></Image>
-                    <Label Text="Profile" FontSize="Large" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" AbsoluteLayout.LayoutBounds="50, 0, 80, 60"></Label>
-                </AbsoluteLayout>
-                <AbsoluteLayout HorizontalOptions="Center">
-                    <Frame Padding="0" CornerRadius="10">
-                        <Button BackgroundColor="#FFD8A9" HeightRequest="60" WidthRequest="340"></Button>
+                    <Image Source="ProfileIcon.png" Grid.Column="0" Margin="10, 10, 0, 10" HorizontalOptions="Start"></Image>
+                    <Label Text="Profile" FontSize="20" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="1"></Label>
+                </Grid>
+                <Grid ColumnDefinitions="*, 7*" RowDefinitions="50">
+                    <Frame Padding="0" CornerRadius="10" Grid.Column="0" Grid.ColumnSpan="2">
+                        <Button BackgroundColor="#FFD8A9"></Button>
                     </Frame>
-                    <Image Source="CartOrder.png" AbsoluteLayout.LayoutBounds="10, 0, 30, 60"></Image>
-                    <Label Text="My Orders" FontSize="Large" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" AbsoluteLayout.LayoutBounds="50, 0, 120, 60"></Label>
-                </AbsoluteLayout>
-                <AbsoluteLayout HorizontalOptions="Center">
-                    <Frame Padding="0" CornerRadius="10">
-                        <Button BackgroundColor="#FFD8A9" HeightRequest="60" WidthRequest="340"></Button>
+                    <Image Source="CartOrder.png" Grid.Column="0" Margin="10, 10, 0, 10" HorizontalOptions="Start"></Image>
+                    <Label Text="My Orders" FontSize="20" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="1"></Label>
+                </Grid>
+                <Grid ColumnDefinitions="*, 7*" RowDefinitions="50">
+                    <Frame Padding="0" CornerRadius="10" Grid.Column="0" Grid.ColumnSpan="2">
+                        <Button BackgroundColor="#FFD8A9"></Button>
                     </Frame>
-                    <Image Source="Favourite.png" AbsoluteLayout.LayoutBounds="10, 0, 30, 60"></Image>
-                    <Label Text="My Favourite" FontSize="Large" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" AbsoluteLayout.LayoutBounds="50, 0, 130, 60"></Label>
-                </AbsoluteLayout>
-                <AbsoluteLayout HorizontalOptions="Center">
-                    <Frame Padding="0" CornerRadius="10">
-                        <Button x:Name="logout" BackgroundColor="#FFD8A9" HeightRequest="60" WidthRequest="340" Clicked="logout_Clicked"></Button>
+                    <Image Source="Favourite.png" Grid.Column="0" Margin="10, 10, 0, 10" HorizontalOptions="Start"></Image>
+                    <Label Text="My Favourite" FontSize="20" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="1"></Label>
+                </Grid>
+                <Grid ColumnDefinitions="*, 7*" RowDefinitions="50">
+                    <Frame Padding="0" CornerRadius="10" Grid.Column="0" Grid.ColumnSpan="2">
+                        <Button x:Name="ChangePassword" BackgroundColor="#FFD8A9"  ></Button>
                     </Frame>
-                    <Image Source="LogoutIcon.png" AbsoluteLayout.LayoutBounds="10, 0, 30, 60"></Image>
-                    <Label Text="Logout" FontSize="Large" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" AbsoluteLayout.LayoutBounds="50, 0, 80, 60"></Label>
-                </AbsoluteLayout>
+                    <Image Source="PasswordIcon.png" Grid.Column="0" Margin="10, 10, 0, 10" HorizontalOptions="Start"></Image>
+                    <Label Text="Change Password" FontSize="20" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="1"></Label>
+                </Grid>
+                <Grid ColumnDefinitions="*, 7*" RowDefinitions="50">
+                    <Frame Padding="0" CornerRadius="10" Grid.Column="0" Grid.ColumnSpan="2">
+                        <Button x:Name="Logout" BackgroundColor="#FFD8A9" Clicked="Logout_Clicked"></Button>
+                    </Frame>
+                    <Image Source="LogoutIcon.png" Grid.Column="0" Margin="10, 10, 0, 10" HorizontalOptions="Start"></Image>
+                    <Label Text="Logout" FontSize="20" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="1"></Label>
+                </Grid>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

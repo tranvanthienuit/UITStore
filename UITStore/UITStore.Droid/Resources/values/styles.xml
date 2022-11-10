@@ -21,8 +21,25 @@
          colorControlHighlight and colorSwitchThumbNormal. -->
     <item name="windowActionModeOverlay">true</item>
 
-    <item name="android:datePickerDialogTheme">@style/AppCompatDialogStyle</item>
+	  <item name="android:datePickerDialogTheme">@style/CustomDatePickerDialog</item>
   </style>
+
+	<style name="CustomDatePickerDialog" parent="ThemeOverlay.AppCompat.Dialog">
+		<!--header background-->
+		<item name="colorAccent">#FF914D</item>
+		<!--header textcolor-->
+		<item name="android:textColorPrimaryInverse">#ffffff</item>
+		<!--body background-->
+		<item name="android:windowBackground">#ffffff</item>
+		<!--selected day-->
+		<item name="android:colorControlActivated">#ff8000</item>
+		<!--days of the month-->
+		<item name="android:textColorPrimary">#000000</item>
+		<!--days of the week-->
+		<item name="android:textColorSecondary">#38B6FF</item>
+		<!--cancel&ok-->
+		<item name="android:textColor">#FF914D</item>
+	</style>
 
   <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">
     <item name="colorAccent">#FF4081</item>

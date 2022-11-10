@@ -1,6 +1,6 @@
 using System;
 using UITStore.Models;
-using UITStore.Views.UserPage;
+using UITStore.UserPage;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="UITStore.Views.HomePage.HomeSneaker"
+             Title="Home"
+             BackgroundColor="#efefef">
+    <ContentPage.Content>
+        <ScrollView Margin="0, 0, 0, 20">
+            <StackLayout>
+                <CarouselView x:Name="Carousel" HeightRequest="200" IndicatorView="Indicator">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Img}" Aspect="AspectFill"></Image>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+                <IndicatorView x:Name="Indicator" IndicatorColor="#FFD8A9" SelectedIndicatorColor="#FF914D" IndicatorSize="10"
+                               VerticalOptions="Center"></IndicatorView>
+                <Grid ColumnDefinitions="*,*, *, *" RowDefinitions="*,80,*" Margin="5">
+                    <Frame Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Padding="5" CornerRadius="10" BackgroundColor="#B1EFFF">
+                        <StackLayout>
+                            <Image Source="Delivery.png" HeightRequest="40"></Image>
+                            <Label Text="Giao hàng toàn quốc" FontSize="16" TextColor="Black" HorizontalTextAlignment="Center"></Label>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Padding="5" CornerRadius="10" BackgroundColor="#B1EFFF">
+                        <StackLayout>
+                            <Image Source="Wallet.png" HeightRequest="40"></Image>
+                            <Label Text="Thanh toán khi nhận hàng" FontSize="16" HorizontalTextAlignment="Center" TextColor="Black"></Label>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Padding="5" CornerRadius="10" BackgroundColor="#B1EFFF">
+                        <StackLayout>
+                            <Image Source="Warranty.png" HeightRequest="40"></Image>
+                            <Label Text="Bảo hành dài hạn" FontSize="16" TextColor="Black" HorizontalTextAlignment="Center"></Label>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Column="3" Grid.Row="1" Grid.RowSpan="2" Padding="5" CornerRadius="10" BackgroundColor="#B1EFFF">
+                        <StackLayout>
+                            <Image Source="ProductReturn.png" HeightRequest="40"></Image>
+                            <Label Text="Đổi hàng dễ dàng" FontSize="16" HorizontalTextAlignment="Center" TextColor="Black"></Label>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+                <pancakeView:PancakeView Padding="10, 5, 10, 5" HorizontalOptions="Start" Margin="10" BackgroundColor="#FFBD59" CornerRadius="0, 30, 30, 0">
+                    <Label Text="Sản phẩm bán chạy nhất" TextColor="Black" FontSize="Large" FontAttributes="Bold"></Label>
+                </pancakeView:PancakeView>
+                <CollectionView x:Name="BestSellProduct" SelectionMode="Multiple" HeightRequest="250" Margin="10" SelectionChanged="BestSellProduct_SelectionChanged" >
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Horizontal" HorizontalItemSpacing="20"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.EmptyView>
+                        <StackLayout>
+                            <Label Text="Not found Product" HorizontalOptions="Center"
+                               TextColor="OrangeRed" FontSize="24" Margin="10"/>
+                        </StackLayout>
+                    </CollectionView.EmptyView>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="Transparent" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="Selected">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="Transparent" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Frame Padding="0" BorderColor="#FF914D" CornerRadius="15" BackgroundColor="AliceBlue">
+                                    <Grid ColumnDefinitions="*" RowDefinitions="6*, *, *, *" WidthRequest="200">
+                                        <pancakeView:PancakeView Padding="1.5" CornerRadius="20, 20, 0, 0">
+                                            <Image Source="{Binding picture}" Grid.Row="0" Aspect="AspectFill"></Image>
+                                        </pancakeView:PancakeView>
+                                        <pancakeView:PancakeView BackgroundColor="White" CornerRadius="30" Grid.Row="0" HorizontalOptions="End" Margin="5" 
+                                                                 Padding="5" VerticalOptions="Start">
+                                            <Image Source="FavouriteIconClick.png" WidthRequest="24" HeightRequest="24">
+                                                <Image.GestureRecognizers>
+                                                    <TapGestureRecognizer x:Name="TapFavourite" Tapped="TapFavourite_Tapped"></TapGestureRecognizer>
+                                                </Image.GestureRecognizers>
+                                            </Image>
+                                        </pancakeView:PancakeView>
+                                        <Label Text="{Binding name}" Grid.Row="1" TextColor="Black" FontSize="20" LineBreakMode="TailTruncation" HorizontalTextAlignment="Center"></Label>
+                                        <Label Text="{Binding saleprice}" Grid.Row="2" TextColor="Black" FontSize="20" Margin="10, 0, 0, 0"></Label>
+                                        <Label Text="{Binding price}" Grid.Row="2" TextColor="Gray" FontSize="16" Margin="0, 0, 10, 0" HorizontalOptions="End" TextDecorations="Strikethrough"></Label>
+                                        <pancakeView:PancakeView BackgroundColor="#FF914D" Grid.Row="3" HorizontalOptions="Start" Padding="10, 0, 20, 0" CornerRadius="0, 20, 0, 0">
+                                            <Label Text="HOT | -20%" TextColor="Black" FontSize="18"></Label>
+                                        </pancakeView:PancakeView>
+                                        <StackLayout Orientation="Horizontal" Grid.Row="3" HorizontalOptions="End" VerticalOptions="Start" Margin="0, 0, 20, 5">
+                                            <Label Text="5" TextColor="Black" FontSize="18"></Label>
+                                            <Image Source="Star.png" WidthRequest="20"></Image>
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <pancakeView:PancakeView Padding="10, 5, 10, 5" HorizontalOptions="Start" Margin="10" BackgroundColor="#FFBD59" CornerRadius="0, 30, 30, 0">
+                    <Label Text="Khuyến mãi tốt nhất" TextColor="Black" FontSize="Large" FontAttributes="Bold"></Label>
+                </pancakeView:PancakeView>
+                <pancakeView:PancakeView Padding="10, 5, 10, 5" HorizontalOptions="Start" Margin="10" BackgroundColor="#FFBD59" CornerRadius="0, 30, 30, 0">
+                    <Label Text="Sản phẩm mới nhất" TextColor="Black" FontSize="Large" FontAttributes="Bold"></Label>
+                </pancakeView:PancakeView>
+                <Label Text="Bài viết nổi bật" TextColor="Black" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center"></Label>
+                <CollectionView x:Name="BlogHot" SelectionMode="Multiple" HeightRequest="200" Margin="5, 10, 5, 10">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Horizontal" HorizontalItemSpacing="10"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.EmptyView>
+                        <StackLayout>
+                            <Label Text="Not found Blog" HorizontalOptions="Center"
+                               TextColor="OrangeRed" FontSize="24" Margin="10"/>
+                        </StackLayout>
+                    </CollectionView.EmptyView>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Padding="0">
+                                <Grid ColumnDefinitions="150, 120, 110" RowDefinitions="1.5*, 1.3*, 1*" ColumnSpacing="0">
+                                    <Image Source="{Binding img}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Aspect="AspectFill"></Image>
+                                    <Label Text="{Binding title}" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" FontSize="20" TextColor="Black" FontAttributes="Bold" 
+                                           Margin="5, 0, 0, 0" LineBreakMode="TailTruncation" MaxLines="3"></Label>
+                                    <Label Text="{Binding description}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" FontSize="18" TextColor="Gray" Margin="5, 0, 0, 0" LineBreakMode="TailTruncation" MaxLines="3"></Label>
+
+                                    <Label Text="{Binding author}" Grid.Column="1" Grid.Row="2" TextColor="OrangeRed"
+                                           FontSize="16" VerticalOptions="Center" Padding="5" LineBreakMode="TailTruncation" MaxLines="2"></Label>
+                                    <Label Text="{Binding date}" TextColor="Black" FontSize="16" Grid.Column="2" Grid.Row="2" HorizontalOptions="End" VerticalOptions="Center" Margin="10"></Label>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <Label Text="Đánh giá của khách hàng" TextColor="Black" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center"></Label>
+                <Grid ColumnDefinitions="*, *" Margin="10, 30, 10, 10" ColumnSpacing="20">
+                    <Frame Grid.Column="0" Padding="5" BackgroundColor="AliceBlue">
+                        <StackLayout>
+                            <AbsoluteLayout>
+                                <Image Source="AvtMan.png" AbsoluteLayout.LayoutBounds="55, -30, 48, 48"></Image>
+                            </AbsoluteLayout>
+                            <Label Text="Đức Bo" HorizontalOptions="Center" FontSize="20" TextColor="#38B6FF" FontAttributes="Bold"></Label>
+                            <Label Text="Mới mua nên chưa biết độ bền thế nào nhưng giày đẹp, đúng đợt khuyến mãi nên giá rẻ, chủ shop nhiệt tình, shop nhiều quà tặng và ưu đãi."
+                                   TextColor="Black" FontSize="16" HorizontalTextAlignment="Center"></Label>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Column="1" Padding="5" BackgroundColor="AliceBlue">
+                        <StackLayout>
+                            <AbsoluteLayout>
+                                <Image Source="AvtWom.png" AbsoluteLayout.LayoutBounds="55, -30, 48, 48"></Image>
+                            </AbsoluteLayout>
+                            <Label Text="Diễm My" HorizontalOptions="Center" FontSize="20" TextColor="#38B6FF" FontAttributes="Bold"></Label>
+                            <Label Text="Em mua đôi converse của shop cách đây 2 days 💙 Rất đẹp ạ.Giao hàng cũng rất nhanh. Mọi người nhớ ghé ủng hộ shop nhá 💦. Có dịp em sẽ ghé lại shop!"
+                                   TextColor="Black" FontSize="16" HorizontalTextAlignment="Center"></Label>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+                <Grid ColumnDefinitions="2*,*,2*" RowDefinitions="*,*,*,*" BackgroundColor="#FFCE8D" HeightRequest="120" Padding="10">
+                    <Image Source="CTSneakerLogo.png" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"></Image>
+                    <Label Text="Shop giày uy tín số 1 TP.HCM" TextColor="Black" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" FontSize="16" FontAttributes="Bold"></Label>
+                    <StackLayout Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalOptions="Center">
+                        <Image Source="Telephone.png" WidthRequest="20"></Image>
+                        <Label Text="Hotline : 098.726.1876" TextColor="Black" FontSize="16" VerticalTextAlignment="Center"></Label>
+                    </StackLayout>
+                    <StackLayout Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+                        <Image Source="Location.png" WidthRequest="26"></Image>
+                        <Label Text="Address : Linh Trung, Thủ Đức, TP.HCM" TextColor="Black" FontSize="16"></Label>
+                    </StackLayout>
+                    <StackLayout Grid.Column="2" Grid.Row="3" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Start">
+                        <Label Text="Link : " TextColor="Black" FontSize="16"></Label>
+                        <Image Source="Facebook.png" WidthRequest="20"></Image>
+                        <Image Source="Youtube.png" WidthRequest="20"></Image>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+        <!--<ScrollView>
+            <Grid Padding="25,0,0,0" ColumnDefinitions="Auto,*,*,Auto" RowDefinitions="Auto,Auto,*">
+                --><!-- 1. Main header-->
+                <!--Cart icon--><!--
+                <SearchBar
+                    TextChanged="SearchBar_OnTextChanged"
+                    Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="StartAndExpand"
+                    Placeholder=""
+                    CancelButtonColor="Orange"
+                    PlaceholderColor="Orange"
+                    TextTransform="Lowercase"
+                    HorizontalTextAlignment="Start" />            --><!--Cart heart-->
+                <!-- 2. Title--><!--
+                <Label Grid.Row="1" Grid.ColumnSpan="4">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="UITStore" FontAttributes="Bold" FontSize="40" TextColor="Black" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                --><!-- 3. Sneaker list--><!--
+                <CollectionView Grid.Column="0" Margin="0,0,25,0"
+                                Grid.Row="2" Grid.ColumnSpan="4"
+                                VerticalScrollBarVisibility="Never"
+                                x:Name="listSneaker"
+                                VerticalOptions="StartAndExpand">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical"
+                                         Span="2" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ColumnDefinitions="*,*" Padding="8" HeightRequest="300">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="5" />
+                                </Grid.RowDefinitions>
+                                <pancakeView:PancakeView CornerRadius="20,20,20,20" Grid.Row="0" Grid.Column="0"
+                                                         Grid.ColumnSpan="2">
+                                    <Image Source="{Binding picture}" Aspect="AspectFill" />
+                                </pancakeView:PancakeView>
+                                <Button Grid.Row="0" Grid.Column="1" Margin="0,7,5,0" ImageSource="Heart24"
+                                        VerticalOptions="Start" HorizontalOptions="End" HeightRequest="40"
+                                        WidthRequest="40" CornerRadius="20" BackgroundColor="White" />
+                                <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding name}"
+                                       TextColor="Black"
+                                       Margin="0,13,0,6" />
+                                <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="$ " />
+                                            <Span Text="{Binding price}" FontAttributes="Bold" FontSize="22"
+                                                  TextColor="SlateGray" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Button Text="View Detail" Clicked="viewDetail" Grid.Row="4" Grid.ColumnSpan="2"
+                                        VerticalOptions="Center" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+        </ScrollView>-->
+    </ContentPage.Content>
+</ContentPage>

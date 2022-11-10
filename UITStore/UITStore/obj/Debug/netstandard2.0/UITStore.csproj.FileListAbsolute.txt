@@ -4,10 +4,7 @@ D:\UIT\Mobile\UITSTORE\UITStore\UITStore\bin\Debug\netstandard2.0\UITStore.pdb
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\UITStore.csproj.AssemblyReference.cache
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\UITStore.GeneratedMSBuildEditorConfig.editorconfig
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\App.xaml.g.cs
-D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\HomeSneaker.xaml.g.cs
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
-D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\News.xaml.g.cs
-D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\NewsDetail.xaml.g.cs
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Store.xaml.g.cs
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\UserProfile.xaml.g.cs
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\SneakerDetailPage.xaml.g.cs
@@ -17,7 +14,11 @@ D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\UITStore.cspro
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\XamlC.stamp
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\UITStore.dll
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\UITStore.pdb
-D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\UserPage\EditProfile.xaml.g.cs
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\UserPage\Login.xaml.g.cs
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\UserPage\Register.xaml.g.cs
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\UserPage\UserMainPage.xaml.g.cs
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\UserPage\Profile.xaml.g.cs
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\EditProfile.xaml.g.cs
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\HomePage\HomeSneaker.xaml.g.cs
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\BlogDetail.xaml.g.cs
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Blogs.xaml.g.cs

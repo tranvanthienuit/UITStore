@@ -54,6 +54,7 @@
     <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomDatePickerRenderer.cs" />
     <Compile Include="CustomEntryRenderer.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
@@ -64,18 +65,11 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\BlackHeart.png" />
-    <AndroidResource Include="Resources\drawable\Find.png" />
-    <AndroidResource Include="Resources\drawable\Heart.png" />
-    <AndroidResource Include="Resources\drawable\Heart24.png" />
-    <AndroidResource Include="Resources\drawable\Heart_.png" />
     <AndroidResource Include="Resources\drawable\HomeIcon.png" />
-    <AndroidResource Include="Resources\drawable\Lines.png" />
     <AndroidResource Include="Resources\drawable\MainSneaker.png" />
-    <AndroidResource Include="Resources\drawable\NewsIcon.png" />
+    <AndroidResource Include="Resources\drawable\BlogIcon.png" />
     <AndroidResource Include="Resources\drawable\news_1_1.jfif" />
     <AndroidResource Include="Resources\drawable\news_1_2.jfif" />
-    <AndroidResource Include="Resources\drawable\Points.png" />
     <AndroidResource Include="Resources\drawable\Sneakers1.png" />
     <AndroidResource Include="Resources\drawable\Sneakers2.png" />
     <AndroidResource Include="Resources\drawable\Sneakers3.png" />
@@ -161,6 +155,60 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\LogoutIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\PasswordIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Banner5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Banner4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Banner2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Banner1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Banner3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ProductReturn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Warranty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Wallet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Delivery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Telephone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Location.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Facebook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Youtube.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\FavouriteIconClick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\AvtWom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\AvtMan.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

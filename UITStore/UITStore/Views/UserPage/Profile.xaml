@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:UITStore.Components"
+             x:Class="UITStore.Views.UserPage.Profile" Title="Profile">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid RowSpacing="0" Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Frame Margin="10" Padding="0" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="4" CornerRadius="100" VerticalOptions="Center" HorizontalOptions="Center">
+                    <Image Source="Sneakers1.png" ></Image>
+                </Frame>
+                <Label Text="Username" FontSize="20" TextColor="#38B6FF" VerticalOptions="Center"  Grid.Column="2" Grid.Row="0"></Label>
+                <StackLayout Grid.Column="2" Grid.Row="1">
+                    <Grid>
+                        <Frame BorderColor="#FFD8A9" CornerRadius="5" HasShadow="False"/>
+                        <local:CustomEntry x:Name="username" Text="User" BackgroundColor="Transparent" FontSize="20" ClearButtonVisibility="WhileEditing" IsEnabled="False"/>
+                    </Grid>
+                </StackLayout>
+                <Label Text="Birthday" FontSize="20" TextColor="#38B6FF" VerticalOptions="Center" Grid.Column="2" Grid.Row="2"></Label>
+                <StackLayout Grid.Column="2" Grid.Row="3">
+                    <Grid>
+                        <Frame BorderColor="#FFD8A9" CornerRadius="5" HasShadow="False"/>
+                        <local:CustomDatePicker x:Name="birthday" IsEnabled="False" FontSize="20"></local:CustomDatePicker>
+                    </Grid>
+                </StackLayout>
+                <Label Margin="0, 10, 0, 0" Text="Fullname" FontSize="20" TextColor="#38B6FF" VerticalOptions="Center" Grid.Column="0" Grid.Row="4"></Label>
+                <StackLayout Margin="0, 10, 0, 0" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2">
+                    <Grid>
+                        <Frame BorderColor="#FFD8A9" CornerRadius="5" HasShadow="False"/>
+                        <local:CustomEntry x:Name="fullname" Text="Fullname" BackgroundColor="Transparent" FontSize="20" ClearButtonVisibility="WhileEditing" IsEnabled="False"/>
+                    </Grid>
+                </StackLayout>
+                <Label Margin="0, 10, 0, 0" Text="Telephone" FontSize="20" TextColor="#38B6FF" VerticalOptions="Center" Grid.Column="0" Grid.Row="5"></Label>
+                <StackLayout Margin="0, 10, 0, 0" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2">
+                    <Grid>
+                        <Frame BorderColor="#FFD8A9" CornerRadius="5" HasShadow="False"/>
+                        <local:CustomEntry x:Name="telephone" Text="Phone" BackgroundColor="Transparent" FontSize="20" ClearButtonVisibility="WhileEditing" IsEnabled="False"/>
+                    </Grid>
+                </StackLayout>
+                <Label Margin="0, 10, 0, 0" Text="Email" FontSize="20" TextColor="#38B6FF" VerticalOptions="Center" Grid.Column="0" Grid.Row="6"></Label>
+                <StackLayout Margin="0, 10, 0, 0" Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="2">
+                    <Grid>
+                        <Frame BorderColor="#FFD8A9" CornerRadius="5" HasShadow="False"/>
+                        <local:CustomEntry x:Name="email" Text="Email" BackgroundColor="Transparent" FontSize="20" ClearButtonVisibility="WhileEditing" IsEnabled="False"/>
+                    </Grid>
+                </StackLayout>
+                <Label Margin="0, 10, 0, 0" Text="Address" FontSize="20" TextColor="#38B6FF" VerticalOptions="Center" Grid.Column="0" Grid.Row="7"></Label>
+                <StackLayout Margin="0, 10, 0, 0" Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="2">
+                    <Grid>
+                        <Frame BorderColor="#FFD8A9" CornerRadius="5" HasShadow="False"/>
+                        <local:CustomEntry x:Name="address" Text="Address" BackgroundColor="Transparent" FontSize="20" ClearButtonVisibility="WhileEditing" IsEnabled="False"/>
+                    </Grid>
+                </StackLayout>
+            </Grid>
+            <StackLayout Orientation="Horizontal" Margin="20" HorizontalOptions="Center">
+                <Frame Padding="0" HorizontalOptions="Center" CornerRadius="10" Margin="10">
+                    <Button x:Name="update_profile" Clicked="update_profile_Clicked" Text="Update" HorizontalOptions="Center" FontSize="20" FontAttributes="Bold"
+                                BackgroundColor="#38B6FF" TextColor="White" />
+                </Frame>
+                <Frame Padding="0" HorizontalOptions="Center" CornerRadius="10" Margin="10">
+                    <Button x:Name="cancel_profile" Clicked="cancel_profile_Clicked" Text="Cancel" HorizontalOptions="Center" FontSize="20" FontAttributes="Bold"
+                                BackgroundColor="#FF914D" TextColor="White" IsEnabled="False"/>
+                </Frame>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
