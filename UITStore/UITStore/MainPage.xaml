@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            xmlns:local="clr-namespace:UITStore"
-            xmlns:views="clr-namespace:UITStore.Views.HomePage"
+            xmlns:views2 ="clr-namespace:UITStore.BlogPage"
+            xmlns:views="clr-namespace:UITStore.Views.HomePage" xmlns:views3="clr-namespace:UITStore.Views.ProductPage"
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core" xmlns:views1="clr-namespace:UITStore.Views.UserPage"
             android:TabbedPage.ToolbarPlacement="Bottom" HeightRequest="20"  BarBackgroundColor="White"  
             BarTextColor="Black" BackgroundColor="Beige" x:Class="UITStore.MainPage">
     <views:HomeSneaker Title="Home" IconImageSource="HomeIcon.png" />
-    <local:Store Title="Store" IconImageSource="StoreIcon.png" />
-    <local:Blogs Title="Blog" IconImageSource="BlogIcon.png" />
+    <views3:Store Title="Store" IconImageSource="StoreIcon.png" />
+    <views2:Blogs Title="Blog" IconImageSource="BlogIcon.png" />
     <views1:UserMainPage Title="User" IconImageSource="UserIcon.png" />
     <NavigationPage.TitleView>
         <AbsoluteLayout VerticalOptions="CenterAndExpand">

@@ -682,3 +682,9 @@ D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\res\drawable\favour
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\res\drawable\blogicon.png
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\res\drawable\avtwom.png
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\res\drawable\avtman.png
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\res\drawable\newbalance.png
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\res\drawable\vans.png
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\res\drawable\adidas.png
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\res\drawable\nike.png
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\res\drawable\mlb.png
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\android\src\crc64dc3241609b9c22eb\CustomSearchBarRenderer.java

@@ -8,25 +8,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("UITStore.Store.xaml", "Store.xaml", typeof(global::UITStore.Store))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("UITStore.Views.ProductPage.Store.xaml", "Views/ProductPage/Store.xaml", typeof(global::UITStore.Views.ProductPage.Store))]
 
-namespace UITStore {
+namespace UITStore.Views.ProductPage {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Store.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\ProductPage\\Store.xaml")]
     public partial class Store : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Xamarin.Forms.CollectionView listSneaker;
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Xamarin.Forms.Button Pay;
+        private global::Xamarin.Forms.CollectionView Product;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(Store));
-            listSneaker = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.CollectionView>(this, "listSneaker");
-            Pay = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "Pay");
+            Product = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.CollectionView>(this, "Product");
         }
     }
 }

@@ -8,21 +8,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("UITStore.Blogs.xaml", "Blogs.xaml", typeof(global::UITStore.Blogs))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("UITStore.Views.BlogPage.BlogDetail.xaml", "Views/BlogPage/BlogDetail.xaml", typeof(global::UITStore.BlogPage.BlogDetail))]
 
-namespace UITStore {
+namespace UITStore.BlogPage {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Blogs.xaml")]
-    public partial class Blogs : global::Xamarin.Forms.ContentPage {
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\BlogPage\\BlogDetail.xaml")]
+    public partial class BlogDetail : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Xamarin.Forms.ListView collectionNews;
+        private global::Xamarin.Forms.WebView Browser;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
-            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(Blogs));
-            collectionNews = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.ListView>(this, "collectionNews");
+            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(BlogDetail));
+            Browser = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.WebView>(this, "Browser");
         }
     }
 }

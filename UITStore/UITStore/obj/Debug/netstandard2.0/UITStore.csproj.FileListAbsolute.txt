@@ -5,9 +5,7 @@ D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\UITStore.cspro
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\UITStore.GeneratedMSBuildEditorConfig.editorconfig
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\App.xaml.g.cs
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
-D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Store.xaml.g.cs
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\UserProfile.xaml.g.cs
-D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\SneakerDetailPage.xaml.g.cs
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\UITStore.AssemblyInfoInputs.cache
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\UITStore.AssemblyInfo.cs
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\UITStore.csproj.CoreCompileInputs.cache
@@ -20,5 +18,7 @@ D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\UserPage
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\UserPage\Profile.xaml.g.cs
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\EditProfile.xaml.g.cs
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\HomePage\HomeSneaker.xaml.g.cs
-D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\BlogDetail.xaml.g.cs
-D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Blogs.xaml.g.cs
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\BlogPage\BlogDetail.xaml.g.cs
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\BlogPage\Blogs.xaml.g.cs
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\ProductPage\SneakerDetailPage.xaml.g.cs
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\ProductPage\Store.xaml.g.cs

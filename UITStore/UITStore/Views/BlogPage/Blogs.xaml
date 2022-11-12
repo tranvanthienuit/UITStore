@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="#efefef"
+             Title="News"
+             x:Class="UITStore.BlogPage.Blogs">
+    <ContentPage.Content>
+        <CollectionView x:Name="BlogList" SelectionMode="Single" Margin="10" SelectionChanged="BlogList_SelectionChanged">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="1" VerticalItemSpacing="10"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.EmptyView>
+                <StackLayout>
+                    <Label Text="Not found Blog" HorizontalOptions="Center"
+                               TextColor="OrangeRed" FontSize="24" Margin="10"/>
+                </StackLayout>
+            </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="0">
+                        <Grid ColumnDefinitions="1.5*, 1.2*, 1.1*" RowDefinitions="70, 65, 50" ColumnSpacing="0">
+                            <Image Source="{Binding img}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Aspect="AspectFill" Margin="5"></Image>
+                            <Label Text="{Binding title}" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" FontSize="20" TextColor="Black" FontAttributes="Bold" 
+                                           Margin="5, 0, 0, 0" LineBreakMode="TailTruncation" MaxLines="3"></Label>
+                            <Label Text="{Binding description}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" FontSize="18" TextColor="Gray" Margin="5, 0, 0, 0" LineBreakMode="TailTruncation" MaxLines="3"></Label>
+
+                            <Label Text="{Binding author}" Grid.Column="1" Grid.Row="2" TextColor="OrangeRed"
+                                           FontSize="16" VerticalOptions="Center" Padding="5" LineBreakMode="TailTruncation" MaxLines="2"></Label>
+                            <Label Text="{Binding date}" TextColor="Black" FontSize="16" Grid.Column="2" Grid.Row="2" HorizontalOptions="End" VerticalOptions="Center" Margin="5"></Label>
+                            
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage.Content>
+</ContentPage>

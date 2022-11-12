@@ -8,12 +8,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("UITStore.Views.SneakerDetailPage.xaml", "Views/SneakerDetailPage.xaml", typeof(global::UITStore.views.SneakerDetailPage))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("UITStore.Views.ProductPage.SneakerDetailPage.xaml", "Views/ProductPage/SneakerDetailPage.xaml", typeof(global::UITStore.Views.ProductPage.SneakerDetailPage))]
 
-namespace UITStore.views {
+namespace UITStore.Views.ProductPage {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\SneakerDetailPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\ProductPage\\SneakerDetailPage.xaml")]
     public partial class SneakerDetailPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]

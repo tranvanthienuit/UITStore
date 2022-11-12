@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" xmlns:local="clr-namespace:UITStore.Components"
+             BackgroundColor="#efefef"
+             Title="Store"
+             x:Class="UITStore.Views.ProductPage.Store">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Frame Padding="0" CornerRadius="20" Margin="10">
+                    <local:CustomSearchBar BackgroundColor="AliceBlue" TextColor="#38B6FF" CancelButtonColor="#FF914D" Placeholder="Search" FontSize="18" TextTransform="Lowercase"></local:CustomSearchBar>
+                </Frame>
+                <Grid RowDefinitions="*,0.5*, *" ColumnDefinitions="*, *, *, *, *" Margin="20, 10, 20, 10" ColumnSpacing="10" RowSpacing="0" HeightRequest="90">
+                    <Frame Padding="10" CornerRadius="30" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
+                        <Image Source="Nike.png"></Image>
+                    </Frame>
+                    <Label Text="Nike" TextColor="Black" Grid.Column="0" Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Center" FontSize="14"></Label>
+                    <Label Text="Adidas" TextColor="Black" Grid.Column="1" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center" FontSize="14"></Label>
+                    <Frame Padding="10" CornerRadius="30" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2">
+                        <Image Source="Adidas.png"></Image>
+                    </Frame>
+                    <Frame Padding="10" CornerRadius="30" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2">
+                        <Image Source="NewBalance.png"></Image>
+                    </Frame>
+                    <Label Text="New Balance" TextColor="Black" Grid.Column="2" Grid.Row="2" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="14"></Label>
+                    <Label Text="Vans" TextColor="Black" Grid.Column="3" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center" FontSize="14"></Label>
+                    <Frame Padding="10" CornerRadius="30" Grid.Column="3" Grid.Row="1" Grid.RowSpan="2">
+                        <Image Source="Vans.png" ></Image>
+                    </Frame>
+                    <Frame Padding="10, 15, 10, 15" CornerRadius="30" Grid.Column="4" Grid.Row="0" Grid.RowSpan="2">
+                        <Image Source="MLB.png"></Image>
+                    </Frame>
+                    <Label Text="MLB Korea" TextColor="Black" Grid.Column="4" Grid.Row="2" HorizontalTextAlignment="Center" HorizontalOptions="Center" VerticalOptions="Center" FontSize="14"></Label>
+                </Grid>
+                <pancakeView:PancakeView Padding="10, 5, 10, 5" HorizontalOptions="Start" Margin="10" BackgroundColor="#FFBD59" CornerRadius="0, 30, 30, 0">
+                    <Label Text="Tất cả sản phẩm" TextColor="Black" FontSize="Large" FontAttributes="Bold"></Label>
+                </pancakeView:PancakeView>
+                <CollectionView x:Name="Product" SelectionMode="Single" Margin="5">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="10" Span="2" HorizontalItemSpacing="5"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.EmptyView>
+                        <StackLayout>
+                            <Label Text="Not found Product" HorizontalOptions="Center"
+                               TextColor="OrangeRed" FontSize="24" Margin="10"/>
+                        </StackLayout>
+                    </CollectionView.EmptyView>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="Transparent" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="Selected">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="Transparent" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Frame Padding="0" BorderColor="#FF914D" CornerRadius="15" BackgroundColor="AliceBlue">
+                                    <Grid ColumnDefinitions="*" RowDefinitions="150, *, *, *">
+                                        <pancakeView:PancakeView Padding="1.5" CornerRadius="20, 20, 0, 0">
+                                            <Image Source="{Binding picture}" Grid.Row="0" Aspect="AspectFill"></Image>
+                                        </pancakeView:PancakeView>
+                                        <pancakeView:PancakeView BackgroundColor="White" CornerRadius="30" Grid.Row="0" HorizontalOptions="End" Margin="5" 
+                                                                 Padding="5" VerticalOptions="Start">
+                                            <Image Source="FavouriteIconClick.png" WidthRequest="24" HeightRequest="24">
+                                                <Image.GestureRecognizers>
+                                                    <TapGestureRecognizer x:Name="TapFavourite"></TapGestureRecognizer>
+                                                </Image.GestureRecognizers>
+                                            </Image>
+                                        </pancakeView:PancakeView>
+                                        <Label Text="{Binding name}" Grid.Row="1" TextColor="Black" FontSize="18" LineBreakMode="TailTruncation" HorizontalTextAlignment="Center"></Label>
+                                        <Label Text="{Binding saleprice}" Grid.Row="2" TextColor="Black" FontSize="18" Margin="10, 0, 0, 0"></Label>
+                                        <Label Text="{Binding price}" Grid.Row="2" TextColor="Gray" FontSize="15" Margin="0, 0, 10, 0" HorizontalOptions="End" TextDecorations="Strikethrough"></Label>
+                                        <pancakeView:PancakeView BackgroundColor="#FF914D" Grid.Row="3" HorizontalOptions="Start" Padding="10, 0, 10, 0" CornerRadius="0, 20, 0, 0">
+                                            <Label Text="HOT | -20%" TextColor="Black" FontSize="16" VerticalOptions="Center"></Label>
+                                        </pancakeView:PancakeView>
+                                        <StackLayout Orientation="Horizontal" Grid.Row="3" HorizontalOptions="End" VerticalOptions="Start" Margin="0, 0, 10, 5">
+                                            <Label Text="5" TextColor="Black" FontSize="16"></Label>
+                                            <Image Source="Star.png" WidthRequest="16"></Image>
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ScrollView>
+        <!--<ScrollView>
+                <Grid Padding="25,0,0,0" ColumnDefinitions="Auto,*,*,Auto" RowDefinitions="Auto,Auto,*">
+                    --><!-- 1. Main header-->
+                    <!--Cart icon--><!--
+                    <SearchBar
+                        TextChanged="SearchBar_OnTextChanged"
+                        Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
+                        HorizontalOptions="Fill"
+                        VerticalOptions="StartAndExpand"
+                        Placeholder=""
+                        CancelButtonColor="Orange"
+                        PlaceholderColor="Orange"
+                        TextTransform="Lowercase"
+                        HorizontalTextAlignment="Start" />            --><!--Cart heart-->
+                    <!-- 2. Title--><!--
+                    <Label Grid.Row="1" Grid.ColumnSpan="4">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="UITStore" FontAttributes="Bold" FontSize="40" TextColor="Black" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    --><!-- 3. Sneaker list--><!--
+                    <CollectionView Grid.Column="0" Margin="0,0,25,0"
+                                    Grid.Row="2" Grid.ColumnSpan="4"
+                                    VerticalScrollBarVisibility="Never"
+                                    x:Name="listSneaker"
+                                    VerticalOptions="StartAndExpand">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical"
+                                             Span="2" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid ColumnDefinitions="*,*" Padding="8" HeightRequest="300">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="5" />
+                                    </Grid.RowDefinitions>
+                                    <pancakeView:PancakeView CornerRadius="20,20,20,20" Grid.Row="0" Grid.Column="0"
+                                                             Grid.ColumnSpan="2">
+                                        <Image Source="{Binding Sneakers.picture}" Aspect="AspectFill" />
+                                    </pancakeView:PancakeView>
+                                    <Button Grid.Row="0" Grid.Column="1" Margin="0,7,5,0" ImageSource="Heart24"
+                                            VerticalOptions="Start" HorizontalOptions="End" HeightRequest="40"
+                                            WidthRequest="40" CornerRadius="20" BackgroundColor="White" />
+                                    <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                                           Text="{Binding Sneakers.name}"
+                                           TextColor="Black"
+                                           Margin="0,13,0,6" />
+                                    <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="$ " />
+                                                <Span Text="{Binding Sneakers.price}" FontAttributes="Bold"
+                                                      FontSize="22"
+                                                      TextColor="SlateGray" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Number" />
+                                                <Span Text="{Binding count}" FontAttributes="Bold"
+                                                      FontSize="22"
+                                                      TextColor="SlateGray" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Button Text="View Detail" Clicked="viewDetail" Grid.Row="4" Grid.ColumnSpan="2"
+                                            VerticalOptions="Center" />
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </ScrollView>
+            <Button Clicked="payNow" x:Name="Pay" TextColor="White" FontAttributes="Bold" BackgroundColor="Black"
+                    CornerRadius="10" Margin="5,5,10,20" HeightRequest="50" />-->
+        
+    </ContentPage.Content>
+</ContentPage>

@@ -19,10 +19,10 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Compile Update="Blogs.xaml.cs">
+        <Compile Update="Views\BlogPage\Blogs.xaml.cs">
           <DependentUpon>Blogs.xaml</DependentUpon>
         </Compile>
-        <Compile Update="BlogDetail.xaml.cs">
+        <Compile Update="Views\BlogPage\BlogDetail.xaml.cs">
           <DependentUpon>BlogDetail.xaml</DependentUpon>
         </Compile>
         <Compile Update="Views\UserPage\Login.xaml.cs">
@@ -33,7 +33,7 @@
             <DependentUpon>Register.xaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
-        <Compile Update="Views\SneakerDetailPage.xaml.cs">
+        <Compile Update="Views\ProductPage\SneakerDetailPage.xaml.cs">
             <DependentUpon>SneakerDetailPage.xaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>

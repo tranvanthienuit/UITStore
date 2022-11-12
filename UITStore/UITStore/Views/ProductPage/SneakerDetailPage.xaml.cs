@@ -5,7 +5,7 @@ using UITStore.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace UITStore.views
+namespace UITStore.Views.ProductPage
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SneakerDetailPage : ContentPage
