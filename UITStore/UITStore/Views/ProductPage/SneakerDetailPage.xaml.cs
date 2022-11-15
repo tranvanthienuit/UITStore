@@ -15,19 +15,51 @@ namespace UITStore.Views.ProductPage
         public SneakerDetailPage(Sneakers sneakers)
         {
             InitializeComponent();
-            var _sneakers = new Sneakers
-            {
-                sneakerId = sneakers.sneakerId,
-                name = sneakers.name,
-                picture = sneakers.picture,
-                price = sneakers.price,
-                description = sneakers.description
-            };
-            sneaker = _sneakers;
-            BindingContext = _sneakers;
+            BindingContext = sneakers;
         }
 
-        private async void addToStore(object sender, EventArgs e)
+        private void TapFavourite_Tapped(object sender, EventArgs e)
+        {
+
+        }
+
+        string[] listSize = new string[]
+        {
+            "40", "41", "42"
+        };
+        private async void TapSize_Tapped(object sender, EventArgs e)
+        {
+            string action;
+            if(listSize.Length > 0)
+            {
+                action = await DisplayActionSheet("Size", "Cancel", null, listSize);
+                size.Text = action != "Cancel" ? action : size.Text;
+            } else
+            {
+                await DisplayAlert("Size", "UnAvailable", "OK");
+                size.Text = "Null";
+            }
+        }
+
+        private void Sub_Clicked(object sender, EventArgs e)
+        {
+            int count = Convert.ToInt32(Count.Text);
+            if(count > 1)
+            {
+                count = count - 1;
+            } else
+            {
+                count = 1;
+            }
+            Count.Text = count.ToString();
+        }
+
+        private void Add_Clicked(object sender, EventArgs e)
+        {
+            Count.Text = (Convert.ToInt32(Count.Text) + 1).ToString();
+        }
+
+        /*private async void addToStore(object sender, EventArgs e)
         {
             try
             {
@@ -84,6 +116,6 @@ namespace UITStore.Views.ProductPage
                 Console.WriteLine(exception);
                 DisplayAlert("Unlucky", "Sneaker is't added to store", "Yes", "No");
             }
-        }
+        }*/
     }
 }

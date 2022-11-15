@@ -12,9 +12,8 @@ namespace UITStore.BlogPage
             InitializeComponent();
             BindingContext = detailBlog;
             var htmlSource = new HtmlWebViewSource();
-            htmlSource.Html = "Heko";
+            htmlSource.Html = detailBlog.content;
             Browser.Source = htmlSource;
-            
         }
     }
 }

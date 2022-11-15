@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using Newtonsoft.Json;
 using UITStore.Models;
 using UITStore.Views;
@@ -72,31 +73,50 @@ namespace UITStore.Views.ProductPage
             };
             Product.ItemsSource = _sneakersList;
         }
+
+        private void Tap_Nike_Tapped(object sender, EventArgs e)
+        {
+            if(FNike.BackgroundColor != Color.FromHex("#38B6FF"))
+            {
+                FNike.BackgroundColor = Color.FromHex("#38B6FF");
+                Product.ItemsSource = _sneakersList.Where(p => p.category == "bestsell");
+            } else
+            {
+                FNike.BackgroundColor = Color.White;
+                Product.ItemsSource = _sneakersList;
+            }
+        }
+
+        private async void Product_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var detailProduct = e.CurrentSelection[0] as Sneakers;
+            await Navigation.PushAsync(new SneakerDetailPage(detailProduct));
+        }
         /*      private async void viewDetail(object sender, EventArgs e)
-              {
-                  var btn = (Button)sender;
-                  var sneakerBy = (SneakerBy)btn.BindingContext;
-                  await Navigation.PushAsync(new SneakerDetailPage(sneakerBy.Sneakers));
-              }
+            {
+            var btn = (Button)sender;
+            var sneakerBy = (SneakerBy)btn.BindingContext;
+            await Navigation.PushAsync(new SneakerDetailPage(sneakerBy.Sneakers));
+            }
 
-              private void SearchBar_OnTextChanged(object sender, TextChangedEventArgs e)
-              {
-                  var sneakersList = new ObservableCollection<Sneakers>();
-                  var key = e.NewTextValue;
-                  foreach (var item in sneakersList)
-                      if (item.name.ToLower().Contains(key.ToLower()))
-                          sneakersList.Add(item);
+            private void SearchBar_OnTextChanged(object sender, TextChangedEventArgs e)
+            {
+            var sneakersList = new ObservableCollection<Sneakers>();
+            var key = e.NewTextValue;
+            foreach (var item in sneakersList)
+                if (item.name.ToLower().Contains(key.ToLower()))
+                    sneakersList.Add(item);
 
-                  listSneaker.ItemsSource = sneakersList;
-              }
+            listSneaker.ItemsSource = sneakersList;
+            }
 
-              private async void payNow(object sender, EventArgs e)
-              {
-                  await DisplayAlert("Congratulation", "You ordered, successfully", "Yes", "No");
-                  Application.Current.Properties["pay"] = "true";
-                  await Application.Current.SavePropertiesAsync();
-                  await Navigation.PushAsync(new MainPage());
-                  Application.Current.MainPage = new NavigationPage(new MainPage());
-              }*/
+            private async void payNow(object sender, EventArgs e)
+            {
+            await DisplayAlert("Congratulation", "You ordered, successfully", "Yes", "No");
+            Application.Current.Properties["pay"] = "true";
+            await Application.Current.SavePropertiesAsync();
+            await Navigation.PushAsync(new MainPage());
+            Application.Current.MainPage = new NavigationPage(new MainPage());
+            }*/
     }
 }

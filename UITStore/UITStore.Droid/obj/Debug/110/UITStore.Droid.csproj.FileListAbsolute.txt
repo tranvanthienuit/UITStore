@@ -688,3 +688,8 @@ D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\res\drawable\adidas
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\res\drawable\nike.png
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\res\drawable\mlb.png
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\android\src\crc64dc3241609b9c22eb\CustomSearchBarRenderer.java
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\android\src\crc64dc3241609b9c22eb\CustomPickerRenderer.java
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\android\src\crc64dc3241609b9c22eb\CustomLabelRenderer.java
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\res\drawable\blog1.jpg
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\res\drawable\blog2.jpg
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\res\drawable\blog3.jpg

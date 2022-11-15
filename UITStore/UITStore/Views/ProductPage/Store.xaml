@@ -13,8 +13,11 @@
                     <local:CustomSearchBar BackgroundColor="AliceBlue" TextColor="#38B6FF" CancelButtonColor="#FF914D" Placeholder="Search" FontSize="18" TextTransform="Lowercase"></local:CustomSearchBar>
                 </Frame>
                 <Grid RowDefinitions="*,0.5*, *" ColumnDefinitions="*, *, *, *, *" Margin="20, 10, 20, 10" ColumnSpacing="10" RowSpacing="0" HeightRequest="90">
-                    <Frame Padding="10" CornerRadius="30" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
+                    <Frame x:Name="FNike" Padding="10" CornerRadius="30" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
                         <Image Source="Nike.png"></Image>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="Tap_Nike" Tapped="Tap_Nike_Tapped"></TapGestureRecognizer>
+                        </Frame.GestureRecognizers>
                     </Frame>
                     <Label Text="Nike" TextColor="Black" Grid.Column="0" Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Center" FontSize="14"></Label>
                     <Label Text="Adidas" TextColor="Black" Grid.Column="1" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center" FontSize="14"></Label>
@@ -34,10 +37,25 @@
                     </Frame>
                     <Label Text="MLB Korea" TextColor="Black" Grid.Column="4" Grid.Row="2" HorizontalTextAlignment="Center" HorizontalOptions="Center" VerticalOptions="Center" FontSize="14"></Label>
                 </Grid>
-                <pancakeView:PancakeView Padding="10, 5, 10, 5" HorizontalOptions="Start" Margin="10" BackgroundColor="#FFBD59" CornerRadius="0, 30, 30, 0">
-                    <Label Text="Tất cả sản phẩm" TextColor="Black" FontSize="Large" FontAttributes="Bold"></Label>
-                </pancakeView:PancakeView>
-                <CollectionView x:Name="Product" SelectionMode="Single" Margin="5">
+                <Grid ColumnDefinitions="1.5*, *">
+                    <pancakeView:PancakeView Padding="10, 5, 10, 5" HorizontalOptions="Start" VerticalOptions="Center" Margin="10" 
+                                             Grid.Column="0" BackgroundColor="#FFBD59" CornerRadius="0, 30, 30, 0">
+                        <Label Text="Tất cả sản phẩm" TextColor="Black" FontSize="Large" FontAttributes="Bold"></Label>
+                    </pancakeView:PancakeView>
+                    <pancakeView:PancakeView BackgroundColor="White" HorizontalOptions="EndAndExpand" CornerRadius="20" Margin="10" Grid.Column="1">
+                        <local:CustomPicker Title="Sắp xếp" TitleColor="#38B6FF" FontSize="16" Margin="20, 0, 20, 0">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Giá cao đến thấp</x:String>
+                                    <x:String>Giá thấp đến cao</x:String>
+                                    <x:String>% khuyến mãi</x:String>
+                                    <x:String>Mới nhất</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </local:CustomPicker>
+                    </pancakeView:PancakeView>
+                </Grid>
+                <CollectionView x:Name="Product" SelectionMode="Single" Margin="5" SelectionChanged="Product_SelectionChanged">
                     <CollectionView.ItemsLayout>
                         <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="10" Span="2" HorizontalItemSpacing="5"/>
                     </CollectionView.ItemsLayout>
