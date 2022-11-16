@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using ProjSQLite;
@@ -8,13 +9,14 @@ namespace UITStore.Models
     public class UserViews : INotifyPropertyChanged
     {
         public string _address;
-
         public string _fullname;
-
         public string _password;
-
         public string _telephone;
         public string _username;
+        public DateTime _birthday;
+        public string _email;
+        public string _avatar;
+        public int _loyaltyPoint;
 
         public string username
         {
@@ -65,6 +67,42 @@ namespace UITStore.Models
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(address)));
             }
         }
+        public DateTime birthday
+        {
+            get => _birthday;
+            set
+            {
+                _birthday = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(birthday)));
+            }
+        }
+        public string email
+        {
+            get => _email;
+            set
+            {
+                _email = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(email)));
+            }
+        }
+        public string avatar
+        {
+            get => _avatar;
+            set
+            {
+                _avatar = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(avatar)));
+            }
+        }
+        public int loyaltyPoint
+        {
+            get => _loyaltyPoint;
+            set
+            {
+                _loyaltyPoint = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(loyaltyPoint)));
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -86,7 +124,7 @@ namespace UITStore.Models
             var user = new User
             {
                 username = _username, password = _password, fullname = _fullname, telephone = _telephone,
-                address = _address
+                address = _address, birthday = _birthday, email = _email
             };
             var db = new Database();
             if (db.addUser(user))

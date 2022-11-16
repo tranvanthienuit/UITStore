@@ -45,8 +45,6 @@ D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\android\bin\com.com
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\android\bin\com.companyname.UITStore.apks
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\res\drawable\homeicon.png
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\res\drawable\mainsneaker.png
-D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\res\drawable\news_1_1.jfif
-D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\res\drawable\news_1_2.jfif
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\res\drawable\sneakers1.png
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\res\drawable\sneakers2.png
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\res\drawable\sneakers3.png
@@ -693,3 +691,4 @@ D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\android\src\crc64dc
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\res\drawable\blog1.jpg
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\res\drawable\blog2.jpg
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\res\drawable\blog3.jpg
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\res\drawable\avatardefault.png

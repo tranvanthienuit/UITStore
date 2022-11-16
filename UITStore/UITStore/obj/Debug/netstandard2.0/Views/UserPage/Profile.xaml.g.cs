@@ -20,19 +20,34 @@ namespace UITStore.Views.UserPage {
         private global::UITStore.Components.CustomEntry username;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
+        private global::Xamarin.Forms.Label vldUsername;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::UITStore.Components.CustomDatePicker birthday;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::UITStore.Components.CustomEntry fullname;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::UITStore.Components.CustomEntry telephone;
+        private global::Xamarin.Forms.Label vldFullname;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
+        private global::UITStore.Components.CustomEntry phone;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
+        private global::Xamarin.Forms.Label vldPhone;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::UITStore.Components.CustomEntry email;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
+        private global::Xamarin.Forms.Label vldEmail;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::UITStore.Components.CustomEntry address;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
+        private global::Xamarin.Forms.Label vldAddress;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.Button update_profile;
@@ -44,11 +59,16 @@ namespace UITStore.Views.UserPage {
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(Profile));
             username = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::UITStore.Components.CustomEntry>(this, "username");
+            vldUsername = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Label>(this, "vldUsername");
             birthday = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::UITStore.Components.CustomDatePicker>(this, "birthday");
             fullname = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::UITStore.Components.CustomEntry>(this, "fullname");
-            telephone = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::UITStore.Components.CustomEntry>(this, "telephone");
+            vldFullname = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Label>(this, "vldFullname");
+            phone = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::UITStore.Components.CustomEntry>(this, "phone");
+            vldPhone = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Label>(this, "vldPhone");
             email = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::UITStore.Components.CustomEntry>(this, "email");
+            vldEmail = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Label>(this, "vldEmail");
             address = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::UITStore.Components.CustomEntry>(this, "address");
+            vldAddress = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Label>(this, "vldAddress");
             update_profile = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "update_profile");
             cancel_profile = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "cancel_profile");
         }

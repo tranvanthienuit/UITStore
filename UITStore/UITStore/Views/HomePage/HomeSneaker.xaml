@@ -45,7 +45,7 @@
                 <pancakeView:PancakeView Padding="10, 5, 10, 5" HorizontalOptions="Start" Margin="10" BackgroundColor="#FFBD59" CornerRadius="0, 30, 30, 0">
                     <Label Text="Sản phẩm bán chạy nhất" TextColor="Black" FontSize="Large" FontAttributes="Bold"></Label>
                 </pancakeView:PancakeView>
-                <CollectionView x:Name="BestSellProduct" SelectionMode="Single" HeightRequest="250" Margin="10" SelectionChanged="BestSellProduct_SelectionChanged" >
+                <CollectionView x:Name="BestSellProduct" HeightRequest="250" Margin="10" >
                     <CollectionView.ItemsLayout>
                         <GridItemsLayout Orientation="Horizontal" HorizontalItemSpacing="20"/>
                     </CollectionView.ItemsLayout>
@@ -75,7 +75,7 @@
                                 <Frame Padding="0" BorderColor="#FF914D" CornerRadius="15" BackgroundColor="AliceBlue">
                                     <Grid ColumnDefinitions="*" RowDefinitions="6*, *, *, *" WidthRequest="200">
                                         <pancakeView:PancakeView Padding="1.5" CornerRadius="20, 20, 0, 0">
-                                            <Image Source="{Binding picture}" Grid.Row="0" Aspect="AspectFill"></Image>
+                                            <Image Source="{Binding img}" Grid.Row="0" Aspect="AspectFill"></Image>
                                         </pancakeView:PancakeView>
                                         <pancakeView:PancakeView BackgroundColor="White" CornerRadius="30" Grid.Row="0" HorizontalOptions="End" Margin="5" 
                                                                  Padding="5" VerticalOptions="Start">
@@ -89,13 +89,23 @@
                                         <Label Text="{Binding saleprice}" Grid.Row="2" TextColor="Black" FontSize="20" Margin="10, 0, 0, 0"></Label>
                                         <Label Text="{Binding price}" Grid.Row="2" TextColor="Gray" FontSize="16" Margin="0, 0, 10, 0" HorizontalOptions="End" TextDecorations="Strikethrough"></Label>
                                         <pancakeView:PancakeView BackgroundColor="#FF914D" Grid.Row="3" HorizontalOptions="Start" Padding="10, 0, 20, 0" CornerRadius="0, 20, 0, 0">
-                                            <Label Text="HOT | -20%" TextColor="Black" FontSize="18"></Label>
+                                            <Label TextColor="Black" FontSize="16" VerticalOptions="Center">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="Sale - "></Span>
+                                                        <Span Text="{Binding discount, StringFormat='{0:0}%'}"></Span>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
                                         </pancakeView:PancakeView>
                                         <StackLayout Orientation="Horizontal" Grid.Row="3" HorizontalOptions="End" VerticalOptions="Start" Margin="0, 0, 20, 5">
                                             <Label Text="5" TextColor="Black" FontSize="18"></Label>
                                             <Image Source="Star.png" WidthRequest="20"></Image>
                                         </StackLayout>
                                     </Grid>
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer x:Name="TapBestSell" Tapped="TapBestSell_Tapped" CommandParameter="{Binding .}"></TapGestureRecognizer>
+                                    </Frame.GestureRecognizers>
                                 </Frame>
                             </StackLayout>
                         </DataTemplate>

@@ -6,6 +6,7 @@ using UITStore.BlogPage;
 using UITStore.Models;
 using UITStore.ViewModels;
 using UITStore.Views;
+using UITStore.Views.ProductPage;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -51,34 +52,35 @@ namespace UITStore.Views.HomePage
         {
             _sneakersList = new ObservableCollection<Sneakers>
             {
+               new Sneakers
+                (
+                    "sneaker1", "NMD_R1 candy", "Sneakers1", 500000, 400000,
+                     "tuyet voi ông mặt trời", "24", 24, "1"
+
+                ),
                 new Sneakers
-                {
-                    sneakerId = "sneaker1", name = "NMD_R1 candy", price = "500000", saleprice = "400000", picture = "Sneakers1",
-                    description = "tuyet voi ông mặt trời", size = "24", category = "new", stock = "24"
-                },
+                (
+                    "sneaker1", "NMD_R1 candy", "Sneakers1", 500000, 400000,
+                     "tuyet voi ông mặt trời", "24", 24, "1"
+
+                ),
                 new Sneakers
-                {
-                    sneakerId = "sneaker2", name = "NMD_R1 pink white", price = "500000", saleprice = "400000", picture = "Sneakers2",
-                    description = "tuyet voi ông mặt trời", size = "24", category = "bestsell", stock = "24"
-                },
+                (
+                    "sneaker1", "NMD_R1 candy", "Sneakers1", 500000, 400000,
+                     "tuyet voi ông mặt trời", "24", 24, "1"
+
+                ),
                 new Sneakers
-                {
-                    sneakerId = "sneaker3", name = "NMD_R1 mint pink", price = "500000", saleprice = "400000", picture = "Sneakers3",
-                    description = "tuyet voi ông mặt trời", size = "24", category = "bestsell", stock = "24"
-                },
-                new Sneakers
-                {
-                    sneakerId = "sneaker4", name = "NMD_R1 white mint", price = "500000", saleprice = "400000", picture = "Sneakers4",
-                    description = "tuyet voi ông mặt trời", size = "24", category = "discount", stock = "24"
-                }
+                (
+                    "sneaker1", "NMD_R1 candy", "Sneakers1", 500000, 400000,
+                     "tuyet voi ông mặt trời", "24", 24, "1"
+
+                ),
             };
-            BestSellProduct.ItemsSource = _sneakersList.Where(p => p.category == "bestsell");
+            BestSellProduct.ItemsSource = _sneakersList.Where(p => p.category == "1");
         }
 
-        private void BestSellProduct_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            DisplayAlert("ok", "test", "ok");
-        }
+        
 
         private void TapFavourite_Tapped(object sender, EventArgs e)
         {
@@ -96,21 +98,32 @@ namespace UITStore.Views.HomePage
             Blog detailBlog = tapGesture.CommandParameter as Blog;
             await Navigation.PushAsync(new BlogDetail(detailBlog));
         }
+
+        private async void TapBestSell_Tapped(object sender, EventArgs e)
+        {
+            Frame frame = (Frame)sender;
+            TapGestureRecognizer tapGesture = (TapGestureRecognizer)frame.GestureRecognizers[0];
+            Sneakers detailProduct = tapGesture.CommandParameter as Sneakers;
+            await Navigation.PushAsync(new SneakerDetailPage(detailProduct));
+        }
         /* private async void viewDetail(object sender, EventArgs e)
-         {
-             var btn = (Button)sender;
-             await Navigation.PushAsync(new SneakerDetailPage((Sneakers)btn.BindingContext));
-         }
+{
+    var btn = (Button)sender;
+    await Navigation.PushAsync(new SneakerDetailPage((Sneakers)btn.BindingContext));
+}
+        private void BestSellProduct_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DisplayAlert("ok", "test", "ok");
+        }
+private void SearchBar_OnTextChanged(object sender, TextChangedEventArgs e)
+{
+    var sneakersList = new ObservableCollection<Sneakers>();
+    var key = e.NewTextValue;
+    foreach (var item in _sneakersList)
+        if (item.name.ToLower().Contains(key.ToLower()))
+            sneakersList.Add(item);
 
-         private void SearchBar_OnTextChanged(object sender, TextChangedEventArgs e)
-         {
-             var sneakersList = new ObservableCollection<Sneakers>();
-             var key = e.NewTextValue;
-             foreach (var item in _sneakersList)
-                 if (item.name.ToLower().Contains(key.ToLower()))
-                     sneakersList.Add(item);
-
-             listSneaker.ItemsSource = sneakersList;
-         }*/
+    listSneaker.ItemsSource = sneakersList;
+}*/
     }
 }

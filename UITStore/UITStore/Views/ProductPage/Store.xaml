@@ -19,28 +19,40 @@
                             <TapGestureRecognizer x:Name="Tap_Nike" Tapped="Tap_Nike_Tapped"></TapGestureRecognizer>
                         </Frame.GestureRecognizers>
                     </Frame>
-                    <Label Text="Nike" TextColor="Black" Grid.Column="0" Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Center" FontSize="14"></Label>
-                    <Label Text="Adidas" TextColor="Black" Grid.Column="1" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center" FontSize="14"></Label>
-                    <Frame Padding="10" CornerRadius="30" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2">
+                    <Label x:Name="LNike" Text="Nike" TextColor="Black" Grid.Column="0" Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Center" FontSize="14"></Label>
+                    <Label x:Name="LAdidas" Text="Adidas" TextColor="Black" Grid.Column="1" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center" FontSize="14"></Label>
+                    <Frame x:Name="FAdidas" Padding="10" CornerRadius="30" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2">
                         <Image Source="Adidas.png"></Image>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="Tap_Adidas" Tapped="Tap_Adidas_Tapped"></TapGestureRecognizer>
+                        </Frame.GestureRecognizers>
                     </Frame>
-                    <Frame Padding="10" CornerRadius="30" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2">
+                    <Frame x:Name="FNB" Padding="10" CornerRadius="30" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2">
                         <Image Source="NewBalance.png"></Image>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="Tap_NB" Tapped="Tap_NB_Tapped"></TapGestureRecognizer>
+                        </Frame.GestureRecognizers>
                     </Frame>
-                    <Label Text="New Balance" TextColor="Black" Grid.Column="2" Grid.Row="2" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="14"></Label>
-                    <Label Text="Vans" TextColor="Black" Grid.Column="3" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center" FontSize="14"></Label>
-                    <Frame Padding="10" CornerRadius="30" Grid.Column="3" Grid.Row="1" Grid.RowSpan="2">
+                    <Label x:Name="LNB" Text="New Balance" TextColor="Black" Grid.Column="2" Grid.Row="2" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="14"></Label>
+                    <Label x:Name="LVans" Text="Vans" TextColor="Black" Grid.Column="3" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center" FontSize="14"></Label>
+                    <Frame x:Name="FVans" Padding="10" CornerRadius="30" Grid.Column="3" Grid.Row="1" Grid.RowSpan="2">
                         <Image Source="Vans.png" ></Image>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="Tap_Vans" Tapped="Tap_Vans_Tapped"></TapGestureRecognizer>
+                        </Frame.GestureRecognizers>
                     </Frame>
-                    <Frame Padding="10, 15, 10, 15" CornerRadius="30" Grid.Column="4" Grid.Row="0" Grid.RowSpan="2">
+                    <Frame x:Name="FMLB" Padding="10, 15, 10, 15" CornerRadius="30" Grid.Column="4" Grid.Row="0" Grid.RowSpan="2">
                         <Image Source="MLB.png"></Image>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="Tap_MLB" Tapped="Tap_MLB_Tapped"></TapGestureRecognizer>
+                        </Frame.GestureRecognizers>
                     </Frame>
-                    <Label Text="MLB Korea" TextColor="Black" Grid.Column="4" Grid.Row="2" HorizontalTextAlignment="Center" HorizontalOptions="Center" VerticalOptions="Center" FontSize="14"></Label>
+                    <Label x:Name="LMLB" Text="MLB Korea" TextColor="Black" Grid.Column="4" Grid.Row="2" HorizontalTextAlignment="Center" HorizontalOptions="Center" VerticalOptions="Center" FontSize="14"></Label>
                 </Grid>
                 <Grid ColumnDefinitions="1.5*, *">
                     <pancakeView:PancakeView Padding="10, 5, 10, 5" HorizontalOptions="Start" VerticalOptions="Center" Margin="10" 
                                              Grid.Column="0" BackgroundColor="#FFBD59" CornerRadius="0, 30, 30, 0">
-                        <Label Text="Tất cả sản phẩm" TextColor="Black" FontSize="Large" FontAttributes="Bold"></Label>
+                        <Label x:Name="TitleTag" Text="Tất cả sản phẩm" TextColor="Black" FontSize="Large" FontAttributes="Bold"></Label>
                     </pancakeView:PancakeView>
                     <pancakeView:PancakeView BackgroundColor="White" HorizontalOptions="EndAndExpand" CornerRadius="20" Margin="10" Grid.Column="1">
                         <local:CustomPicker Title="Sắp xếp" TitleColor="#38B6FF" FontSize="16" Margin="20, 0, 20, 0">
@@ -55,7 +67,7 @@
                         </local:CustomPicker>
                     </pancakeView:PancakeView>
                 </Grid>
-                <CollectionView x:Name="Product" SelectionMode="Single" Margin="5" SelectionChanged="Product_SelectionChanged">
+                <CollectionView x:Name="Product"  Margin="5" >
                     <CollectionView.ItemsLayout>
                         <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="10" Span="2" HorizontalItemSpacing="5"/>
                     </CollectionView.ItemsLayout>
@@ -85,7 +97,7 @@
                                 <Frame Padding="0" BorderColor="#FF914D" CornerRadius="15" BackgroundColor="AliceBlue">
                                     <Grid ColumnDefinitions="*" RowDefinitions="150, *, *, *">
                                         <pancakeView:PancakeView Padding="1.5" CornerRadius="20, 20, 0, 0">
-                                            <Image Source="{Binding picture}" Grid.Row="0" Aspect="AspectFill"></Image>
+                                            <Image Source="{Binding img}" Grid.Row="0" Aspect="AspectFill"></Image>
                                         </pancakeView:PancakeView>
                                         <pancakeView:PancakeView BackgroundColor="White" CornerRadius="30" Grid.Row="0" HorizontalOptions="End" Margin="5" 
                                                                  Padding="5" VerticalOptions="Start">
@@ -99,13 +111,23 @@
                                         <Label Text="{Binding saleprice}" Grid.Row="2" TextColor="Black" FontSize="18" Margin="10, 0, 0, 0"></Label>
                                         <Label Text="{Binding price}" Grid.Row="2" TextColor="Gray" FontSize="15" Margin="0, 0, 10, 0" HorizontalOptions="End" TextDecorations="Strikethrough"></Label>
                                         <pancakeView:PancakeView BackgroundColor="#FF914D" Grid.Row="3" HorizontalOptions="Start" Padding="10, 0, 10, 0" CornerRadius="0, 20, 0, 0">
-                                            <Label Text="HOT | -20%" TextColor="Black" FontSize="16" VerticalOptions="Center"></Label>
+                                            <Label TextColor="Black" FontSize="16" VerticalOptions="Center">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="Sale - "></Span>
+                                                        <Span Text="{Binding discount, StringFormat='{0:0}%'}"></Span>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
                                         </pancakeView:PancakeView>
                                         <StackLayout Orientation="Horizontal" Grid.Row="3" HorizontalOptions="End" VerticalOptions="Start" Margin="0, 0, 10, 5">
                                             <Label Text="5" TextColor="Black" FontSize="16"></Label>
                                             <Image Source="Star.png" WidthRequest="16"></Image>
                                         </StackLayout>
                                     </Grid>
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer x:Name="TapProduct" Tapped="TapProduct_Tapped" CommandParameter="{Binding .}"></TapGestureRecognizer>
+                                    </Frame.GestureRecognizers>
                                 </Frame>
                             </StackLayout>
                         </DataTemplate>

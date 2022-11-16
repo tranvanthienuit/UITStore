@@ -1,4 +1,5 @@
 using SQLite;
+using System;
 
 namespace UITStore.Models
 {
@@ -10,5 +11,11 @@ namespace UITStore.Models
         public string fullname { get; set; }
         public string telephone { get; set; }
         public string address { get; set; }
+        public DateTime birthday { get; set; } = DateTime.Now;
+        public string email { get; set; }
+        public string avatar { get; set; } = "AvatarDefault.png";
+        public int loyaltyPoint { get; set; } = 10;
+        public string role { get; set; } = "user";
+
     }
 }

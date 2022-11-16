@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UITStore.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -15,6 +15,7 @@ namespace UITStore.Views.UserPage
             InitializeComponent();
             userViews = new UserViews();
             BindingContext = userViews;
+
             username.Focused += UsernameEntry_Focused;
             username.Unfocused += UsernameEntry_Unfocused;
             password.Focused += PasswordEntry_Focused;
@@ -34,12 +35,20 @@ namespace UITStore.Views.UserPage
 
         private async void signUp(object sender, EventArgs e)
         {
-            var result = userViews.addNewUser();
-            if (result)
+            if (ValidationUsername() && ValidationPassword() && ValidationFullname() && ValidationPhone() && ValidationAddress())
             {
-                var signResult = await DisplayAlert("Successfully", "You sign up, successfully", "Yes", "No");
-                if (signResult) await Navigation.PushAsync(new Login());
+                var result = userViews.addNewUser();
+                if (result)
+                {
+                    var signResult = await DisplayAlert("Successfully", "You sign up, successfully", "Yes", "No");
+                    if (signResult) await Navigation.PushAsync(new Login());
+                }
             }
+            ValidationUsername();
+            ValidationPassword();
+            ValidationFullname();
+            ValidationPhone();
+            ValidationAddress();
         }
         private void UsernameEntry_Unfocused(object sender, FocusEventArgs e)
         {
@@ -120,6 +129,71 @@ namespace UITStore.Views.UserPage
             addressLabel.ScaleYTo(0.8);
             addressLabel.ScaleXTo(0.8);
             addressLabel.TranslateTo(0, -addressLabel.Height);
+        }
+        public bool ValidationUsername()
+        {
+            if (string.IsNullOrWhiteSpace(username.Text) || username.Text.Length < 4)
+            {
+                vldUsername.Text = "Ít nhất 4 kí tự";
+                return false;
+            }
+            else
+            {
+                vldUsername.Text = "";
+                return true;
+            }
+        }
+        public bool ValidationFullname()
+        {
+            if (string.IsNullOrWhiteSpace(fullname.Text) || fullname.Text.Length < 4)
+            {
+                vldFullname.Text = "Ít nhất 4 kí tự";
+                return false;
+            }
+            else
+            {
+                vldFullname.Text = "";
+                return true;
+            }
+        }
+        public bool ValidationPassword()
+        {
+            if (string.IsNullOrWhiteSpace(password.Text) || password.Text.Length < 4)
+            {
+                vldPassword.Text = "Ít nhất 4 kí tự";
+                return false;
+            }
+            else
+            {
+                vldPassword.Text = "";
+                return true;
+            }
+        }
+        public bool ValidationPhone()
+        {
+            if (string.IsNullOrWhiteSpace(phone.Text) || phone.Text.Length < 10 || phone.Text.Length > 11)
+            {
+                vldPhone.Text = "SĐT không đúng";
+                return false;
+            }
+            else
+            {
+                vldPhone.Text = "";
+                return true;
+            }
+        }
+        public bool ValidationAddress()
+        {
+            if (string.IsNullOrWhiteSpace(address.Text) || address.Text.Length < 10)
+            {
+                vldAddress.Text = "Ít nhất 10 kí tự";
+                return false;
+            }
+            else
+            {
+                vldAddress.Text = "";
+                return true;
+            }
         }
     }
 }

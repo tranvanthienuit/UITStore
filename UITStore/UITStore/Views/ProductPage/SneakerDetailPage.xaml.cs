@@ -11,11 +11,12 @@ namespace UITStore.Views.ProductPage
     public partial class SneakerDetailPage : ContentPage
     {
         public Sneakers sneaker;
-
         public SneakerDetailPage(Sneakers sneakers)
         {
             InitializeComponent();
             BindingContext = sneakers;
+            sneaker = sneakers;
+
         }
 
         private void TapFavourite_Tapped(object sender, EventArgs e)
@@ -23,18 +24,18 @@ namespace UITStore.Views.ProductPage
 
         }
 
-        string[] listSize = new string[]
-        {
-            "40", "41", "42"
-        };
+        
         private async void TapSize_Tapped(object sender, EventArgs e)
         {
+
+            string[] listSize = sneaker.size.Split(',');
             string action;
-            if(listSize.Length > 0)
+            if (listSize.Length > 0)
             {
                 action = await DisplayActionSheet("Size", "Cancel", null, listSize);
                 size.Text = action != "Cancel" ? action : size.Text;
-            } else
+            }
+            else
             {
                 await DisplayAlert("Size", "UnAvailable", "OK");
                 size.Text = "Null";

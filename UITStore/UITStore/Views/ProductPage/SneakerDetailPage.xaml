@@ -9,7 +9,7 @@
             <ScrollView>
                 <StackLayout>
                     <Grid>
-                        <Image Source="{Binding picture}" HeightRequest="250" Aspect="AspectFill"></Image>
+                        <Image Source="{Binding img}" HeightRequest="250" Aspect="AspectFill"></Image>
                         <pancakeView:PancakeView BackgroundColor="White" CornerRadius="30" HorizontalOptions="End" Margin="15" 
                                              Padding="5" VerticalOptions="Start">
                             <Image Source="FavouriteIconClick.png" WidthRequest="30" HeightRequest="30">

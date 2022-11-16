@@ -22,21 +22,23 @@ namespace UITStore.Views.UserPage
         {
             _database = new Database();
             var user = _database.getUser(username.Text, password.Text);
-            // cách để lưu dữ liệu tạm thời thời
-            // var name = username.Text;
-            // var pass = password.Text;
-            if (user != null)
+            if (ValidationUsername() && ValidationPassword())
             {
-                Application.Current.Properties["user"] = user;
-                Application.Current.Properties["pay"] = "notbuy";
-                await Application.Current.SavePropertiesAsync();
-                await Navigation.PushAsync(new MainPage());
-                Application.Current.MainPage = new NavigationPage(new MainPage());
+                if (user != null)
+                {
+                    Application.Current.Properties["user"] = user;
+                    Application.Current.Properties["pay"] = "notbuy";
+                    await Application.Current.SavePropertiesAsync();
+                    await Navigation.PushAsync(new MainPage());
+                    Application.Current.MainPage = new NavigationPage(new MainPage());
+                }
+                else
+                {
+                    _ = DisplayAlert("Error", "Your username or password is correct.\rPlease, Sign in again !", "Yes", "No");
+                }
             }
-            else
-            {
-                _ = DisplayAlert("Error", "Your username or password is correct.\rPlease, Sign in again !", "Yes", "No");
-            }
+            ValidationUsername();
+            ValidationPassword();
         }
 
 
@@ -75,6 +77,32 @@ namespace UITStore.Views.UserPage
             passwordLabel.ScaleYTo(0.8);
             passwordLabel.ScaleXTo(0.8);
             passwordLabel.TranslateTo(0, -passwordLabel.Height);
+        }
+        public bool ValidationUsername()
+        {
+            if (string.IsNullOrWhiteSpace(username.Text) || username.Text.Length < 4)
+            {
+                vldUsername.Text = "Ít nhất 4 kí tự";
+                return false;
+            }
+            else
+            {
+                vldUsername.Text = "";
+                return true;
+            }
+        }
+        public bool ValidationPassword()
+        {
+            if (string.IsNullOrWhiteSpace(password.Text) || password.Text.Length < 4)
+            {
+                vldPassword.Text = "Ít nhất 4 kí tự";
+                return false;
+            }
+            else
+            {
+                vldPassword.Text = "";
+                return true;
+            }
         }
     }
 }
