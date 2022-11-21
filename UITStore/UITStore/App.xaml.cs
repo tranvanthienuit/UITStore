@@ -1,4 +1,4 @@
-﻿using ProjSQLite;
+﻿
 using UITStore.Views.UserPage;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -12,8 +12,8 @@ namespace UITStore
         public App()
         {
             InitializeComponent();
-            var db = new Database();
-            db.TaoCSDL();
+            var db = new SQLiteDatabase();
+            db.CreateDatabase();
             MainPage = new NavigationPage(new Login());
         }
 

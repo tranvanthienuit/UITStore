@@ -23,8 +23,6 @@ com.google.android.material.tabs.TabLayout;D:\UIT\Mobile\UITSTORE\UITStore\UITSt
 com.google.android.material.tabs.TabLayout;D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\lp\49\jl\res\layout\rootlayout.xml
 com.google.android.material.tabs.TabLayout;D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\lp\49\jl\res\layout\tabbar.xml
 com.google.android.material.tabs.TabLayout;obj\Debug\110\res\layout\tabbar.xml
-crc643f46942d9dd1fff9.ShellFlyoutLayout;D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\lp\49\jl\res\layout\flyoutcontent.xml
-crc64720bb2db43a66fe9.FormsViewPager;D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\lp\49\jl\res\layout\rootlayout.xml
 declare-styleable;D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\lp\49\jl\res\values\attrs.xml
 external-cache-path;D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\lp\47\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 external-path;D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\lp\47\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml

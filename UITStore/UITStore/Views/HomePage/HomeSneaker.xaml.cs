@@ -1,11 +1,10 @@
+using UITStore.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using UITStore.BlogPage;
 using UITStore.Models;
-using UITStore.ViewModels;
-using UITStore.Views;
 using UITStore.Views.ProductPage;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -17,17 +16,14 @@ namespace UITStore.Views.HomePage
     {
         private ObservableCollection<Sneakers> _sneakersList;
         private List<Blog> listBlog = new BlogVM().GetBlogs();
-
+        private readonly User _user;
         public HomeSneaker()
         {
             InitializeComponent();
             initSneaker();
             Banner();
             initBlog();
-            /*listSneaker.ItemsSource = _sneakersList;
-            // lấy dữ liệu từ store
-            var ten = Application.Current.Properties["user"] as string;
-            Console.WriteLine(ten);*/
+            _user = Application.Current.Properties["user"] as User;
         }
 
         public void Banner()
@@ -60,31 +56,44 @@ namespace UITStore.Views.HomePage
                 ),
                 new Sneakers
                 (
-                    "sneaker1", "NMD_R1 candy", "Sneakers1", 500000, 400000,
+                    "sneaker2", "NMD_R1 candy", "Sneakers2", 500000, 400000,
+                     "tuyet voi ông mặt trời", "24", 24, "2"
+
+                ),
+                new Sneakers
+                (
+                    "sneaker3", "NMD_R1 candy", "Sneakers1", 500000, 400000,
                      "tuyet voi ông mặt trời", "24", 24, "1"
 
                 ),
                 new Sneakers
                 (
-                    "sneaker1", "NMD_R1 candy", "Sneakers1", 500000, 400000,
-                     "tuyet voi ông mặt trời", "24", 24, "1"
-
-                ),
-                new Sneakers
-                (
-                    "sneaker1", "NMD_R1 candy", "Sneakers1", 500000, 400000,
-                     "tuyet voi ông mặt trời", "24", 24, "1"
+                    "sneaker4", "NMD_R1 candy", "Sneakers3", 500000, 400000,
+                     "tuyet voi ông mặt trời", "24", 24, "3"
 
                 ),
             };
             BestSellProduct.ItemsSource = _sneakersList.Where(p => p.category == "1");
+            BestDiscountProduct.ItemsSource = _sneakersList.Where(p => p.category == "2");
+            NewProduct.ItemsSource = _sneakersList.Where(p => p.category == "3");
         }
-
-        
 
         private void TapFavourite_Tapped(object sender, EventArgs e)
         {
-            DisplayAlert("ok", "Favourite", "ok");
+            Image img = (Image)sender;
+            TapGestureRecognizer tapGesture = (TapGestureRecognizer)img.GestureRecognizers[0];
+            Sneakers sneakerFavourite = tapGesture.CommandParameter as Sneakers;
+            var favourite = new Favourite { userid = _user.ID, sneakerId = sneakerFavourite.sneakerId, name = sneakerFavourite.name, description = sneakerFavourite.description, category = sneakerFavourite.category, discount = sneakerFavourite.discount,
+            img = sneakerFavourite.img, price = sneakerFavourite.price, rating = sneakerFavourite.rating, saleprice = sneakerFavourite.saleprice, size = sneakerFavourite.size, stock = sneakerFavourite.stock};
+            var db = new SQLiteDatabase();
+            if(db.ExistFavourite(favourite))
+            {
+                DisplayAlert("Message", "Sneaker is already in your favourite.", "ok");
+            } else
+            {
+                db.addFavourite(favourite);
+                DisplayAlert("Message", "Add Sneaker in your favourite successfully.", "ok");
+            }
         }
 
         private void initBlog()
@@ -99,31 +108,13 @@ namespace UITStore.Views.HomePage
             await Navigation.PushAsync(new BlogDetail(detailBlog));
         }
 
-        private async void TapBestSell_Tapped(object sender, EventArgs e)
+        private async void TapDetail_Tapped(object sender, EventArgs e)
         {
             Frame frame = (Frame)sender;
             TapGestureRecognizer tapGesture = (TapGestureRecognizer)frame.GestureRecognizers[0];
             Sneakers detailProduct = tapGesture.CommandParameter as Sneakers;
             await Navigation.PushAsync(new SneakerDetailPage(detailProduct));
         }
-        /* private async void viewDetail(object sender, EventArgs e)
-{
-    var btn = (Button)sender;
-    await Navigation.PushAsync(new SneakerDetailPage((Sneakers)btn.BindingContext));
-}
-        private void BestSellProduct_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            DisplayAlert("ok", "test", "ok");
-        }
-private void SearchBar_OnTextChanged(object sender, TextChangedEventArgs e)
-{
-    var sneakersList = new ObservableCollection<Sneakers>();
-    var key = e.NewTextValue;
-    foreach (var item in _sneakersList)
-        if (item.name.ToLower().Contains(key.ToLower()))
-            sneakersList.Add(item);
 
-    listSneaker.ItemsSource = sneakersList;
-}*/
     }
 }

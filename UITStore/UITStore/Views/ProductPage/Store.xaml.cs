@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace UITStore.Views.ProductPage
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Store : ContentPage
     {
-        public ObservableCollection<SneakerBy> sneakerList;
+        public ObservableCollection<Vouchers> sneakerList;
         private ObservableCollection<Sneakers> _sneakersList;
 
         public Store()
@@ -59,26 +60,26 @@ namespace UITStore.Views.ProductPage
                 ),
                 new Sneakers
                 (
-                    "sneaker1", "NMD_R1 candy", "Sneakers1", 500000, 400000,
-                     "tuyet voi ông mặt trời", "24", 24, "1"
+                    "sneaker1", "NMD_R2 candy", "Sneakers1", 500000, 400000,
+                     "tuyet voi ông mặt trời", "24", 24, "2"
 
                 ),
                 new Sneakers
                 (
-                    "sneaker1", "NMD_R1 candy", "Sneakers1", 500000, 400000,
-                     "tuyet voi ông mặt trời", "24", 24, "1"
+                    "sneaker1", "NMD_R3 candy", "Sneakers1", 500000, 400000,
+                     "tuyet voi ông mặt trời", "24", 24, "3"
 
                 ),
                 new Sneakers
                 (
-                    "sneaker1", "NMD_R1 candy", "Sneakers1", 500000, 400000,
-                     "tuyet voi ông mặt trời", "24,26,28", 24, "1"
+                    "sneaker1", "NMD_R4 candy", "Sneakers1", 500000, 400000,
+                     "tuyet voi ông mặt trời", "24,26,28", 24, "4"
 
                 ),
                 new Sneakers
                 (
-                    "sneaker1", "NMD_R1 candy", "Sneakers1", 500000, 400000,
-                     "tuyet voi ông mặt trời", "24,25,26", 24, "1"
+                    "sneaker1", "NMD_R5 candy", "Sneakers1", 500000, 400000,
+                     "tuyet voi ông mặt trời", "24,25,26", 24, "5"
 
                 ),
             };
@@ -225,17 +226,41 @@ namespace UITStore.Views.ProductPage
             Sneakers detailProduct = tapGesture.CommandParameter as Sneakers;
             await Navigation.PushAsync(new SneakerDetailPage(detailProduct));
         }
+
+        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            FNike.BackgroundColor = Color.White;
+            LNike.TextColor = Color.Black;
+            FAdidas.BackgroundColor = Color.White;
+            LAdidas.TextColor = Color.Black;
+            FNB.BackgroundColor = Color.White;
+            LNB.TextColor = Color.Black;
+            FVans.BackgroundColor = Color.White;
+            LVans.TextColor = Color.Black;
+            FMLB.BackgroundColor = Color.White;
+            LMLB.TextColor = Color.Black;
+            if(e.NewTextValue != "")
+            {
+                int length = _sneakersList.Where(p => p.name.ToLower().Contains(e.NewTextValue)).ToArray().Length;
+                TitleTag.Text = "Có " + length + " sản phẩm";
+            } else
+            {
+                TitleTag.Text = "Tất cả sản phẩm";
+            }
+            
+            Product.ItemsSource = _sneakersList.Where(p => p.name.ToLower().Contains(e.NewTextValue));
+        }
         /*      private async void viewDetail(object sender, EventArgs e)
 {
 var btn = (Button)sender;
 var sneakerBy = (SneakerBy)btn.BindingContext;
 await Navigation.PushAsync(new SneakerDetailPage(sneakerBy.Sneakers));
 }
-        private async void Product_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var detailProduct = e.CurrentSelection[0] as Sneakers;
-            await Navigation.PushAsync(new SneakerDetailPage(detailProduct));
-        }
+private async void Product_SelectionChanged(object sender, SelectionChangedEventArgs e)
+{
+   var detailProduct = e.CurrentSelection[0] as Sneakers;
+   await Navigation.PushAsync(new SneakerDetailPage(detailProduct));
+}
 private void SearchBar_OnTextChanged(object sender, TextChangedEventArgs e)
 {
 var sneakersList = new ObservableCollection<Sneakers>();

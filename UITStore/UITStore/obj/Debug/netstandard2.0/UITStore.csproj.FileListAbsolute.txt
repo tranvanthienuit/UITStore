@@ -20,3 +20,12 @@ D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\BlogPage
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\BlogPage\Blogs.xaml.g.cs
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\ProductPage\SneakerDetailPage.xaml.g.cs
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\ProductPage\Store.xaml.g.cs
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\UserPage\ChangePassword.xaml.g.cs
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\AdminPage\AdminMainPage.xaml.g.cs
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\StoragePage\Voucher.xaml.g.cs
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\OrderPage\CartOrder.xaml.g.cs
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\StoragePage\FavouritePage.xaml.g.cs
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore\bin\Debug\netstandard2.0\Mono.Android.dll
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore\bin\Debug\netstandard2.0\Mono.Android.pdb
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore\bin\Debug\netstandard2.0\Mono.Android.xml
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\UITStore.csproj.CopyComplete

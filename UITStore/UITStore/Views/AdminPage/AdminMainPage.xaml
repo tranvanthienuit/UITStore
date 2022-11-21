@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UITStore.Views.AdminPage.AdminMainPage" BackgroundColor="#efefef">
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <Frame Padding="0" HeightRequest="100" BackgroundColor="#B1EFFF">
+                <Grid ColumnDefinitions="*, 2*">
+                    <Image Source="ProductAdmin.png" Grid.Column="0" Margin="15"></Image>
+                    <Label Text="Product Management" Grid.Column="1" FontAttributes="Bold" FontSize="20" TextColor="Black" VerticalOptions="Center"></Label>
+                </Grid>
+            </Frame>
+            <Frame Padding="0" HeightRequest="100" BackgroundColor="#B1EFFF">
+                <Grid ColumnDefinitions="*, 2*">
+                    <Image Source="ReceiptAdmin.png" Grid.Column="0" Margin="15"></Image>
+                    <Label Text="Order Management" Grid.Column="1" FontAttributes="Bold" FontSize="20" TextColor="Black" VerticalOptions="Center"></Label>
+                </Grid>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

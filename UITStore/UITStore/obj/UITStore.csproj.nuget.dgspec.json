@@ -70,6 +70,10 @@
               "target": "Package",
               "version": "[2.3.0.759, )"
             },
+            "Xamarin.Rating": {
+              "target": "Package",
+              "version": "[1.0.0.2, )"
+            },
             "sqlite-net-pcl": {
               "target": "Package",
               "version": "[1.8.116, )"

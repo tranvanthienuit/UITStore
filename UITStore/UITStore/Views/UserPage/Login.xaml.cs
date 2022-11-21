@@ -1,5 +1,4 @@
 using System;
-using ProjSQLite;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -8,7 +7,7 @@ namespace UITStore.Views.UserPage
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Login : ContentPage
     {
-        private Database _database;
+        private SQLiteDatabase _database;
         public Login()
         {
             InitializeComponent();
@@ -20,7 +19,7 @@ namespace UITStore.Views.UserPage
 
         private async void signin(object sender, EventArgs e)
         {
-            _database = new Database();
+            _database = new SQLiteDatabase();
             var user = _database.getUser(username.Text, password.Text);
             if (ValidationUsername() && ValidationPassword())
             {

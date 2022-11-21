@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "hTzRi6TEJAl3MZM2QTe2XPxFMuY6gIOp0uMIQjTdVBiseU+qmqKSWxHxU9VOU+j6odAb1ufauq8uBtmRBBdSYA==",
+  "dgSpecHash": "znjovrL5Ze57p4MGlbt6r7aqNXWWNyTyETZTJvYDKij/ZJouS30dfEwOghXwQODhbv3+9U/3nMT8MJgAPGs4ug==",
   "success": true,
   "projectFilePath": "D:\\UIT\\Mobile\\UITSTORE\\UITStore\\UITStore.Droid\\UITStore.Droid.csproj",
   "expectedPackageFiles": [
@@ -99,7 +99,8 @@
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\xamarin.forms.pancakeview\\2.3.0.759\\xamarin.forms.pancakeview.2.3.0.759.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.google.android.material\\1.2.1.1\\xamarin.google.android.material.1.2.1.1.nupkg.sha512",
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.google.guava.listenablefuture\\1.0.0.2\\xamarin.google.guava.listenablefuture.1.0.0.2.nupkg.sha512"
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.google.guava.listenablefuture\\1.0.0.2\\xamarin.google.guava.listenablefuture.1.0.0.2.nupkg.sha512",
+    "C:\\Users\\Acer\\.nuget\\packages\\xamarin.rating\\1.0.0.2\\xamarin.rating.1.0.0.2.nupkg.sha512"
   ],
   "logs": []
 }

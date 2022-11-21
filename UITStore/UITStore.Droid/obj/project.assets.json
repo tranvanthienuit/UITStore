@@ -1803,6 +1803,19 @@
           "buildTransitive/monoandroid50/Xamarin.Google.Guava.ListenableFuture.targets": {}
         }
       },
+      "Xamarin.Rating/1.0.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Essentials": "1.6.1",
+          "Xamarin.Forms": "5.0.0.2012"
+        },
+        "compile": {
+          "lib/netstandard2.0/Rating.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Rating.dll": {}
+        }
+      },
       "UITStore/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -1812,6 +1825,7 @@
           "Xamarin.Essentials": "1.7.3",
           "Xamarin.Forms": "5.0.0.2012",
           "Xamarin.Forms.PancakeView": "2.3.0.759",
+          "Xamarin.Rating": "1.0.0.2",
           "sqlite-net-pcl": "1.8.116"
         },
         "compile": {
@@ -3922,6 +3936,18 @@
         "xamarin.google.guava.listenablefuture.nuspec"
       ]
     },
+    "Xamarin.Rating/1.0.0.2": {
+      "sha512": "udVmz8Y+GeqMHG6zgAlNnvenyWv/PrwKZnw+8dqh9h7t/IeBGm2xtNpjBug+K9vFl+fjFSODwP+Xgut+yILI8Q==",
+      "type": "package",
+      "path": "xamarin.rating/1.0.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Rating.dll",
+        "xamarin.rating.1.0.0.2.nupkg.sha512",
+        "xamarin.rating.nuspec"
+      ]
+    },
     "UITStore/1.0.0": {
       "type": "project",
       "path": "../UITStore/UITStore.csproj",
@@ -3936,6 +3962,7 @@
       "Xamarin.Essentials >= 1.7.3",
       "Xamarin.Forms >= 5.0.0.2012",
       "Xamarin.Forms.PancakeView >= 2.3.0.759",
+      "Xamarin.Rating >= 1.0.0.2",
       "sqlite-net-pcl >= 1.8.116"
     ]
   },
@@ -4000,6 +4027,10 @@
           "Xamarin.Forms.PancakeView": {
             "target": "Package",
             "version": "[2.3.0.759, )"
+          },
+          "Xamarin.Rating": {
+            "target": "Package",
+            "version": "[1.0.0.2, )"
           },
           "sqlite-net-pcl": {
             "target": "Package",

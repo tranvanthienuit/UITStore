@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="UITStore.Views.OrderPage.CartOrder" Title="Cart">
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView Margin="5">
+                <CollectionView x:Name="dataCart">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="1" VerticalItemSpacing="5"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <SwipeView WidthRequest="60">
+                                    <SwipeView.RightItems>
+                                        <SwipeItems SwipeBehaviorOnInvoked="RemainOpen">
+                                            <SwipeItem IconImageSource="DeleteIcon.png" BackgroundColor="Red"
+                                               CommandParameter="{Binding .}" Invoked="OnDelete"></SwipeItem>
+                                        </SwipeItems>
+                                    </SwipeView.RightItems>
+                                    <Frame Padding="0" BackgroundColor="AliceBlue" HeightRequest="120">
+                                        <Grid ColumnDefinitions="*, 2*" RowDefinitions="*, *, 1.5*">
+                                            <Image Source="{Binding img}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"></Image>
+                                            <Label Text="{Binding name}" FontSize="18" TextColor="Black" Grid.Column="1" Grid.Row="0" Margin="5"
+                                           VerticalTextAlignment="Center" HorizontalTextAlignment="Start" LineBreakMode="TailTruncation" MaxLines="1"></Label>
+                                            <Label Text="{Binding price, StringFormat='{0:0,0} VNĐ'}" Grid.Column="1" Grid.Row="1" TextColor="Black" FontSize="18" Margin="5"></Label>
+                                            <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+                                                <Label TextColor="Black" FontSize="18" Margin="5" HorizontalOptions="Start" VerticalOptions="Center">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="Size : "></Span>
+                                                            <Span Text="{Binding productsize}"></Span>
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                                    <Button x:Name="Sub" Clicked="Sub_Clicked"  Text="—" FontAttributes="Bold" FontSize="18" BackgroundColor="#B1EFFF" 
+                                            Padding="0" Margin="10" CornerRadius="20" WidthRequest="25" CommandParameter="{Binding .}"></Button>
+                                                    <Label x:Name="Count" Text="{Binding quantity}" TextColor="Black" FontSize="16" VerticalTextAlignment="Center"></Label>
+                                                    <Button x:Name="Add" Clicked="Add_Clicked"  Text="+" FontAttributes="Bold" FontSize="20" BackgroundColor="#B1EFFF" 
+                                            Padding="0" Margin="10" CornerRadius="20" WidthRequest="25" CommandParameter="{Binding .}"></Button>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </Grid>
+                                    </Frame>
+                                </SwipeView>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+            <pancakeView:PancakeView BackgroundColor="#FFD089" HeightRequest="80" VerticalOptions="EndAndExpand" CornerRadius="15, 15, 0, 0">
+                <Grid>
+                    <Frame HorizontalOptions="Start" HasShadow="False" CornerRadius="10" VerticalOptions="Start" Padding="5"  Margin="40, 4, 0, 0" WidthRequest="100">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                            <Label x:Name="Voucher" Text="Voucher" TextColor="Black" FontSize="16" VerticalTextAlignment="Center" LineBreakMode="TailTruncation" MaxLines="1"></Label>
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="TapVoucher" Tapped="TapVoucher_Tapped"></TapGestureRecognizer>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    <Label TextColor="Black" FontSize="18" HorizontalOptions="Start" VerticalOptions="End" Margin="40, 0, 0, 5">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Tổng : "></Span>
+                                <Span x:Name="Total"></Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Button x:Name="PayNow" Text="Pay Now " BackgroundColor="#38B6FF" Padding="5" HorizontalOptions="EndAndExpand" Margin="0, 10, 15, 10" 
+                            CornerRadius="15" FontAttributes="Bold" Clicked="PayNow_Clicked"></Button>
+                </Grid>
+            </pancakeView:PancakeView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

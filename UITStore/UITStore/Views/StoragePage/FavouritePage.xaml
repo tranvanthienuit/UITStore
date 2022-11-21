@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="UITStore.Views.StoragePage.FavouritePage" Title="My Favourite">
+    <ContentPage.Content>
+        <ScrollView>
+            <CollectionView x:Name="DataFavourite"  Margin="5" >
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="10" Span="2" HorizontalItemSpacing="5"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.EmptyView>
+                    <StackLayout>
+                        <Label Text="Not found Product Favourite" HorizontalOptions="Center"
+                               TextColor="OrangeRed" FontSize="24" Margin="10"/>
+                    </StackLayout>
+                </CollectionView.EmptyView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="Transparent" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    <VisualState x:Name="Selected">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="Transparent" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Frame Padding="0" BorderColor="#FF914D" CornerRadius="15" BackgroundColor="AliceBlue">
+                                <Grid ColumnDefinitions="*" RowDefinitions="150, *, *, *">
+                                    <pancakeView:PancakeView Padding="1.5" CornerRadius="20, 20, 0, 0">
+                                        <Image Source="{Binding img}" Grid.Row="0" Aspect="AspectFill"></Image>
+                                    </pancakeView:PancakeView>
+                                    <pancakeView:PancakeView BackgroundColor="White" CornerRadius="30" Grid.Row="0" HorizontalOptions="End" Margin="5" 
+                                                                 Padding="5" VerticalOptions="Start">
+                                        <Image Source="Favourite.png" WidthRequest="26" HeightRequest="26">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer x:Name="TapFavourite" Tapped="TapFavourite_Tapped" CommandParameter="{Binding .}"></TapGestureRecognizer>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                    </pancakeView:PancakeView>
+                                    <Label Text="{Binding name}" Grid.Row="1" TextColor="Black" FontSize="18" LineBreakMode="TailTruncation" HorizontalTextAlignment="Center"></Label>
+                                    <Label Text="{Binding saleprice, StringFormat='{0:0,0} VNĐ'}" Grid.Row="2" TextColor="Black" FontSize="18" Margin="10, 0, 0, 0"></Label>
+                                    <Label Text="{Binding price, StringFormat='{0:0,0}'}" Grid.Row="2" TextColor="Gray" FontSize="15" Margin="0, 0, 10, 0" HorizontalOptions="End" TextDecorations="Strikethrough"></Label>
+                                    <pancakeView:PancakeView BackgroundColor="#FF914D" Grid.Row="3" HorizontalOptions="Start" Padding="10, 0, 10, 0" CornerRadius="0, 20, 0, 0">
+                                        <Label TextColor="Black" FontSize="16" VerticalOptions="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Giảm - "></Span>
+                                                    <Span Text="{Binding discount, StringFormat='{0:0}%'}"></Span>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </pancakeView:PancakeView>
+                                    <StackLayout Orientation="Horizontal" Grid.Row="3" HorizontalOptions="End" VerticalOptions="Start" Margin="0, 0, 10, 5">
+                                        <Label Text="5" TextColor="Black" FontSize="16"></Label>
+                                        <Image Source="Star.png" WidthRequest="16"></Image>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

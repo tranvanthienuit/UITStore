@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Tr20M3a0TBlhhP95HzT3LKk2Iuj208DaHkVxeYPyfeXu+IUDj1nGbOnKDE8SSAt5rhM3+6XB91rUQiB+T0EH/g==",
+  "dgSpecHash": "0sncM4E6FjKE85I/jpSaYNBoB+GHufZO1rBcItZftNmXscAv6sBkTRBfruUDksS2gYNWJt89iIrDrUACbXAwvQ==",
   "success": true,
   "projectFilePath": "D:\\UIT\\Mobile\\UITSTORE\\UITStore\\UITStore.iOS\\UITStore.iOS.csproj",
   "expectedPackageFiles": [
@@ -17,7 +17,8 @@
     "C:\\Users\\Acer\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\xamarin.essentials\\1.7.3\\xamarin.essentials.1.7.3.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512",
-    "C:\\Users\\Acer\\.nuget\\packages\\xamarin.forms.pancakeview\\2.3.0.759\\xamarin.forms.pancakeview.2.3.0.759.nupkg.sha512"
+    "C:\\Users\\Acer\\.nuget\\packages\\xamarin.forms.pancakeview\\2.3.0.759\\xamarin.forms.pancakeview.2.3.0.759.nupkg.sha512",
+    "C:\\Users\\Acer\\.nuget\\packages\\xamarin.rating\\1.0.0.2\\xamarin.rating.1.0.0.2.nupkg.sha512"
   ],
   "logs": []
 }

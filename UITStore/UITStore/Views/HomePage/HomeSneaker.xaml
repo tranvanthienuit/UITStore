@@ -79,20 +79,20 @@
                                         </pancakeView:PancakeView>
                                         <pancakeView:PancakeView BackgroundColor="White" CornerRadius="30" Grid.Row="0" HorizontalOptions="End" Margin="5" 
                                                                  Padding="5" VerticalOptions="Start">
-                                            <Image Source="FavouriteIconClick.png" WidthRequest="24" HeightRequest="24">
+                                            <Image Source="Favourite.png" WidthRequest="26" HeightRequest="26">
                                                 <Image.GestureRecognizers>
-                                                    <TapGestureRecognizer x:Name="TapFavourite" Tapped="TapFavourite_Tapped"></TapGestureRecognizer>
+                                                    <TapGestureRecognizer x:Name="TapFavourite" Tapped="TapFavourite_Tapped" CommandParameter="{Binding .}"></TapGestureRecognizer>
                                                 </Image.GestureRecognizers>
                                             </Image>
                                         </pancakeView:PancakeView>
                                         <Label Text="{Binding name}" Grid.Row="1" TextColor="Black" FontSize="20" LineBreakMode="TailTruncation" HorizontalTextAlignment="Center"></Label>
-                                        <Label Text="{Binding saleprice}" Grid.Row="2" TextColor="Black" FontSize="20" Margin="10, 0, 0, 0"></Label>
-                                        <Label Text="{Binding price}" Grid.Row="2" TextColor="Gray" FontSize="16" Margin="0, 0, 10, 0" HorizontalOptions="End" TextDecorations="Strikethrough"></Label>
+                                        <Label Text="{Binding saleprice, StringFormat='{0:0,0} VNĐ'}" Grid.Row="2" TextColor="Black" FontSize="20" Margin="10, 0, 0, 0"></Label>
+                                        <Label Text="{Binding price, StringFormat='{0:0,0}'}" Grid.Row="2" TextColor="Gray" FontSize="16" Margin="0, 0, 10, 0" HorizontalOptions="End" TextDecorations="Strikethrough"></Label>
                                         <pancakeView:PancakeView BackgroundColor="#FF914D" Grid.Row="3" HorizontalOptions="Start" Padding="10, 0, 20, 0" CornerRadius="0, 20, 0, 0">
                                             <Label TextColor="Black" FontSize="16" VerticalOptions="Center">
                                                 <Label.FormattedText>
                                                     <FormattedString>
-                                                        <Span Text="Sale - "></Span>
+                                                        <Span Text="Giảm - "></Span>
                                                         <Span Text="{Binding discount, StringFormat='{0:0}%'}"></Span>
                                                     </FormattedString>
                                                 </Label.FormattedText>
@@ -104,7 +104,7 @@
                                         </StackLayout>
                                     </Grid>
                                     <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer x:Name="TapBestSell" Tapped="TapBestSell_Tapped" CommandParameter="{Binding .}"></TapGestureRecognizer>
+                                        <TapGestureRecognizer x:Name="TapDetail" Tapped="TapDetail_Tapped" CommandParameter="{Binding .}"></TapGestureRecognizer>
                                     </Frame.GestureRecognizers>
                                 </Frame>
                             </StackLayout>
@@ -114,9 +114,141 @@
                 <pancakeView:PancakeView Padding="10, 5, 10, 5" HorizontalOptions="Start" Margin="10" BackgroundColor="#FFBD59" CornerRadius="0, 30, 30, 0">
                     <Label Text="Khuyến mãi tốt nhất" TextColor="Black" FontSize="Large" FontAttributes="Bold"></Label>
                 </pancakeView:PancakeView>
+                <CollectionView x:Name="BestDiscountProduct" HeightRequest="250" Margin="10" >
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Horizontal" HorizontalItemSpacing="20"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.EmptyView>
+                        <StackLayout>
+                            <Label Text="Not found Product" HorizontalOptions="Center"
+                               TextColor="OrangeRed" FontSize="24" Margin="10"/>
+                        </StackLayout>
+                    </CollectionView.EmptyView>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="Transparent" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="Selected">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="Transparent" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Frame Padding="0" BorderColor="#FF914D" CornerRadius="15" BackgroundColor="AliceBlue">
+                                    <Grid ColumnDefinitions="*" RowDefinitions="6*, *, *, *" WidthRequest="200">
+                                        <pancakeView:PancakeView Padding="1.5" CornerRadius="20, 20, 0, 0">
+                                            <Image Source="{Binding img}" Grid.Row="0" Aspect="AspectFill"></Image>
+                                        </pancakeView:PancakeView>
+                                        <pancakeView:PancakeView BackgroundColor="White" CornerRadius="30" Grid.Row="0" HorizontalOptions="End" Margin="5" 
+                                                                 Padding="5" VerticalOptions="Start">
+                                            <Image Source="Favourite.png" WidthRequest="26" HeightRequest="26">
+                                                <Image.GestureRecognizers>
+                                                    <TapGestureRecognizer x:Name="TapFavourite" Tapped="TapFavourite_Tapped" CommandParameter="{Binding .}"></TapGestureRecognizer>
+                                                </Image.GestureRecognizers>
+                                            </Image>
+                                        </pancakeView:PancakeView>
+                                        <Label Text="{Binding name}" Grid.Row="1" TextColor="Black" FontSize="20" LineBreakMode="TailTruncation" HorizontalTextAlignment="Center"></Label>
+                                        <Label Text="{Binding saleprice , StringFormat='{0:0,0} VNĐ'}" Grid.Row="2" TextColor="Black" FontSize="20" Margin="10, 0, 0, 0"></Label>
+                                        <Label Text="{Binding price, StringFormat='{0:0,0}'}" Grid.Row="2" TextColor="Gray" FontSize="16" Margin="0, 0, 10, 0" HorizontalOptions="End" TextDecorations="Strikethrough"></Label>
+                                        <pancakeView:PancakeView BackgroundColor="#FF914D" Grid.Row="3" HorizontalOptions="Start" Padding="10, 0, 20, 0" CornerRadius="0, 20, 0, 0">
+                                            <Label TextColor="Black" FontSize="16" VerticalOptions="Center">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="Giảm - "></Span>
+                                                        <Span Text="{Binding discount, StringFormat='{0:0}%'}"></Span>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </pancakeView:PancakeView>
+                                        <StackLayout Orientation="Horizontal" Grid.Row="3" HorizontalOptions="End" VerticalOptions="Start" Margin="0, 0, 20, 5">
+                                            <Label Text="5" TextColor="Black" FontSize="18"></Label>
+                                            <Image Source="Star.png" WidthRequest="20"></Image>
+                                        </StackLayout>
+                                    </Grid>
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer x:Name="TapDetail" Tapped="TapDetail_Tapped" CommandParameter="{Binding .}"></TapGestureRecognizer>
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
                 <pancakeView:PancakeView Padding="10, 5, 10, 5" HorizontalOptions="Start" Margin="10" BackgroundColor="#FFBD59" CornerRadius="0, 30, 30, 0">
                     <Label Text="Sản phẩm mới nhất" TextColor="Black" FontSize="Large" FontAttributes="Bold"></Label>
                 </pancakeView:PancakeView>
+                <CollectionView x:Name="NewProduct" HeightRequest="250" Margin="10" >
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Horizontal" HorizontalItemSpacing="20"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.EmptyView>
+                        <StackLayout>
+                            <Label Text="Not found Product" HorizontalOptions="Center"
+                               TextColor="OrangeRed" FontSize="24" Margin="10"/>
+                        </StackLayout>
+                    </CollectionView.EmptyView>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="Transparent" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="Selected">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="Transparent" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Frame Padding="0" BorderColor="#FF914D" CornerRadius="15" BackgroundColor="AliceBlue">
+                                    <Grid ColumnDefinitions="*" RowDefinitions="6*, *, *, *" WidthRequest="200">
+                                        <pancakeView:PancakeView Padding="1.5" CornerRadius="20, 20, 0, 0">
+                                            <Image Source="{Binding img}" Grid.Row="0" Aspect="AspectFill"></Image>
+                                        </pancakeView:PancakeView>
+                                        <pancakeView:PancakeView BackgroundColor="White" CornerRadius="30" Grid.Row="0" HorizontalOptions="End" Margin="5" 
+                                                                 Padding="5" VerticalOptions="Start">
+                                            <Image Source="Favourite.png" WidthRequest="26" HeightRequest="26">
+                                                <Image.GestureRecognizers>
+                                                    <TapGestureRecognizer x:Name="TapFavourite" Tapped="TapFavourite_Tapped" CommandParameter="{Binding .}"></TapGestureRecognizer>
+                                                </Image.GestureRecognizers>
+                                            </Image>
+                                        </pancakeView:PancakeView>
+                                        <Label Text="{Binding name}" Grid.Row="1" TextColor="Black" FontSize="20" LineBreakMode="TailTruncation" HorizontalTextAlignment="Center"></Label>
+                                        <Label Text="{Binding saleprice , StringFormat='{0:0,0} VNĐ'}" Grid.Row="2" TextColor="Black" FontSize="20" Margin="10, 0, 0, 0"></Label>
+                                        <Label Text="{Binding price , StringFormat='{0:0,0}'}" Grid.Row="2" TextColor="Gray" FontSize="16" Margin="0, 0, 10, 0" HorizontalOptions="End" TextDecorations="Strikethrough"></Label>
+                                        <pancakeView:PancakeView BackgroundColor="#FF914D" Grid.Row="3" HorizontalOptions="Start" Padding="10, 0, 20, 0" CornerRadius="0, 20, 0, 0">
+                                            <Label TextColor="Black" FontSize="16" VerticalOptions="Center">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="Giảm - "></Span>
+                                                        <Span Text="{Binding discount, StringFormat='{0:0}%'}"></Span>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </pancakeView:PancakeView>
+                                        <StackLayout Orientation="Horizontal" Grid.Row="3" HorizontalOptions="End" VerticalOptions="Start" Margin="0, 0, 20, 5">
+                                            <Label Text="5" TextColor="Black" FontSize="18"></Label>
+                                            <Image Source="Star.png" WidthRequest="20"></Image>
+                                        </StackLayout>
+                                    </Grid>
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer x:Name="TapDetail" Tapped="TapDetail_Tapped" CommandParameter="{Binding .}"></TapGestureRecognizer>
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
                 <Label Text="Bài viết nổi bật" TextColor="Black" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center"></Label>
                 <CollectionView x:Name="BlogHot" HeightRequest="200">
                     <CollectionView.ItemsLayout>

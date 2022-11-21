@@ -3,93 +3,102 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UITStore.Views.UserPage.UserMainPage" BackgroundColor="#efefef">
     <ContentPage.Content>
-        <StackLayout>
-            <Frame BorderColor="#FF914D" Margin="10" Padding="0" CornerRadius="20" BackgroundColor="#E1F3FD">
-                <Grid x:Name="Header_User" Margin="10">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="100"></RowDefinition>
-                        <RowDefinition Height="100"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1.5*"></ColumnDefinition>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Label Text="{Binding username}" HorizontalTextAlignment="Center" LineBreakMode="TailTruncation" FontSize="20" FontAttributes="Bold" TextColor="Orange" MaxLines="1"></Label>
-                    <Frame Margin="10" Padding="0" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" CornerRadius="100" VerticalOptions="Center" HorizontalOptions="Center">
-                        <Image x:Name="avatar" Source="{Binding avatar}" Aspect="AspectFill"></Image>
-                    </Frame>
-                    <StackLayout Grid.Column="1" Grid.Row="0" VerticalOptions="End">
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                            <Image Source="Favourite.png" WidthRequest="25" HeightRequest="25"></Image>
-                            <Label Text="10" TextColor="Red" FontSize="18" HorizontalTextAlignment="Center" FontAttributes="Bold" Margin="-5, 0, 0, 0"></Label>
+        <ScrollView>
+            <StackLayout>
+                <Frame BorderColor="#FF914D" Margin="10" Padding="0" CornerRadius="20" BackgroundColor="#E1F3FD">
+                    <Grid x:Name="Header_User" Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100"></RowDefinition>
+                            <RowDefinition Height="100"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="{Binding username}" HorizontalTextAlignment="Center" LineBreakMode="TailTruncation" FontSize="20" FontAttributes="Bold" TextColor="Orange" MaxLines="1"></Label>
+                        <Frame Margin="10" Padding="0" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" CornerRadius="100" VerticalOptions="Center" HorizontalOptions="Center">
+                            <Image x:Name="avatar" Source="{Binding avatar}" Aspect="AspectFill"></Image>
+                        </Frame>
+                        <StackLayout Grid.Column="1" Grid.Row="0" VerticalOptions="End">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                <Image Source="Favourite.png" WidthRequest="25" HeightRequest="25"></Image>
+                                <Label Text="10" TextColor="Red" FontSize="18" HorizontalTextAlignment="Center" FontAttributes="Bold" Margin="-5, 0, 0, 0"></Label>
+                            </StackLayout>
+                            <Label Text="Favourites" TextColor="Orange" HorizontalTextAlignment="Center" FontSize="18"></Label>
                         </StackLayout>
-                        <Label Text="Favourites" TextColor="Orange" HorizontalTextAlignment="Center" FontSize="18"></Label>
-                    </StackLayout>
-                    <StackLayout Grid.Column="2" Grid.Row="0" VerticalOptions="End">
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                            <Image Source="CartOrder.png" WidthRequest="25" HeightRequest="25"></Image>
-                            <Label Text="10" TextColor="#2196F3" FontSize="18" FontAttributes="Bold" HorizontalTextAlignment="Center" Margin="-5, 0, 0, 0"></Label>
+                        <StackLayout Grid.Column="2" Grid.Row="0" VerticalOptions="End">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                <Image Source="CartOrder.png" WidthRequest="25" HeightRequest="25"></Image>
+                                <Label Text="10" TextColor="#2196F3" FontSize="18" FontAttributes="Bold" HorizontalTextAlignment="Center" Margin="-5, 0, 0, 0"></Label>
+                            </StackLayout>
+                            <Label Text="Orders" TextColor="Orange" HorizontalTextAlignment="Center" FontSize="18"></Label>
                         </StackLayout>
-                        <Label Text="Orders" TextColor="Orange" HorizontalTextAlignment="Center" FontSize="18"></Label>
-                    </StackLayout>
-                    <StackLayout Grid.Column="1" Grid.Row="1">
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                            <Image Source="Voucher.png" WidthRequest="25" HeightRequest="25"></Image>
-                            <Label Text="10" TextColor="#4CAF50" FontSize="18" FontAttributes="Bold" HorizontalTextAlignment="Center" Margin="-5, 0, 0, 0"></Label>
+                        <StackLayout Grid.Column="1" Grid.Row="1">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                <Image Source="Voucher.png" WidthRequest="25" HeightRequest="25"></Image>
+                                <Label x:Name="voucher" TextColor="#4CAF50" FontSize="18" FontAttributes="Bold" HorizontalTextAlignment="Center" Margin="0, 0, 0, 0"></Label>
+                            </StackLayout>
+                            <Label Text="Vouchers" TextColor="Orange" HorizontalTextAlignment="Center" FontSize="18"></Label>
                         </StackLayout>
-                        <Label Text="Vouchers" TextColor="Orange" HorizontalTextAlignment="Center" FontSize="18"></Label>
-                    </StackLayout>
-                    <StackLayout Grid.Column="2" Grid.Row="1">
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                            <Image Source="LoyaltyPoint.png" WidthRequest="25" HeightRequest="25"></Image>
-                            <Label Text="{Binding loyaltyPoint}" TextColor="#FFC919" FontSize="18" FontAttributes="Bold" HorizontalTextAlignment="Center" Margin="-5, 0, 0, 0"></Label>
+                        <StackLayout Grid.Column="2" Grid.Row="1">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                <Image Source="LoyaltyPoint.png" WidthRequest="25" HeightRequest="25"></Image>
+                                <Label Text="{Binding loyaltyPoint}" TextColor="#FFC919" FontSize="18" FontAttributes="Bold" HorizontalTextAlignment="Center" Margin="-5, 0, 0, 0"></Label>
+                            </StackLayout>
+                            <Label Text="Loyalty Points" TextColor="Orange" HorizontalTextAlignment="Center" FontSize="18"></Label>
                         </StackLayout>
-                        <Label Text="Loyalty Points" TextColor="Orange" HorizontalTextAlignment="Center" FontSize="18"></Label>
-                    </StackLayout>
-                    <Frame Padding="-10" HorizontalOptions="Center" CornerRadius="15" Grid.Row="1" VerticalOptions="End">
-                        <Button x:Name="changeAvatar" BackgroundColor="#38B6FF" TextColor="White" Text="Change Avatar" FontSize="12" FontAttributes="Bold"
+                        <Frame Padding="-10" HorizontalOptions="Center" CornerRadius="15" Grid.Row="1" VerticalOptions="End">
+                            <Button x:Name="changeAvatar" BackgroundColor="#38B6FF" TextColor="White" Text="Change Avatar" FontSize="12" FontAttributes="Bold"
                                 Padding="15, 0, 15, 0" Clicked="changeAvatar_Clicked"></Button>
-                    </Frame>
-                </Grid>
-            </Frame>
-            <StackLayout Margin="10">
-                <Grid ColumnDefinitions="*, 7*" RowDefinitions="50">
-                    <Frame Padding="0" CornerRadius="10" Grid.Column="0" Grid.ColumnSpan="2">
-                        <Button x:Name="Profile" BackgroundColor="#FFD8A9" Clicked="Profile_Clicked"></Button>
-                    </Frame>
-                    <Image Source="ProfileIcon.png" Grid.Column="0" Margin="10, 10, 0, 10" HorizontalOptions="Start"></Image>
-                    <Label Text="Profile" FontSize="20" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="1"></Label>
-                </Grid>
-                <Grid ColumnDefinitions="*, 7*" RowDefinitions="50">
-                    <Frame Padding="0" CornerRadius="10" Grid.Column="0" Grid.ColumnSpan="2">
-                        <Button BackgroundColor="#FFD8A9"></Button>
-                    </Frame>
-                    <Image Source="CartOrder.png" Grid.Column="0" Margin="10, 10, 0, 10" HorizontalOptions="Start"></Image>
-                    <Label Text="My Orders" FontSize="20" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="1"></Label>
-                </Grid>
-                <Grid ColumnDefinitions="*, 7*" RowDefinitions="50">
-                    <Frame Padding="0" CornerRadius="10" Grid.Column="0" Grid.ColumnSpan="2">
-                        <Button BackgroundColor="#FFD8A9"></Button>
-                    </Frame>
-                    <Image Source="Favourite.png" Grid.Column="0" Margin="10, 10, 0, 10" HorizontalOptions="Start"></Image>
-                    <Label Text="My Favourite" FontSize="20" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="1"></Label>
-                </Grid>
-                <Grid ColumnDefinitions="*, 7*" RowDefinitions="50">
-                    <Frame Padding="0" CornerRadius="10" Grid.Column="0" Grid.ColumnSpan="2">
-                        <Button x:Name="ChangePassword" BackgroundColor="#FFD8A9"  ></Button>
-                    </Frame>
-                    <Image Source="PasswordIcon.png" Grid.Column="0" Margin="10, 10, 0, 10" HorizontalOptions="Start"></Image>
-                    <Label Text="Change Password" FontSize="20" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="1"></Label>
-                </Grid>
-                <Grid ColumnDefinitions="*, 7*" RowDefinitions="50">
-                    <Frame Padding="0" CornerRadius="10" Grid.Column="0" Grid.ColumnSpan="2">
-                        <Button x:Name="Logout" BackgroundColor="#FFD8A9" Clicked="Logout_Clicked"></Button>
-                    </Frame>
-                    <Image Source="LogoutIcon.png" Grid.Column="0" Margin="10, 10, 0, 10" HorizontalOptions="Start"></Image>
-                    <Label Text="Logout" FontSize="20" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="1"></Label>
-                </Grid>
+                        </Frame>
+                    </Grid>
+                </Frame>
+                <StackLayout Margin="10">
+                    <Grid ColumnDefinitions="*, 7*" RowDefinitions="50">
+                        <Frame Padding="0" CornerRadius="10" Grid.Column="0" Grid.ColumnSpan="2">
+                            <Button x:Name="Profile" BackgroundColor="#FFD8A9" Clicked="Profile_Clicked"></Button>
+                        </Frame>
+                        <Image Source="ProfileIcon.png" Grid.Column="0" Margin="10, 10, 0, 10" HorizontalOptions="Start"></Image>
+                        <Label Text="Profile" FontSize="20" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="1"></Label>
+                    </Grid>
+                    <Grid ColumnDefinitions="*, 7*" RowDefinitions="50">
+                        <Frame Padding="0" CornerRadius="10" Grid.Column="0" Grid.ColumnSpan="2">
+                            <Button BackgroundColor="#FFD8A9"></Button>
+                        </Frame>
+                        <Image Source="CartOrder.png" Grid.Column="0" Margin="10, 10, 0, 10" HorizontalOptions="Start"></Image>
+                        <Label Text="My Orders" FontSize="20" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="1"></Label>
+                    </Grid>
+                    <Grid ColumnDefinitions="*, 7*" RowDefinitions="50">
+                        <Frame Padding="0" CornerRadius="10" Grid.Column="0" Grid.ColumnSpan="2">
+                            <Button x:Name="Favourite" BackgroundColor="#FFD8A9" Clicked="Favourite_Clicked"></Button>
+                        </Frame>
+                        <Image Source="Favourite.png" Grid.Column="0" Margin="10, 10, 0, 10" HorizontalOptions="Start"></Image>
+                        <Label Text="My Favourite" FontSize="20" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="1"></Label>
+                    </Grid>
+                    <Grid ColumnDefinitions="*, 7*" RowDefinitions="50">
+                        <Frame Padding="0" CornerRadius="10" Grid.Column="0" Grid.ColumnSpan="2">
+                            <Button x:Name="Voucher" BackgroundColor="#FFD8A9" Clicked="Voucher_Clicked"></Button>
+                        </Frame>
+                        <Image Source="Voucher.png" Grid.Column="0" Margin="10, 10, 0, 10" HorizontalOptions="Start"></Image>
+                        <Label Text="Voucher" FontSize="20" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="1"></Label>
+                    </Grid>
+                    <Grid ColumnDefinitions="*, 7*" RowDefinitions="50">
+                        <Frame Padding="0" CornerRadius="10" Grid.Column="0" Grid.ColumnSpan="2">
+                            <Button x:Name="ChangePassword" BackgroundColor="#FFD8A9" Clicked="ChangePassword_Clicked" ></Button>
+                        </Frame>
+                        <Image Source="PasswordIcon.png" Grid.Column="0" Margin="10, 10, 0, 10" HorizontalOptions="Start"></Image>
+                        <Label Text="Change Password" FontSize="20" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="1"></Label>
+                    </Grid>
+                    <Grid ColumnDefinitions="*, 7*" RowDefinitions="50">
+                        <Frame Padding="0" CornerRadius="10" Grid.Column="0" Grid.ColumnSpan="2">
+                            <Button x:Name="Logout" BackgroundColor="#FFD8A9" Clicked="Logout_Clicked"></Button>
+                        </Frame>
+                        <Image Source="LogoutIcon.png" Grid.Column="0" Margin="10, 10, 0, 10" HorizontalOptions="Start"></Image>
+                        <Label Text="Logout" FontSize="20" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="1"></Label>
+                    </Grid>
+                </StackLayout>
             </StackLayout>
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

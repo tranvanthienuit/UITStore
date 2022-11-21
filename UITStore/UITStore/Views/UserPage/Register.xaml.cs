@@ -1,5 +1,6 @@
 ﻿using System;
 using UITStore.Models;
+using UITStore.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -8,12 +9,12 @@ namespace UITStore.Views.UserPage
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Register : ContentPage
     {
-        public UserViews userViews;
+        public UserVM userViews;
 
         public Register()
         {
             InitializeComponent();
-            userViews = new UserViews();
+            userViews = new UserVM();
             BindingContext = userViews;
 
             username.Focused += UsernameEntry_Focused;

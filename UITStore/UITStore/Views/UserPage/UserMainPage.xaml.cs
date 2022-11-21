@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UITStore.Models;
+using UITStore.ViewModels;
+using UITStore.Views.StoragePage;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -14,11 +16,14 @@ namespace UITStore.Views.UserPage
     public partial class UserMainPage : ContentPage
     {
         private readonly User _user;
+        private List<Vouchers> vouchers = new VoucherVM().GetVoucher();
         public UserMainPage()
         {
             InitializeComponent();
             _user = Application.Current.Properties["user"] as User;
             BindingContext = _user;
+            int lengthVoucher = vouchers.ToArray().Length;
+            voucher.Text = lengthVoucher.ToString();
         }
 
         private async void Logout_Clicked(object sender, EventArgs e)
@@ -46,6 +51,21 @@ namespace UITStore.Views.UserPage
                 var stream = await result.OpenReadAsync();
                 avatar.Source = ImageSource.FromStream(() => stream);
             }   
+        }
+
+        private void ChangePassword_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ChangePassword());
+        }
+
+        private void Voucher_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Voucher());
+        }
+
+        private void Favourite_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new FavouritePage());
         }
     }
 }

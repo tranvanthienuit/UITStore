@@ -8,6 +8,7 @@ public class MonoPackageManager_Resources {
 		"Naxam.BottomTabbedPage.Platform.Droid.dll",
 		"Naxam.Ittianyu.BottomNavExtension.dll",
 		"Newtonsoft.Json.dll",
+		"Rating.dll",
 		"SQLite-net.dll",
 		"SQLitePCLRaw.batteries_v2.dll",
 		"SQLitePCLRaw.core.dll",

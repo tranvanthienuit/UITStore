@@ -12,6 +12,7 @@
         public int stock { get; set; }
         public string category { get; set; }
         public double discount {  get; set;}
+        public double rating { get; set; } = 5;
         
         public Sneakers(string sneakerId, string name, string img, double price, double saleprice, string description, string size, int stock, string category)
         {
