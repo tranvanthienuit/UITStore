@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,8 +16,10 @@ namespace UITStore.Views.UserPage
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UserMainPage : ContentPage
     {
-        private readonly User _user;
+        private User _user;
         private List<Vouchers> vouchers = new VoucherVM().GetVoucher();
+        private ObservableCollection<Favourite> favourites;
+        public OrderVM orderVM = new OrderVM();
         public UserMainPage()
         {
             InitializeComponent();
@@ -24,12 +27,25 @@ namespace UITStore.Views.UserPage
             BindingContext = _user;
             int lengthVoucher = vouchers.ToArray().Length;
             voucher.Text = lengthVoucher.ToString();
+            var db = new SQLiteDatabase();
+            favourites = db.getFavourite(_user.id);
+            favourite.Text = favourites.ToArray().Length > 0 ? favourites.ToArray().Length.ToString() : "0";
+            Order.Text = orderVM.GetOrderByUserId(_user.id).ToArray().Length.ToString();
         }
-
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            var db = new SQLiteDatabase();
+            favourites = db.getFavourite(_user.id);
+            favourite.Text = favourites.ToArray().Length > 0 ? favourites.ToArray().Length.ToString() : "0";
+            Order.Text = orderVM.GetOrderByUserId(_user.id).ToArray().Length.ToString();
+            _user = Application.Current.Properties["user"] as User;
+            BindingContext = _user;
+        }
         private async void Logout_Clicked(object sender, EventArgs e)
         {
             bool answer = await DisplayAlert("Warning", "Do you really want to logout?", "Yes", "No");
-            if(answer)
+            if (answer)
             {
                 _ = Navigation.PushAsync(new Login());
             }
@@ -46,11 +62,11 @@ namespace UITStore.Views.UserPage
             {
                 Title = "Please pick a avatar!"
             });
-            if(result !=null)
+            if (result != null)
             {
                 var stream = await result.OpenReadAsync();
                 avatar.Source = ImageSource.FromStream(() => stream);
-            }   
+            }
         }
 
         private void ChangePassword_Clicked(object sender, EventArgs e)
@@ -66,6 +82,11 @@ namespace UITStore.Views.UserPage
         private void Favourite_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new FavouritePage());
+        }
+
+        private void MyOrder_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new MyOrderPage());
         }
     }
 }

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UITStore.Views.StoragePage.DetailOrder" Title="Detail Order">
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView Margin="5">
+                <CollectionView x:Name="dataDetail">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="1" VerticalItemSpacing="5"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Frame Padding="0" BackgroundColor="AliceBlue" HeightRequest="120">
+                                    <Grid ColumnDefinitions="*, 2*" RowDefinitions="*, *, *">
+                                        <Image Source="{Binding image}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"></Image>
+                                        <Label Text="{Binding name}" FontSize="18" TextColor="Black" Grid.Column="1" Grid.Row="0" Margin="5"
+                                           VerticalTextAlignment="Center" HorizontalTextAlignment="Start" LineBreakMode="TailTruncation" MaxLines="1"></Label>
+                                        <Label Text="{Binding price, StringFormat='{0:0,0} VNĐ'}" Grid.Column="1" Grid.Row="1" TextColor="Black" FontSize="18" Margin="5"></Label>
+                                        <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+                                            <Label TextColor="Black" FontSize="18" Margin="5" HorizontalOptions="Start" VerticalOptions="Center">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="Size : "></Span>
+                                                        <Span Text="{Binding size}"></Span>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                            <Label TextColor="Black" FontSize="16" VerticalTextAlignment="Center">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="Số lượng : "></Span>
+                                                        <Span Text="{Binding quantity}"></Span>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

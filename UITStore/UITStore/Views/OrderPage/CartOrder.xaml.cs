@@ -21,7 +21,15 @@ namespace UITStore.Views.OrderPage
             InitializeComponent();
             _user = Application.Current.Properties["user"] as User;
             var db = new SQLiteDatabase();
-            cart = db.getCart(_user.ID);
+            cart = db.getCart(_user.id);
+            dataCart.ItemsSource = cart;
+            ShowTotal(cart);
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            var db = new SQLiteDatabase();
+            cart = db.getCart(_user.id);
             dataCart.ItemsSource = cart;
             ShowTotal(cart);
         }
@@ -71,8 +79,8 @@ namespace UITStore.Views.OrderPage
             }
             var db = new SQLiteDatabase();
             db.updateCart(cart.id, count);
-            dataCart.ItemsSource = db.getCart(_user.ID);
-            ShowTotal(db.getCart(_user.ID));
+            dataCart.ItemsSource = db.getCart(_user.id);
+            ShowTotal(db.getCart(_user.id));
         }
 
         private void Add_Clicked(object sender, EventArgs e)
@@ -82,8 +90,8 @@ namespace UITStore.Views.OrderPage
             var db = new SQLiteDatabase();
             int count = cart.quantity + 1;
             db.updateCart(cart.id, count);
-            dataCart.ItemsSource = db.getCart(_user.ID);
-            ShowTotal(db.getCart(_user.ID));
+            dataCart.ItemsSource = db.getCart(_user.id);
+            ShowTotal(db.getCart(_user.id));
         }
         private void OnDelete(object sender, EventArgs e)
         {
@@ -91,13 +99,18 @@ namespace UITStore.Views.OrderPage
             Cart cart = swipeItem.CommandParameter as Cart;
             var db = new SQLiteDatabase();
             db.deleteCart(cart.id);
-            dataCart.ItemsSource = db.getCart(_user.ID);
-            ShowTotal(db.getCart(_user.ID));
+            dataCart.ItemsSource = db.getCart(_user.id);
+            ShowTotal(db.getCart(_user.id));
         }
 
         private void PayNow_Clicked(object sender, EventArgs e)
         {
-
+            var db = new SQLiteDatabase();
+            cart = db.getCart(_user.id);
+            if (cart.ToArray().Length > 0)
+            {
+                Navigation.PushAsync(new PaymentPage(Convert.ToDouble(Total.Text)));
+            }
         }
 
         private async void TapVoucher_Tapped(object sender, EventArgs e)
@@ -110,7 +123,7 @@ namespace UITStore.Views.OrderPage
             action = await DisplayActionSheet("Voucher", "Cancel", null, listVoucher);
             Voucher.Text = action != "Cancel" ? action : Voucher.Text;
             var db = new SQLiteDatabase();
-            ShowTotal(db.getCart(_user.ID));
+            ShowTotal(db.getCart(_user.id));
         }
     }
 }

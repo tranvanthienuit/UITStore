@@ -75,10 +75,10 @@
                                 <Frame Padding="0" BorderColor="#FF914D" CornerRadius="15" BackgroundColor="AliceBlue">
                                     <Grid ColumnDefinitions="*" RowDefinitions="6*, *, *, *" WidthRequest="200">
                                         <pancakeView:PancakeView Padding="1.5" CornerRadius="20, 20, 0, 0">
-                                            <Image Source="{Binding img}" Grid.Row="0" Aspect="AspectFill"></Image>
+                                            <Image Source="{Binding image}" Grid.Row="0" Aspect="AspectFill"></Image>
                                         </pancakeView:PancakeView>
                                         <pancakeView:PancakeView BackgroundColor="White" CornerRadius="30" Grid.Row="0" HorizontalOptions="End" Margin="5" 
-                                                                 Padding="5" VerticalOptions="Start">
+                                                                 Padding="2" VerticalOptions="Start">
                                             <Image Source="Favourite.png" WidthRequest="26" HeightRequest="26">
                                                 <Image.GestureRecognizers>
                                                     <TapGestureRecognizer x:Name="TapFavourite" Tapped="TapFavourite_Tapped" CommandParameter="{Binding .}"></TapGestureRecognizer>
@@ -86,7 +86,7 @@
                                             </Image>
                                         </pancakeView:PancakeView>
                                         <Label Text="{Binding name}" Grid.Row="1" TextColor="Black" FontSize="20" LineBreakMode="TailTruncation" HorizontalTextAlignment="Center"></Label>
-                                        <Label Text="{Binding saleprice, StringFormat='{0:0,0} VNĐ'}" Grid.Row="2" TextColor="Black" FontSize="20" Margin="10, 0, 0, 0"></Label>
+                                        <Label Text="{Binding salePrice, StringFormat='{0:0,0} VNĐ'}" Grid.Row="2" TextColor="Black" FontSize="20" Margin="10, 0, 0, 0"></Label>
                                         <Label Text="{Binding price, StringFormat='{0:0,0}'}" Grid.Row="2" TextColor="Gray" FontSize="16" Margin="0, 0, 10, 0" HorizontalOptions="End" TextDecorations="Strikethrough"></Label>
                                         <pancakeView:PancakeView BackgroundColor="#FF914D" Grid.Row="3" HorizontalOptions="Start" Padding="10, 0, 20, 0" CornerRadius="0, 20, 0, 0">
                                             <Label TextColor="Black" FontSize="16" VerticalOptions="Center">
@@ -99,7 +99,7 @@
                                             </Label>
                                         </pancakeView:PancakeView>
                                         <StackLayout Orientation="Horizontal" Grid.Row="3" HorizontalOptions="End" VerticalOptions="Start" Margin="0, 0, 20, 5">
-                                            <Label Text="5" TextColor="Black" FontSize="18"></Label>
+                                            <Label Text="{Binding rating, StringFormat='{0:0.0}'}" TextColor="Black" FontSize="18"></Label>
                                             <Image Source="Star.png" WidthRequest="20"></Image>
                                         </StackLayout>
                                     </Grid>
@@ -144,10 +144,10 @@
                                 <Frame Padding="0" BorderColor="#FF914D" CornerRadius="15" BackgroundColor="AliceBlue">
                                     <Grid ColumnDefinitions="*" RowDefinitions="6*, *, *, *" WidthRequest="200">
                                         <pancakeView:PancakeView Padding="1.5" CornerRadius="20, 20, 0, 0">
-                                            <Image Source="{Binding img}" Grid.Row="0" Aspect="AspectFill"></Image>
+                                            <Image Source="{Binding image}" Grid.Row="0" Aspect="AspectFill"></Image>
                                         </pancakeView:PancakeView>
                                         <pancakeView:PancakeView BackgroundColor="White" CornerRadius="30" Grid.Row="0" HorizontalOptions="End" Margin="5" 
-                                                                 Padding="5" VerticalOptions="Start">
+                                                                 Padding="2" VerticalOptions="Start">
                                             <Image Source="Favourite.png" WidthRequest="26" HeightRequest="26">
                                                 <Image.GestureRecognizers>
                                                     <TapGestureRecognizer x:Name="TapFavourite" Tapped="TapFavourite_Tapped" CommandParameter="{Binding .}"></TapGestureRecognizer>
@@ -155,7 +155,7 @@
                                             </Image>
                                         </pancakeView:PancakeView>
                                         <Label Text="{Binding name}" Grid.Row="1" TextColor="Black" FontSize="20" LineBreakMode="TailTruncation" HorizontalTextAlignment="Center"></Label>
-                                        <Label Text="{Binding saleprice , StringFormat='{0:0,0} VNĐ'}" Grid.Row="2" TextColor="Black" FontSize="20" Margin="10, 0, 0, 0"></Label>
+                                        <Label Text="{Binding salePrice , StringFormat='{0:0,0} VNĐ'}" Grid.Row="2" TextColor="Black" FontSize="20" Margin="10, 0, 0, 0"></Label>
                                         <Label Text="{Binding price, StringFormat='{0:0,0}'}" Grid.Row="2" TextColor="Gray" FontSize="16" Margin="0, 0, 10, 0" HorizontalOptions="End" TextDecorations="Strikethrough"></Label>
                                         <pancakeView:PancakeView BackgroundColor="#FF914D" Grid.Row="3" HorizontalOptions="Start" Padding="10, 0, 20, 0" CornerRadius="0, 20, 0, 0">
                                             <Label TextColor="Black" FontSize="16" VerticalOptions="Center">
@@ -168,7 +168,7 @@
                                             </Label>
                                         </pancakeView:PancakeView>
                                         <StackLayout Orientation="Horizontal" Grid.Row="3" HorizontalOptions="End" VerticalOptions="Start" Margin="0, 0, 20, 5">
-                                            <Label Text="5" TextColor="Black" FontSize="18"></Label>
+                                            <Label Text="{Binding rating, StringFormat='{0:0.0}'}" TextColor="Black" FontSize="18"></Label>
                                             <Image Source="Star.png" WidthRequest="20"></Image>
                                         </StackLayout>
                                     </Grid>
@@ -213,10 +213,10 @@
                                 <Frame Padding="0" BorderColor="#FF914D" CornerRadius="15" BackgroundColor="AliceBlue">
                                     <Grid ColumnDefinitions="*" RowDefinitions="6*, *, *, *" WidthRequest="200">
                                         <pancakeView:PancakeView Padding="1.5" CornerRadius="20, 20, 0, 0">
-                                            <Image Source="{Binding img}" Grid.Row="0" Aspect="AspectFill"></Image>
+                                            <Image Source="{Binding image}" Grid.Row="0" Aspect="AspectFill"></Image>
                                         </pancakeView:PancakeView>
                                         <pancakeView:PancakeView BackgroundColor="White" CornerRadius="30" Grid.Row="0" HorizontalOptions="End" Margin="5" 
-                                                                 Padding="5" VerticalOptions="Start">
+                                                                 Padding="2" VerticalOptions="Start">
                                             <Image Source="Favourite.png" WidthRequest="26" HeightRequest="26">
                                                 <Image.GestureRecognizers>
                                                     <TapGestureRecognizer x:Name="TapFavourite" Tapped="TapFavourite_Tapped" CommandParameter="{Binding .}"></TapGestureRecognizer>
@@ -224,7 +224,7 @@
                                             </Image>
                                         </pancakeView:PancakeView>
                                         <Label Text="{Binding name}" Grid.Row="1" TextColor="Black" FontSize="20" LineBreakMode="TailTruncation" HorizontalTextAlignment="Center"></Label>
-                                        <Label Text="{Binding saleprice , StringFormat='{0:0,0} VNĐ'}" Grid.Row="2" TextColor="Black" FontSize="20" Margin="10, 0, 0, 0"></Label>
+                                        <Label Text="{Binding salePrice , StringFormat='{0:0,0} VNĐ'}" Grid.Row="2" TextColor="Black" FontSize="20" Margin="10, 0, 0, 0"></Label>
                                         <Label Text="{Binding price , StringFormat='{0:0,0}'}" Grid.Row="2" TextColor="Gray" FontSize="16" Margin="0, 0, 10, 0" HorizontalOptions="End" TextDecorations="Strikethrough"></Label>
                                         <pancakeView:PancakeView BackgroundColor="#FF914D" Grid.Row="3" HorizontalOptions="Start" Padding="10, 0, 20, 0" CornerRadius="0, 20, 0, 0">
                                             <Label TextColor="Black" FontSize="16" VerticalOptions="Center">
@@ -237,7 +237,7 @@
                                             </Label>
                                         </pancakeView:PancakeView>
                                         <StackLayout Orientation="Horizontal" Grid.Row="3" HorizontalOptions="End" VerticalOptions="Start" Margin="0, 0, 20, 5">
-                                            <Label Text="5" TextColor="Black" FontSize="18"></Label>
+                                            <Label Text="{Binding rating, StringFormat='{0:0.0}'}" TextColor="Black" FontSize="18"></Label>
                                             <Image Source="Star.png" WidthRequest="20"></Image>
                                         </StackLayout>
                                     </Grid>

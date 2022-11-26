@@ -22,18 +22,22 @@ namespace UITStore.Views.StoragePage
             InitializeComponent();
             var db = new SQLiteDatabase();
             _user = Application.Current.Properties["user"] as User;
-            favourites = db.getFavourite(_user.ID);
+            favourites = db.getFavourite(_user.id);
             DataFavourite.ItemsSource = favourites;
         }
 
-        private void TapFavourite_Tapped(object sender, EventArgs e)
+        private async void  TapFavourite_Tapped(object sender, EventArgs e)
         {
-            Image img = (Image)sender;
-            TapGestureRecognizer tapGesture = (TapGestureRecognizer)img.GestureRecognizers[0];
-            Favourite favourite = tapGesture.CommandParameter as Favourite;
-            var db = new SQLiteDatabase();
-            db.deleteFavourite(favourite.id);
-            DataFavourite.ItemsSource = db.getFavourite(_user.ID);
+            bool answer = await DisplayAlert("Warning", "Do you realy want to delete its?", "Yes", "No");
+            if(answer)
+            {
+                Image img = (Image)sender;
+                TapGestureRecognizer tapGesture = (TapGestureRecognizer)img.GestureRecognizers[0];
+                Favourite favourite = tapGesture.CommandParameter as Favourite;
+                var db = new SQLiteDatabase();
+                db.deleteFavourite(favourite.id);
+                DataFavourite.ItemsSource = db.getFavourite(_user.id);
+            }
         }
     }
 }

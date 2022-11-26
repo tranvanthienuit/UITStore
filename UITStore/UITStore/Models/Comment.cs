@@ -6,9 +6,9 @@ namespace UITStore.Models
 {
     public class Comment
     {
-        public string id { get; set; }
-        public string productid { get; set; }
-        public string userid { get; set; }
+        public Guid id { get; set; }
+        public Guid productid { get; set; }
+        public Guid userid { get; set; }
         public int rating { get; set; }
         public string content { get; set; }
     }

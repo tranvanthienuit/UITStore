@@ -29,3 +29,6 @@ D:\UIT\Mobile\UITSTORE\UITStore\UITStore\bin\Debug\netstandard2.0\Mono.Android.d
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore\bin\Debug\netstandard2.0\Mono.Android.pdb
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore\bin\Debug\netstandard2.0\Mono.Android.xml
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\UITStore.csproj.CopyComplete
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\OrderPage\PaymentPage.xaml.g.cs
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\StoragePage\MyOrderPage.xaml.g.cs
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\StoragePage\DetailOrder.xaml.g.cs

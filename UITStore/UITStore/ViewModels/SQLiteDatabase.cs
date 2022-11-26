@@ -20,7 +20,6 @@ namespace UITStore
             {
                 var connection = new SQLiteConnection
                     (Path.Combine(folder, "uitStore.db"));
-                connection.CreateTable<User>();
                 connection.CreateTable<Cart>();
                 connection.CreateTable<Favourite>();
                 return true;
@@ -31,75 +30,6 @@ namespace UITStore
             }
         }
 
-        public bool addUser(User user)
-        {
-            try
-            {
-                var connection = new SQLiteConnection(Path.Combine(folder, "uitStore.db"));
-                connection.Insert(user);
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        public async Task<bool> updateUser(User user)
-        {
-            
-            try
-            {
-                var connection = new SQLiteConnection(Path.Combine(folder, "uitStore.db"));
-                var oldUser = getUser(user.username, user.password);
-                oldUser.username = user.username;
-                oldUser.password = user.password;
-                oldUser.fullname = user.fullname;
-                oldUser.telephone = user.telephone;
-                oldUser.address = user.address;
-                connection.Update(oldUser);
-                Application.Current.Properties["user"] = user;
-                await Application.Current.SavePropertiesAsync();
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
-        }
-
-        public bool deleteUser(User user)
-        {
-            try
-            {
-                var connection = new SQLiteConnection(Path.Combine(folder, "uitStore.db"));
-                connection.Delete(user);
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        public User getUser(string username, string password)
-        {
-            try
-            {
-                var connection = new SQLiteConnection(Path.Combine(folder, "uitStore.db"));
-                var users = connection.Table<User>().ToList();
-                foreach (var result in users)
-                    if (result.username == username && result.password == password)
-                        return result;
-
-                return null;
-            }
-            catch
-            {
-                return null;
-            }
-        }
-       
         public bool addCart(Cart cart)
         {
             try
@@ -113,7 +43,7 @@ namespace UITStore
                 return false;
             }
         }
-        public ObservableCollection<Cart> getCart(int userid)
+        public ObservableCollection<Cart> getCart(Guid userid)
         {
             try
             {
@@ -174,6 +104,26 @@ namespace UITStore
                 return null;
             }
         }
+        public Cart deleteFullCart(Guid userId)
+        {
+            try
+            {
+                var connection = new SQLiteConnection(Path.Combine(folder, "uitStore.db"));
+                var cart = connection.Table<Cart>().ToList();
+                foreach (var item in cart)
+                {
+                    if (item.userid == userId)
+                    {
+                        connection.Delete(item);
+                    }
+                }
+                return null;
+            }
+            catch
+            {
+                return null;
+            }
+        }
         public bool addFavourite(Favourite favourite)
         {
             try
@@ -187,7 +137,7 @@ namespace UITStore
                 return false;
             }
         }
-        public ObservableCollection<Favourite> getFavourite(int userid)
+        public ObservableCollection<Favourite> getFavourite(Guid userid)
         {
             try
             {

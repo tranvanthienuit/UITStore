@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:UITStore.Components"
+             x:Class="UITStore.Views.OrderPage.PaymentPage" Title="Payment">
+    <ContentPage.Content>
+        <StackLayout Margin="0, 20, 0, 0">
+            <Grid RowSpacing="0" Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Margin="0, 10, 0, 0" Text="Fullname" FontSize="20" TextColor="#38B6FF" VerticalOptions="Center" Grid.Column="0" Grid.Row="0"></Label>
+                <StackLayout Margin="0, 10, 0, 5" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2">
+                    <Grid>
+                        <Frame BorderColor="#FFD8A9" CornerRadius="5" HasShadow="False"/>
+                        <local:CustomEntry x:Name="fullname" Text="{Binding fullname}" BackgroundColor="Transparent" FontSize="20" ClearButtonVisibility="WhileEditing"/>
+                    </Grid>
+                    <Label x:Name="vldFullname" TextColor="Red" HorizontalOptions="EndAndExpand" FontSize="12" Margin="0, -5, 0, -15"></Label>
+                </StackLayout>
+                <Label Margin="0, 10, 0, 0" Text="Telephone" FontSize="20" TextColor="#38B6FF" VerticalOptions="Center" Grid.Column="0" Grid.Row="1"></Label>
+                <StackLayout Margin="0, 10, 0, 5" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2">
+                    <Grid>
+                        <Frame BorderColor="#FFD8A9" CornerRadius="5" HasShadow="False"/>
+                        <local:CustomEntry x:Name="phone" Text="{Binding telephone}" BackgroundColor="Transparent" FontSize="20" ClearButtonVisibility="WhileEditing" Keyboard="Numeric"/>
+                    </Grid>
+                    <Label x:Name="vldPhone" TextColor="Red" HorizontalOptions="EndAndExpand" FontSize="12" Margin="0, -5, 0, -15"></Label>
+                </StackLayout>
+                <Label Margin="0, 10, 0, 5" Text="Address" FontSize="20" TextColor="#38B6FF" VerticalOptions="Center" Grid.Column="0" Grid.Row="2"></Label>
+                <StackLayout Margin="0, 10, 0, 0" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2">
+                    <Grid>
+                        <Frame BorderColor="#FFD8A9" CornerRadius="5" HasShadow="False"/>
+                        <local:CustomEntry x:Name="address" Text="{Binding address}" BackgroundColor="Transparent" FontSize="20" ClearButtonVisibility="WhileEditing"/>
+                    </Grid>
+                    <Label x:Name="vldAddress" TextColor="Red" HorizontalOptions="EndAndExpand" FontSize="12" Margin="0, -5, 0, -15"></Label>
+                </StackLayout>
+                <Label Margin="0, 10, 0, 5" Text="Total" FontSize="20" TextColor="#38B6FF" VerticalOptions="Center" Grid.Column="0" Grid.Row="3"></Label>
+                <Label Margin="0, 10, 0, 5" FontSize="20" TextColor="Black" VerticalOptions="Center" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span x:Name="Total"></Span>
+                            <Span Text=" VNĐ"></Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </Grid>
+            <Frame Padding="0" HorizontalOptions="Center" CornerRadius="10" Margin="10">
+                <Button x:Name="Payment" Clicked="Payment_Clicked" Text="Payment" HorizontalOptions="Center" FontSize="20" FontAttributes="Bold"
+                                BackgroundColor="#38B6FF" TextColor="White" />
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

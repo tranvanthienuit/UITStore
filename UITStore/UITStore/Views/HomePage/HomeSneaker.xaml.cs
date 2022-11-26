@@ -14,9 +14,9 @@ namespace UITStore.Views.HomePage
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomeSneaker : ContentPage
     {
-        private ObservableCollection<Sneakers> _sneakersList;
         private List<Blog> listBlog = new BlogVM().GetBlogs();
         private readonly User _user;
+        public SneakerVM sneakerVM = new SneakerVM();
         public HomeSneaker()
         {
             InitializeComponent();
@@ -25,7 +25,11 @@ namespace UITStore.Views.HomePage
             initBlog();
             _user = Application.Current.Properties["user"] as User;
         }
-
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            initSneaker();
+        }
         public void Banner()
         {
             List<Banner> banner = new List<Banner>()
@@ -46,36 +50,9 @@ namespace UITStore.Views.HomePage
         }
         private void initSneaker()
         {
-            _sneakersList = new ObservableCollection<Sneakers>
-            {
-               new Sneakers
-                (
-                    "sneaker1", "NMD_R1 candy", "Sneakers1", 500000, 400000,
-                     "tuyet voi ông mặt trời", "24", 24, "1"
-
-                ),
-                new Sneakers
-                (
-                    "sneaker2", "NMD_R1 candy", "Sneakers2", 500000, 400000,
-                     "tuyet voi ông mặt trời", "24", 24, "2"
-
-                ),
-                new Sneakers
-                (
-                    "sneaker3", "NMD_R1 candy", "Sneakers1", 500000, 400000,
-                     "tuyet voi ông mặt trời", "24", 24, "1"
-
-                ),
-                new Sneakers
-                (
-                    "sneaker4", "NMD_R1 candy", "Sneakers3", 500000, 400000,
-                     "tuyet voi ông mặt trời", "24", 24, "3"
-
-                ),
-            };
-            BestSellProduct.ItemsSource = _sneakersList.Where(p => p.category == "1");
-            BestDiscountProduct.ItemsSource = _sneakersList.Where(p => p.category == "2");
-            NewProduct.ItemsSource = _sneakersList.Where(p => p.category == "3");
+            BestSellProduct.ItemsSource = sneakerVM.FilterSneaker(5, "stock", "ASC");
+            BestDiscountProduct.ItemsSource = sneakerVM.FilterSneaker(5, "discount", "DESC");
+            NewProduct.ItemsSource = sneakerVM.FilterSneaker(5, "createDate", "DESC");
         }
 
         private void TapFavourite_Tapped(object sender, EventArgs e)
@@ -83,8 +60,8 @@ namespace UITStore.Views.HomePage
             Image img = (Image)sender;
             TapGestureRecognizer tapGesture = (TapGestureRecognizer)img.GestureRecognizers[0];
             Sneakers sneakerFavourite = tapGesture.CommandParameter as Sneakers;
-            var favourite = new Favourite { userid = _user.ID, sneakerId = sneakerFavourite.sneakerId, name = sneakerFavourite.name, description = sneakerFavourite.description, category = sneakerFavourite.category, discount = sneakerFavourite.discount,
-            img = sneakerFavourite.img, price = sneakerFavourite.price, rating = sneakerFavourite.rating, saleprice = sneakerFavourite.saleprice, size = sneakerFavourite.size, stock = sneakerFavourite.stock};
+            var favourite = new Favourite { userid = _user.id, sneakerId = sneakerFavourite.id.ToString(), name = sneakerFavourite.name, description = sneakerFavourite.description, category = sneakerFavourite.category, discount = sneakerFavourite.discount,
+            img = sneakerFavourite.image, price = sneakerFavourite.price, rating = sneakerFavourite.rating, saleprice = sneakerFavourite.salePrice, size = sneakerFavourite.size, stock = sneakerFavourite.stock};
             var db = new SQLiteDatabase();
             if(db.ExistFavourite(favourite))
             {

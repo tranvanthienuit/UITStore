@@ -38,11 +38,14 @@ namespace UITStore.Views.UserPage
         {
             if (ValidationUsername() && ValidationPassword() && ValidationFullname() && ValidationPhone() && ValidationAddress())
             {
-                var result = userViews.addNewUser();
+                bool result = userViews.addNewUser();
                 if (result)
                 {
-                    var signResult = await DisplayAlert("Successfully", "You sign up, successfully", "Yes", "No");
+                    bool signResult = await DisplayAlert("Successfully", "You sign up, successfully", "Yes", "No");
                     if (signResult) await Navigation.PushAsync(new Login());
+                } else
+                {
+                    await DisplayAlert("Error", "User already exists!", "OK");
                 }
             }
             ValidationUsername();

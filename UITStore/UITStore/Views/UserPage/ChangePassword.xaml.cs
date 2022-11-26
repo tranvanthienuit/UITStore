@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UITStore.Models;
+using UITStore.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,7 +14,7 @@ namespace UITStore.Views.UserPage
     public partial class ChangePassword : ContentPage
     {
         private readonly User _user;
-
+        public UserVM userViews = new UserVM();
         public ChangePassword()
         {
             InitializeComponent();
@@ -72,7 +73,18 @@ namespace UITStore.Views.UserPage
                 }
                 else
                 {
-                    DisplayAlert("a", newPassword.Text, "a");
+                    bool result = userViews.ChangePassword(_user.id, newPassword.Text);
+                    if (result)
+                    {
+                        _ = DisplayAlert("Successfully", "You updated password successfully", "Ok");
+                    }
+                    else
+                    {
+                        _ = DisplayAlert("Error", "Fail", "Ok");
+                    }
+                    password.Text = "";
+                    newPassword.Text = "";
+                    verifyPassword.Text = "";
                 }
             }
             ValidationPassword();

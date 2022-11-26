@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using UITStore.Models;
+using UITStore.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,14 +14,20 @@ namespace UITStore.Views.UserPage
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Profile : ContentPage
     {
-        private readonly User _user;
+        private User _user;
+        public UserVM userViews = new UserVM();
         public Profile()
         {
             InitializeComponent();
             _user = Application.Current.Properties["user"] as User;
             BindingContext = _user;
         }
-
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            _user = Application.Current.Properties["user"] as User;
+            BindingContext = _user;
+        }
         private void update_profile_Clicked(object sender, EventArgs e)
         {
             if(update_profile.Text == "Update")
@@ -39,7 +46,16 @@ namespace UITStore.Views.UserPage
                
                 if (ValidationUsername() && ValidationEmail() && ValidationFullname() && ValidationPhone() && ValidationAddress())
                 {
-                    DisplayAlert("Ms",username.Text + birthday.Date.ToString("dd/MM/yyyy") + fullname.Text + phone.Text + email.Text + address.Text,"ok");
+                    bool result = userViews.Update(_user.id, username.Text, _user.password, fullname.Text,
+                        phone.Text, address.Text, birthday.Date, email.Text, _user.loyalPoint);
+                    if (result)
+                    {
+                        _ = DisplayAlert("Successfully", "You updated successfully", "Ok");
+                    }
+                    else
+                    {
+                        _ = DisplayAlert("Error", "Fail", "Ok");
+                    }
                     username.IsEnabled = false;
                     birthday.IsEnabled = false;
                     fullname.IsEnabled = false;

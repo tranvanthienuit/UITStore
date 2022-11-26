@@ -2,12 +2,14 @@ using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using UITStore.Models;
+using UITStore.Services;
 using Xamarin.Forms;
 
 namespace UITStore.ViewModels
 {
     public class UserVM : INotifyPropertyChanged
     {
+        public Guid _id;
         public string _address;
         public string _fullname;
         public string _password;
@@ -16,8 +18,16 @@ namespace UITStore.ViewModels
         public DateTime _birthday;
         public string _email;
         public string _avatar;
-        public int _loyaltyPoint;
-
+        public int _loyalPoint;
+        public Guid id
+        {
+            get => _id;
+            set
+            {
+                _id = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(id)));
+            }
+        }
         public string username
         {
             get => _username;
@@ -94,46 +104,101 @@ namespace UITStore.ViewModels
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(avatar)));
             }
         }
-        public int loyaltyPoint
+        public int loyalPoint
         {
-            get => _loyaltyPoint;
+            get => _loyalPoint;
             set
             {
-                _loyaltyPoint = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(loyaltyPoint)));
+                _loyalPoint = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(loyalPoint)));
             }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public async Task<bool> updateUserExist()
-        {
-            var db = new SQLiteDatabase();
-            var user = new User
-            {
-                username = _username, password = _password, fullname = _fullname, telephone = _telephone,
-                address = _address
-            };
-            if (db.updateUser(user).Result) return true;
-
-            return false;
-        }
-
+       
         public bool addNewUser()
         {
-            var user = new User
+            RequestUser user = new RequestUser
             {
                 username = _username, password = _password, fullname = _fullname, telephone = _telephone,
-                address = _address
+                address = _address, birthday = DateTime.Now, email = "", avatar = "AvatarDefault.png", loyalPoint = 10, role = "user"
             };
-            var db = new SQLiteDatabase();
-            if (db.addUser(user))
+            UserModel result =  UserService.ServiceClientInstance.AddUser(user).Result;
+            if(result.success)
             {
-                Application.Current.Properties["user"] = user;
                 return true;
             }
-
-            return false;
+            else
+            {
+                return false;
+            }
         }
+        public bool Login()
+        {
+            LoginModel login = new LoginModel
+            {
+                username = _username,
+                password = _password,
+            };
+            UserModel result = UserService.ServiceClientInstance.Login(login).Result;
+            if (result.success)
+            {
+                Application.Current.Properties["user"] = result.data;
+                Application.Current.SavePropertiesAsync();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool Update(Guid Id, string Username, string Password, string Fullname, string Phone, string Address, DateTime Birthday, string Email, int LoyalPoint)
+        {
+            User user = new User
+            {
+                id = Id, username = Username, password = Password, fullname = Fullname, telephone = Phone, address = Address,
+                birthday = Birthday, email = Email, avatar = "AvatarDefault.png", loyalPoint = LoyalPoint, role = "user"
+            };
+            UserModel result = UserService.ServiceClientInstance.UpdateUser(user).Result;
+            if (result.success)
+            {
+                Application.Current.Properties["user"] = result.data;
+                Application.Current.SavePropertiesAsync();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool ChangePassword(Guid Id, string Password)
+        {
+            UserModel result = UserService.ServiceClientInstance.ChangePassword(Id, Password).Result;
+            if(result.success)
+            {
+                Application.Current.Properties["user"] = result.data;
+                Application.Current.SavePropertiesAsync();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        
+        }
+        public User GetUserById(Guid id)
+        {
+            UserModel result = UserService.ServiceClientInstance.GetUserById(id).Result;
+            if(result.success)
+            {
+                User user = result.data;
+                return user;
+            } else
+            {
+                return null;
+            }
+        }
+
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using UITStore.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -7,10 +8,12 @@ namespace UITStore.Views.UserPage
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Login : ContentPage
     {
-        private SQLiteDatabase _database;
+        public UserVM userViews = new UserVM();
+
         public Login()
         {
             InitializeComponent();
+            BindingContext = userViews;
             username.Focused += UsernameEntry_Focused;
             username.Unfocused += UsernameEntry_Unfocused;
             password.Focused += PasswordEntry_Focused;
@@ -19,15 +22,11 @@ namespace UITStore.Views.UserPage
 
         private async void signin(object sender, EventArgs e)
         {
-            _database = new SQLiteDatabase();
-            var user = _database.getUser(username.Text, password.Text);
             if (ValidationUsername() && ValidationPassword())
             {
-                if (user != null)
+                bool result = userViews.Login();
+                if (result)
                 {
-                    Application.Current.Properties["user"] = user;
-                    Application.Current.Properties["pay"] = "notbuy";
-                    await Application.Current.SavePropertiesAsync();
                     await Navigation.PushAsync(new MainPage());
                     Application.Current.MainPage = new NavigationPage(new MainPage());
                 }

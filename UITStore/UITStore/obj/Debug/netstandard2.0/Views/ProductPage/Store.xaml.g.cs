@@ -65,6 +65,9 @@ namespace UITStore.Views.ProductPage {
         private global::Xamarin.Forms.Label TitleTag;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
+        private global::UITStore.Components.CustomPicker SortProduct;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.CollectionView Product;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
@@ -86,6 +89,7 @@ namespace UITStore.Views.ProductPage {
             Tap_MLB = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.TapGestureRecognizer>(this, "Tap_MLB");
             LMLB = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Label>(this, "LMLB");
             TitleTag = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Label>(this, "TitleTag");
+            SortProduct = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::UITStore.Components.CustomPicker>(this, "SortProduct");
             Product = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.CollectionView>(this, "Product");
         }
     }

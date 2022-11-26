@@ -9,12 +9,12 @@
             <ScrollView>
                 <StackLayout>
                     <Grid>
-                        <Image Source="{Binding img}" HeightRequest="250" Aspect="AspectFill"></Image>
+                        <Image Source="{Binding image}" HeightRequest="250" Aspect="AspectFill"></Image>
                         <pancakeView:PancakeView BackgroundColor="White" CornerRadius="30" HorizontalOptions="End" Margin="15" 
-                                             Padding="5" VerticalOptions="Start">
+                                             Padding="2" VerticalOptions="Start">
                             <Image Source="Favourite.png" WidthRequest="32" HeightRequest="32">
                                 <Image.GestureRecognizers>
-                                    <TapGestureRecognizer x:Name="TapFavourite" Tapped="TapFavourite_Tapped"></TapGestureRecognizer>
+                                    <TapGestureRecognizer x:Name="TapFavourite" Tapped="TapFavourite_Tapped" CommandParameter="{Binding .}"></TapGestureRecognizer>
                                 </Image.GestureRecognizers>
                             </Image>
                         </pancakeView:PancakeView>
@@ -22,11 +22,18 @@
                     <Grid ColumnDefinitions="2.2*, *" Margin="10">
                         <Label Text="{Binding name}" Grid.Column="0" FontSize="Large" FontAttributes="Bold" TextColor="Black" VerticalTextAlignment="Center"></Label>
                         <pancakeView:PancakeView BackgroundColor="#FF914D" CornerRadius="20" VerticalOptions="Center" Padding="5" Grid.Column="1" HorizontalOptions="CenterAndExpand">
-                            <Label Text=" Giảm giá 20%" TextColor="Black" FontSize="16"></Label>
+                            <Label TextColor="Black" FontSize="16" VerticalOptions="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Giảm giá "></Span>
+                                        <Span Text="{Binding discount, StringFormat='{0:0}%'}"></Span>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
                         </pancakeView:PancakeView>
                     </Grid>
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="{Binding saleprice , StringFormat='{0:0,0} VNĐ'}" TextColor="Black" FontSize="20" Margin="10, 0, 0, 0"></Label>
+                        <Label Text="{Binding salePrice , StringFormat='{0:0,0} VNĐ'}" TextColor="Black" FontSize="20" Margin="10, 0, 0, 0"></Label>
                         <Label TextColor="Black" FontSize="18" VerticalOptions="Center" HorizontalOptions="EndAndExpand" Margin="0, 0, 20, 0">
                             <Label.FormattedText>
                                 <FormattedString>
@@ -40,14 +47,14 @@
                     <StackLayout Orientation="Horizontal">
                         <Label Text="{Binding price , StringFormat='{0:0,0} VNĐ'}" TextColor="Gray" FontSize="18" TextDecorations="Strikethrough" Margin="10, 0, 0, 0"></Label>
                         <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="Start" Margin="0, 0, 20, 0">
-                            <Label Text="5" TextColor="Black" FontSize="18"></Label>
+                            <Label Text="{Binding rating, StringFormat='{0:0.0}'}" TextColor="Black" FontSize="18"></Label>
                             <Image Source="Star.png" WidthRequest="20"></Image>
                         </StackLayout>
                     </StackLayout>
                     <pancakeView:PancakeView Padding="5" HorizontalOptions="Start" Margin="10" BackgroundColor="#FFBD59" CornerRadius="0, 25, 25, 0">
                         <Label Text="Thông tin sản phẩm" TextColor="Black" FontSize="18"></Label>
                     </pancakeView:PancakeView>
-                    <local:CustomLabel Text="{Binding description}" TextColor="Black" FontSize="16" Margin="10, 0, 10, 0"></local:CustomLabel>
+                    <local:CustomLabel Text="{Binding description}" TextColor="Black" FontSize="16" Margin="10, 0, 10, 0" LineHeight="1.4"></local:CustomLabel>
                     <pancakeView:PancakeView Padding="10, 5, 10, 5" HorizontalOptions="Start" Margin="10" BackgroundColor="#FFBD59" CornerRadius="0, 25, 25, 0">
                         <Label Text="Đánh giá" TextColor="Black" FontSize="18"></Label>
                     </pancakeView:PancakeView>
@@ -62,55 +69,38 @@
                                 BackgroundColor="#38B6FF" TextColor="White" />
                         </Frame>
                     </StackLayout>
-                    
-                    <!-- Main structure-->
-                    <!--
-                <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,*">
 
-                    -->
-                    <!-- Main sneaker -->
-                    <!--
-                    <Frame Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" CornerRadius="90">
-                        <Image Source="{Binding picture}" HorizontalOptions="Center"
-                               VerticalOptions="Center" Aspect="AspectFill" HeightRequest="350" />
-                    </Frame>
-
-                    -->
-                    <!-- 5. Second title -->
-                    <!-- Title -->
-                    <!--
-                    <Label Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" Padding="35,0,0,0"
-                           Text="{Binding name}" FontAttributes="Bold" FontSize="40" />
-                    <Label Grid.Column="1" Grid.Row="4" Padding="0,0,35,0" HorizontalOptions="End">
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <Span Text="$ " FontSize="25" />
-                                <Span Text="{Binding price}" FontAttributes="Bold" FontSize="40" />
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
-
-                    -->
-                    <!-- 6. Description -->
-                    <!--
-                    <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="5" Padding="20,30,0,20" Background="#fcf6f2"
-                          VerticalOptions="FillAndExpand" RowDefinitions="Auto,Auto,*" ColumnDefinitions="Auto,*">
-                        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="About the product"
-                               FontAttributes="Bold" />
-                        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
-                               Text="{Binding description}"
-                               LineHeight="1.6" />
-                        <Entry x:Name="countSneaker" Text="" Placeholder="1" Keyboard="Numeric" />
-                        <Button Grid.Row="2" Grid.Column="1"
-                                Clicked="addToStore"
-                                Margin="10,0,20,0" CornerRadius="20"
-                                VerticalOptions="Center" HeightRequest="60" Background="Black" TextColor="White"
-                                FontAttributes="Bold" Text="ADD TO CART" />
-                    </Grid>
-                </Grid>-->
+                    <CollectionView x:Name="ListComment" Margin="20">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="1" VerticalItemSpacing="5"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <SwipeView WidthRequest="40">
+                                        <SwipeView.RightItems>
+                                            <SwipeItems>
+                                                <SwipeItem IconImageSource="DeleteIcon.png" BackgroundColor="Red"
+                                               CommandParameter="{Binding .}" Invoked="OnDelete"></SwipeItem>
+                                            </SwipeItems>
+                                        </SwipeView.RightItems>
+                                        <Grid RowDefinitions="20, 40" ColumnDefinitions="*, 2*, *">
+                                            <Image Source="{Binding avatar}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" HorizontalOptions="Center" Margin="5"></Image>
+                                            <Label Text="{Binding username}" FontSize="18" TextColor="#38B6FF" FontAttributes="Bold" Grid.Column="1" LineBreakMode="TailTruncation"></Label>
+                                            <StackLayout Orientation="Horizontal" Grid.Column="2">
+                                                <Label Text="{Binding rating}" TextColor="Black" FontSize="18"></Label>
+                                                <Image Source="Star.png" WidthRequest="20"></Image>
+                                            </StackLayout>
+                                            <local:CustomLabel Text="{Binding content}" FontSize="16" TextColor="Black" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" LineBreakMode="TailTruncation" MaxLines="2"></local:CustomLabel>
+                                        </Grid>
+                                    </SwipeView>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
                 </StackLayout>
             </ScrollView>
-            <pancakeView:PancakeView BackgroundColor="#FFD089" HeightRequest="60" VerticalOptions="EndAndExpand" CornerRadius="20, 20, 0, 0">
+            <pancakeView:PancakeView BackgroundColor="#FFD089" HeightRequest="165" VerticalOptions="EndAndExpand" CornerRadius="20, 20, 0, 0">
                 <Grid>
                     <Frame HorizontalOptions="StartAndExpand" Margin="15, 10, 0, 10" HasShadow="False" Padding="10, 0, 10, 0" CornerRadius="10">
                         <StackLayout Orientation="Horizontal">

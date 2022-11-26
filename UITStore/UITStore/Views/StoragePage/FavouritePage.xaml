@@ -37,7 +37,7 @@
                                         <Image Source="{Binding img}" Grid.Row="0" Aspect="AspectFill"></Image>
                                     </pancakeView:PancakeView>
                                     <pancakeView:PancakeView BackgroundColor="White" CornerRadius="30" Grid.Row="0" HorizontalOptions="End" Margin="5" 
-                                                                 Padding="5" VerticalOptions="Start">
+                                                                 Padding="2" VerticalOptions="Start">
                                         <Image Source="Favourite.png" WidthRequest="26" HeightRequest="26">
                                             <Image.GestureRecognizers>
                                                 <TapGestureRecognizer x:Name="TapFavourite" Tapped="TapFavourite_Tapped" CommandParameter="{Binding .}"></TapGestureRecognizer>
@@ -58,7 +58,7 @@
                                         </Label>
                                     </pancakeView:PancakeView>
                                     <StackLayout Orientation="Horizontal" Grid.Row="3" HorizontalOptions="End" VerticalOptions="Start" Margin="0, 0, 10, 5">
-                                        <Label Text="5" TextColor="Black" FontSize="16"></Label>
+                                        <Label Text="{Binding rating, StringFormat='{0:0.0}'}" TextColor="Black" FontSize="16"></Label>
                                         <Image Source="Star.png" WidthRequest="16"></Image>
                                     </StackLayout>
                                 </Grid>

@@ -6,13 +6,13 @@ namespace UITStore.Models
 {
     public class DetailOrder
     {
-        public string id { get; set; }
-        public string orderid { get; set; }
-        public string productid { get; set; }
-        public string img { get; set; }
+        public Guid id { get; set; }
+        public Guid orderId { get; set; }
+        public Guid productId { get; set; }
+        public string image { get; set; }
         public string name { get; set; }
         public double price { get; set; }
-        public int productsize { get; set; }
+        public int size { get; set; }
         public int quantity { get; set; }
     }
    

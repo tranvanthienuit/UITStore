@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using Newtonsoft.Json;
 using UITStore.Models;
+using UITStore.ViewModels;
 using UITStore.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -14,80 +15,56 @@ namespace UITStore.Views.ProductPage
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Store : ContentPage
     {
-        public ObservableCollection<Vouchers> sneakerList;
-        private ObservableCollection<Sneakers> _sneakersList;
-
+        private readonly User _user;
+        public SneakerVM sneakerVM = new SneakerVM();
         public Store()
         {
-            /*if (Application.Current.Properties.ContainsKey("store"))
-            {
-                var listSneaker = Application.Current.Properties["store"] as string;
-                Console.WriteLine(listSneaker);
-                var list = JsonConvert.DeserializeObject<List<SneakerBy>>(listSneaker);
-                if (list.Count != 0)
-                    sneakerList = new ObservableCollection<SneakerBy>(list);
-                else
-                    sneakerList = null;
-            }*/
-
             InitializeComponent();
             initSneaker();
-            
-            /*if (Application.Current.Properties["pay"] as string == "notbuy")
+            _user = Application.Current.Properties["user"] as User;
+        }
+    
+        private void initSneaker()
+        {
+            Product.ItemsSource = sneakerVM.GetSneaker();
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            Product.ItemsSource = sneakerVM.GetSneaker();
+        }
+
+        private void TapFavourite_Tapped(object sender, EventArgs e)
+        {
+            Image img = (Image)sender;
+            TapGestureRecognizer tapGesture = (TapGestureRecognizer)img.GestureRecognizers[0];
+            Sneakers sneakerFavourite = tapGesture.CommandParameter as Sneakers;
+            var favourite = new Favourite
             {
-                Pay.Text = "Let's select item you want";
+                userid = _user.id,
+                sneakerId = sneakerFavourite.id.ToString(),
+                name = sneakerFavourite.name,
+                description = sneakerFavourite.description,
+                category = sneakerFavourite.category,
+                discount = sneakerFavourite.discount,
+                img = sneakerFavourite.image,
+                price = sneakerFavourite.price,
+                rating = sneakerFavourite.rating,
+                saleprice = sneakerFavourite.salePrice,
+                size = sneakerFavourite.size,
+                stock = sneakerFavourite.stock
+            };
+            var db = new SQLiteDatabase();
+            if (db.ExistFavourite(favourite))
+            {
+                DisplayAlert("Message", "Sneaker is already in your favourite.", "ok");
             }
             else
             {
-                if (Application.Current.Properties["pay"] as string == "true")
-                    Pay.Text = "Order Ordered";
-                else
-                    Pay.Text = "You Now";
+                db.addFavourite(favourite);
+                DisplayAlert("Message", "Add Sneaker in your favourite successfully.", "ok");
             }
-
-
-            listSneaker.ItemsSource = sneakerList;*/
         }
-        private void initSneaker()
-        {
-            _sneakersList = new ObservableCollection<Sneakers>
-            {
-                new Sneakers
-                (
-                    "sneaker1", "NMD_R1 candy", "Sneakers1", 500000, 400000,
-                     "tuyet voi ông mặt trời", "24", 24, "1"
-                    
-                ),
-                new Sneakers
-                (
-                    "sneaker1", "NMD_R2 candy", "Sneakers1", 500000, 400000,
-                     "tuyet voi ông mặt trời", "24", 24, "2"
-
-                ),
-                new Sneakers
-                (
-                    "sneaker1", "NMD_R3 candy", "Sneakers1", 500000, 400000,
-                     "tuyet voi ông mặt trời", "24", 24, "3"
-
-                ),
-                new Sneakers
-                (
-                    "sneaker1", "NMD_R4 candy", "Sneakers1", 500000, 400000,
-                     "tuyet voi ông mặt trời", "24,26,28", 24, "4"
-
-                ),
-                new Sneakers
-                (
-                    "sneaker1", "NMD_R5 candy", "Sneakers1", 500000, 400000,
-                     "tuyet voi ông mặt trời", "24,25,26", 24, "5"
-
-                ),
-            };
-            Product.ItemsSource = _sneakersList;
-            
-        }
-
-
         private void Tap_Nike_Tapped(object sender, EventArgs e)
         {
             if(FNike.BackgroundColor != Color.FromHex("#38B6FF"))
@@ -103,17 +80,15 @@ namespace UITStore.Views.ProductPage
                 FMLB.BackgroundColor = Color.White;
                 LMLB.TextColor = Color.Black;
                 TitleTag.Text = "Sản phẩm Nike";
-                Product.ItemsSource = _sneakersList.Where(p => p.category == "1");
+                Product.ItemsSource = sneakerVM.GetSneaker().Where(p => p.category == "Nike");
             } else
             {
                 FNike.BackgroundColor = Color.White;
                 LNike.TextColor = Color.Black;
                 TitleTag.Text = "Tất cả sản phẩm";
-                Product.ItemsSource = _sneakersList;
+                Product.ItemsSource = sneakerVM.GetSneaker();
             }
         }
-
-        
 
         private void Tap_Adidas_Tapped(object sender, EventArgs e)
         {
@@ -130,14 +105,14 @@ namespace UITStore.Views.ProductPage
                 FMLB.BackgroundColor = Color.White;
                 LMLB.TextColor = Color.Black;
                 TitleTag.Text = "Sản phẩm Adidas";
-                Product.ItemsSource = _sneakersList.Where(p => p.category == "2");
+                Product.ItemsSource = sneakerVM.GetSneaker().Where(p => p.category == "Adidas");
             }
             else
             {
                 FAdidas.BackgroundColor = Color.White;
                 LAdidas.TextColor = Color.Black;
                 TitleTag.Text = "Tất cả sản phẩm";
-                Product.ItemsSource = _sneakersList;
+                Product.ItemsSource = sneakerVM.GetSneaker();
             }
         }
 
@@ -156,14 +131,14 @@ namespace UITStore.Views.ProductPage
                 FMLB.BackgroundColor = Color.White;
                 LMLB.TextColor = Color.Black;
                 TitleTag.Text = "Sản phẩm NB";
-                Product.ItemsSource = _sneakersList.Where(p => p.category == "3");
+                Product.ItemsSource = sneakerVM.GetSneaker().Where(p => p.category == "New Balance");
             }
             else
             {
                 FNB.BackgroundColor = Color.White;
                 LNB.TextColor = Color.Black;
                 TitleTag.Text = "Tất cả sản phẩm";
-                Product.ItemsSource = _sneakersList;
+                Product.ItemsSource = sneakerVM.GetSneaker();
             }
         }
 
@@ -182,14 +157,14 @@ namespace UITStore.Views.ProductPage
                 FMLB.BackgroundColor = Color.White;
                 LMLB.TextColor = Color.Black;
                 TitleTag.Text = "Sản phẩm Vans";
-                Product.ItemsSource = _sneakersList.Where(p => p.category == "4");
+                Product.ItemsSource = sneakerVM.GetSneaker().Where(p => p.category == "Vans");
             }
             else
             {
                 FVans.BackgroundColor = Color.White;
                 LVans.TextColor = Color.Black;
                 TitleTag.Text = "Tất cả sản phẩm";
-                Product.ItemsSource = _sneakersList;
+                Product.ItemsSource = sneakerVM.GetSneaker();
             }
         }
 
@@ -208,14 +183,14 @@ namespace UITStore.Views.ProductPage
                 FMLB.BackgroundColor = Color.FromHex("#38B6FF");
                 LMLB.TextColor = Color.FromHex("#38B6FF");
                 TitleTag.Text = "Sản phẩm MLB";
-                Product.ItemsSource = _sneakersList.Where(p => p.category == "5");
+                Product.ItemsSource = sneakerVM.GetSneaker().Where(p => p.category == "MLB");
             }
             else
             {
                 FMLB.BackgroundColor = Color.White;
                 LMLB.TextColor = Color.Black;
                 TitleTag.Text = "Tất cả sản phẩm";
-                Product.ItemsSource = _sneakersList;
+                Product.ItemsSource = sneakerVM.GetSneaker();
             }
         }
 
@@ -241,44 +216,45 @@ namespace UITStore.Views.ProductPage
             LMLB.TextColor = Color.Black;
             if(e.NewTextValue != "")
             {
-                int length = _sneakersList.Where(p => p.name.ToLower().Contains(e.NewTextValue)).ToArray().Length;
+                int length = sneakerVM.GetSneaker().Where(p => p.name.ToLower().Contains(e.NewTextValue)).ToArray().Length;
                 TitleTag.Text = "Có " + length + " sản phẩm";
             } else
             {
                 TitleTag.Text = "Tất cả sản phẩm";
             }
             
-            Product.ItemsSource = _sneakersList.Where(p => p.name.ToLower().Contains(e.NewTextValue));
+            Product.ItemsSource = sneakerVM.GetSneaker().Where(p => p.name.ToLower().Contains(e.NewTextValue));
         }
-        /*      private async void viewDetail(object sender, EventArgs e)
-{
-var btn = (Button)sender;
-var sneakerBy = (SneakerBy)btn.BindingContext;
-await Navigation.PushAsync(new SneakerDetailPage(sneakerBy.Sneakers));
-}
-private async void Product_SelectionChanged(object sender, SelectionChangedEventArgs e)
-{
-   var detailProduct = e.CurrentSelection[0] as Sneakers;
-   await Navigation.PushAsync(new SneakerDetailPage(detailProduct));
-}
-private void SearchBar_OnTextChanged(object sender, TextChangedEventArgs e)
-{
-var sneakersList = new ObservableCollection<Sneakers>();
-var key = e.NewTextValue;
-foreach (var item in sneakersList)
-if (item.name.ToLower().Contains(key.ToLower()))
-sneakersList.Add(item);
 
-listSneaker.ItemsSource = sneakersList;
-}
-
-private async void payNow(object sender, EventArgs e)
-{
-await DisplayAlert("Congratulation", "You ordered, successfully", "Yes", "No");
-Application.Current.Properties["pay"] = "true";
-await Application.Current.SavePropertiesAsync();
-await Navigation.PushAsync(new MainPage());
-Application.Current.MainPage = new NavigationPage(new MainPage());
-}*/
+        private void SortProduct_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FNike.BackgroundColor = Color.White;
+            LNike.TextColor = Color.Black;
+            FAdidas.BackgroundColor = Color.White;
+            LAdidas.TextColor = Color.Black;
+            FNB.BackgroundColor = Color.White;
+            LNB.TextColor = Color.Black;
+            FVans.BackgroundColor = Color.White;
+            LVans.TextColor = Color.Black;
+            FMLB.BackgroundColor = Color.White;
+            LMLB.TextColor = Color.Black;
+            if (SortProduct.SelectedIndex == 0)
+            {
+                Product.ItemsSource = sneakerVM.FilterSneaker(100, "salePrice", "DESC");
+            }
+            else if (SortProduct.SelectedIndex == 1)
+            {
+                Product.ItemsSource = sneakerVM.FilterSneaker(100, "salePrice", "ASC");
+            }
+            else
+          if (SortProduct.SelectedIndex == 2)
+            {
+                Product.ItemsSource = sneakerVM.FilterSneaker(100, "discount", "DESC");
+            }
+            else if (SortProduct.SelectedIndex == 3)
+            {
+                Product.ItemsSource = sneakerVM.FilterSneaker(100, "createDate", "DESC");
+            }
+        }
     }
 }
