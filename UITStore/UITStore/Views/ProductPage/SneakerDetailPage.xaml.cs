@@ -56,12 +56,12 @@ namespace UITStore.Views.ProductPage
             var db = new SQLiteDatabase();
             if (db.ExistFavourite(favourite))
             {
-                DisplayAlert("Message", "Sneaker is already in your favourite.", "ok");
+                DisplayAlert("Thông báo", "Sản phẩm đã có trong yêu thích.", "ok");
             }
             else
             {
                 db.addFavourite(favourite);
-                DisplayAlert("Message", "Add Sneaker in your favourite successfully.", "ok");
+                DisplayAlert("Thông báo", "Thêm vào yêu thích thành công.", "ok");
             }
         }
         private void OnDelete(object sender, EventArgs e)
