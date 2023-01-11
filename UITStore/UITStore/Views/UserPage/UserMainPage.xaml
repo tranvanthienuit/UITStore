@@ -25,56 +25,63 @@
                                 <Image Source="Favourite.png" WidthRequest="25" HeightRequest="25"></Image>
                                 <Label x:Name="favourite" TextColor="Red" FontSize="18" HorizontalTextAlignment="Center" FontAttributes="Bold" Margin="-5, 0, 0, 0"></Label>
                             </StackLayout>
-                            <Label Text="Favourites" TextColor="Orange" HorizontalTextAlignment="Center" FontSize="18"></Label>
+                            <Label Text="Yêu thích" TextColor="Orange" HorizontalTextAlignment="Center" FontSize="16"></Label>
                         </StackLayout>
                         <StackLayout Grid.Column="2" Grid.Row="0" VerticalOptions="End">
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                                 <Image Source="CartOrder.png" WidthRequest="25" HeightRequest="25"></Image>
                                 <Label x:Name="Order" TextColor="#2196F3" FontSize="18" FontAttributes="Bold" HorizontalTextAlignment="Center" Margin="-5, 0, 0, 0"></Label>
                             </StackLayout>
-                            <Label Text="Orders" TextColor="Orange" HorizontalTextAlignment="Center" FontSize="18"></Label>
+                            <Label Text="Đơn hàng" TextColor="Orange" HorizontalTextAlignment="Center" FontSize="16"></Label>
                         </StackLayout>
                         <StackLayout Grid.Column="1" Grid.Row="1">
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                                 <Image Source="Voucher.png" WidthRequest="25" HeightRequest="25"></Image>
                                 <Label x:Name="voucher" TextColor="#4CAF50" FontSize="18" FontAttributes="Bold" HorizontalTextAlignment="Center" Margin="0, 0, 0, 0"></Label>
                             </StackLayout>
-                            <Label Text="Vouchers" TextColor="Orange" HorizontalTextAlignment="Center" FontSize="18"></Label>
+                            <Label Text="Voucher" TextColor="Orange" HorizontalTextAlignment="Center" FontSize="16"></Label>
                         </StackLayout>
                         <StackLayout Grid.Column="2" Grid.Row="1">
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                                 <Image Source="LoyaltyPoint.png" WidthRequest="25" HeightRequest="25"></Image>
                                 <Label Text="{Binding loyalPoint}" TextColor="#FFC919" FontSize="18" FontAttributes="Bold" HorizontalTextAlignment="Center" Margin="-5, 0, 0, 0"></Label>
                             </StackLayout>
-                            <Label Text="Loyalty Points" TextColor="Orange" HorizontalTextAlignment="Center" FontSize="18"></Label>
+                            <Label Text="Điểm thành viên" TextColor="Orange" HorizontalTextAlignment="Center" FontSize="16"></Label>
                         </StackLayout>
                         <Frame Padding="-10" HorizontalOptions="Center" CornerRadius="15" Grid.Row="1" VerticalOptions="End">
-                            <Button x:Name="changeAvatar" BackgroundColor="#38B6FF" TextColor="White" Text="Change Avatar" FontSize="12" FontAttributes="Bold"
+                            <Button x:Name="changeAvatar" BackgroundColor="#38B6FF" TextColor="White" Text="Đổi avatar" FontSize="12" FontAttributes="Bold"
                                 Padding="15, 0, 15, 0" Clicked="changeAvatar_Clicked"></Button>
                         </Frame>
                     </Grid>
                 </Frame>
-                <StackLayout Margin="10">
+                <StackLayout Margin="10" x:Name="Main">
+                    <Grid ColumnDefinitions="*, 7*" RowDefinitions="50" x:Name="MainAdmin">
+                        <Frame Padding="0" CornerRadius="10" Grid.Column="0" Grid.ColumnSpan="2">
+                            <Button x:Name="Admin" BackgroundColor="#FFD8A9" Clicked="Admin_Clicked"></Button>
+                        </Frame>
+                        <Image Source="AdminIcon.png" Grid.Column="0" Margin="10, 10, 0, 10" HorizontalOptions="Start"></Image>
+                        <Label Text="Quản lý" FontSize="20" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="1"></Label>
+                    </Grid>
                     <Grid ColumnDefinitions="*, 7*" RowDefinitions="50">
                         <Frame Padding="0" CornerRadius="10" Grid.Column="0" Grid.ColumnSpan="2">
                             <Button x:Name="Profile" BackgroundColor="#FFD8A9" Clicked="Profile_Clicked"></Button>
                         </Frame>
                         <Image Source="ProfileIcon.png" Grid.Column="0" Margin="10, 10, 0, 10" HorizontalOptions="Start"></Image>
-                        <Label Text="Profile" FontSize="20" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="1"></Label>
+                        <Label Text="Thông tin" FontSize="20" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="1"></Label>
                     </Grid>
                     <Grid ColumnDefinitions="*, 7*" RowDefinitions="50">
                         <Frame Padding="0" CornerRadius="10" Grid.Column="0" Grid.ColumnSpan="2">
                             <Button BackgroundColor="#FFD8A9" x:Name="MyOrder" Clicked="MyOrder_Clicked"></Button>
                         </Frame>
                         <Image Source="CartOrder.png" Grid.Column="0" Margin="10, 10, 0, 10" HorizontalOptions="Start"></Image>
-                        <Label Text="My Orders" FontSize="20" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="1"></Label>
+                        <Label Text="Đơn hàng" FontSize="20" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="1"></Label>
                     </Grid>
                     <Grid ColumnDefinitions="*, 7*" RowDefinitions="50">
                         <Frame Padding="0" CornerRadius="10" Grid.Column="0" Grid.ColumnSpan="2">
                             <Button x:Name="Favourite" BackgroundColor="#FFD8A9" Clicked="Favourite_Clicked"></Button>
                         </Frame>
                         <Image Source="Favourite.png" Grid.Column="0" Margin="10, 10, 0, 10" HorizontalOptions="Start"></Image>
-                        <Label Text="My Favourite" FontSize="20" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="1"></Label>
+                        <Label Text="Yêu thích" FontSize="20" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="1"></Label>
                     </Grid>
                     <Grid ColumnDefinitions="*, 7*" RowDefinitions="50">
                         <Frame Padding="0" CornerRadius="10" Grid.Column="0" Grid.ColumnSpan="2">
@@ -88,14 +95,14 @@
                             <Button x:Name="ChangePassword" BackgroundColor="#FFD8A9" Clicked="ChangePassword_Clicked" ></Button>
                         </Frame>
                         <Image Source="PasswordIcon.png" Grid.Column="0" Margin="10, 10, 0, 10" HorizontalOptions="Start"></Image>
-                        <Label Text="Change Password" FontSize="20" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="1"></Label>
+                        <Label Text="Đổi mật khẩu" FontSize="20" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="1"></Label>
                     </Grid>
                     <Grid ColumnDefinitions="*, 7*" RowDefinitions="50">
                         <Frame Padding="0" CornerRadius="10" Grid.Column="0" Grid.ColumnSpan="2">
                             <Button x:Name="Logout" BackgroundColor="#FFD8A9" Clicked="Logout_Clicked"></Button>
                         </Frame>
                         <Image Source="LogoutIcon.png" Grid.Column="0" Margin="10, 10, 0, 10" HorizontalOptions="Start"></Image>
-                        <Label Text="Logout" FontSize="20" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="1"></Label>
+                        <Label Text="Đăng xuất" FontSize="20" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="1"></Label>
                     </Grid>
                 </StackLayout>
             </StackLayout>

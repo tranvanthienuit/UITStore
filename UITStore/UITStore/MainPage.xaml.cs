@@ -12,10 +12,6 @@ namespace UITStore
         {
             InitializeComponent();
             _user = Application.Current.Properties["user"] as User;
-            if (_user.role == "user")
-            {
-                Main.Children.Remove(Admin);
-            }
         }
 
         private void CartOrder_Tapped(object sender, System.EventArgs e)

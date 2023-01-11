@@ -9,45 +9,45 @@
                     <Grid>
                         <Frame BorderColor="#FFD8A9" CornerRadius="5" HasShadow="False"/>
                     <Label x:Name="usernameLabel"  AnchorY="1" AnchorX="0" Margin="10" Padding="2" TextColor="#FF914D" FontSize="20"
-                                BackgroundColor="White" HorizontalOptions="Start" Text="UserName" />
+                                BackgroundColor="White" HorizontalOptions="Start" Text="Tên tài khoản" />
                         <local:CustomEntry x:Name="username" Text="{Binding username}" BackgroundColor="Transparent" FontSize="20"  ClearButtonVisibility="WhileEditing"/>
                     </Grid>
                     <Label x:Name="vldUsername" TextColor="Red" HorizontalOptions="EndAndExpand" FontSize="12" Margin="0, -5, 0, -15"></Label>
                     <Grid Margin="0, 10, 0, 0">
                         <Frame BorderColor="#FFD8A9" CornerRadius="5" HasShadow="False"/>
                         <Label x:Name="passwordLabel"  AnchorY="1" AnchorX="0" Margin="10"  Padding="2" TextColor="#FF914D" FontSize="20"
-                                BackgroundColor="White" HorizontalOptions="Start" Text="Password" />
+                                BackgroundColor="White" HorizontalOptions="Start" Text="Mật khẩu" />
                         <local:CustomEntry x:Name="password" Text="{Binding password}" IsPassword="True" BackgroundColor="Transparent" FontSize="20"  ClearButtonVisibility="WhileEditing"/>
                     </Grid>
                 <Label x:Name="vldPassword" TextColor="Red" HorizontalOptions="EndAndExpand" FontSize="12" Margin="0, -5, 0, -15"></Label>
                     <Grid Margin="0, 10, 0, 0">
                         <Frame BorderColor="#FFD8A9" CornerRadius="5" HasShadow="False"/>
                     <Label x:Name="fullnameLabel"  AnchorY="1" AnchorX="0" Margin="10" Padding="2" TextColor="#FF914D" FontSize="20"
-                                BackgroundColor="White" HorizontalOptions="Start" Text="FullName" />
+                                BackgroundColor="White" HorizontalOptions="Start" Text="Họ tên" />
                         <local:CustomEntry x:Name="fullname" Text="{Binding fullname}" BackgroundColor="Transparent" FontSize="20"  ClearButtonVisibility="WhileEditing"/>
                     </Grid>
                 <Label x:Name="vldFullname" TextColor="Red" HorizontalOptions="EndAndExpand" FontSize="12" Margin="0, -5, 0, -15"></Label>
                     <Grid Margin="0, 10, 0, 0">
                         <Frame BorderColor="#FFD8A9" CornerRadius="5" HasShadow="False"/>
                         <Label x:Name="phoneLabel"  AnchorY="1" AnchorX="0" Margin="10"  Padding="2" TextColor="#FF914D" FontSize="20"
-                                BackgroundColor="White" HorizontalOptions="Start" Text="Telephone" />
+                                BackgroundColor="White" HorizontalOptions="Start" Text="Số điện thoại" />
                     <local:CustomEntry x:Name="phone" Text="{Binding telephone}" BackgroundColor="Transparent" FontSize="20"  ClearButtonVisibility="WhileEditing"  Keyboard="Numeric"/>
                     </Grid>
                 <Label x:Name="vldPhone" TextColor="Red" HorizontalOptions="EndAndExpand" FontSize="12" Margin="0, -5, 0, -15"></Label>
                     <Grid Margin="0, 10, 0, 0">
                         <Frame BorderColor="#FFD8A9" CornerRadius="5" HasShadow="False"/>
                         <Label x:Name="addressLabel"  AnchorY="1" AnchorX="0" Margin="10"  Padding="2" TextColor="#FF914D" FontSize="20"
-                                BackgroundColor="White" HorizontalOptions="Start" Text="Address" />
+                                BackgroundColor="White" HorizontalOptions="Start" Text="Địa chỉ" />
                         <local:CustomEntry x:Name="address" Text="{Binding address}" BackgroundColor="Transparent" FontSize="20"  ClearButtonVisibility="WhileEditing"/>
                     </Grid>
                 <Label x:Name="vldAddress" TextColor="Red" HorizontalOptions="EndAndExpand" FontSize="12" Margin="0, -5, 0, -15"></Label>
                     <Frame Padding="0" HorizontalOptions="Center" CornerRadius="10" Margin="20">
-                        <Button Text="Sign Up" Clicked="signUp" FontSize="20" FontAttributes="Bold"
+                        <Button Text="Đăng ký" Clicked="signUp" FontSize="20" FontAttributes="Bold"
                                 BackgroundColor="#FF914D" TextColor="White" Padding="40, 0, 40, 0" />
                     </Frame>
-                    <Label Text="You Have Account. Let's Sign In" FontSize="16" HorizontalOptions="Center" />
+                    <Label Text="Bạn đã có tài khoản? Vui lòng đăng nhập!" FontSize="16" HorizontalOptions="Center" />
                     <Frame Padding="0" HorizontalOptions="Center" CornerRadius="10" Margin="10">
-                        <Button Text="Sign In" Clicked="signin" HorizontalOptions="Center" FontSize="20" FontAttributes="Bold"
+                        <Button Text="Đăng nhập" Clicked="signin" HorizontalOptions="Center" FontSize="20" FontAttributes="Bold"
                                 BackgroundColor="#38B6FF" TextColor="White" Padding="20, 0, 20, 0" />
                     </Frame>
                 </StackLayout>

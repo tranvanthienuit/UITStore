@@ -27,4 +27,9 @@ namespace UITStore.Models
         public bool success { get; set; }
         public User data { get; set; }
     }
+    public class ListUserModel
+    {
+        public bool success { get; set; }
+        public List<User> data { get; set; }
+    }
 }

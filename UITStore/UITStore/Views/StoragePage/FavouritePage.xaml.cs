@@ -28,7 +28,7 @@ namespace UITStore.Views.StoragePage
 
         private async void  TapFavourite_Tapped(object sender, EventArgs e)
         {
-            bool answer = await DisplayAlert("Warning", "Do you realy want to delete its?", "Yes", "No");
+            bool answer = await DisplayAlert("Cảnh báo", "Bạn thực sự muốn xóa nó?", "Có", "Không");
             if(answer)
             {
                 Image img = (Image)sender;

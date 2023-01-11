@@ -105,5 +105,20 @@ namespace UITStore.Services
                 return null;
             }
         }
+
+        public async Task<ListUserModel> GetListUser()
+        {
+            try
+            {
+                HttpResponseMessage response = client.GetAsync("list").Result;
+                string responseRead = await response.Content.ReadAsStringAsync();
+                ListUserModel data = JsonConvert.DeserializeObject<ListUserModel>(responseRead);
+                return await Task.FromResult(data);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
     }
 }

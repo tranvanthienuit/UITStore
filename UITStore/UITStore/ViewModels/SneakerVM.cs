@@ -47,17 +47,46 @@ namespace UITStore.ViewModels
                 return null;
             }
         }
-        public bool UpdateSneaker(Guid Id, string Name, string Size, int Stock, double Price, string Description, string Category, double SalePrice, string Image, double Discount, double Rating, DateTime CreateDate)
+        public bool UpdateSneaker(Guid Id, string Name, string Size, int Stock, double Price, string Description, string Category, double SalePrice, string Image, double Rating, DateTime CreateDate)
         {
             Sneakers sneakers = new Sneakers
             {
                 id = Id, name = Name, size = Size, stock = Stock, price = Price, description = Description, category = Category, salePrice = SalePrice, image = Image,
-                 discount = Discount, rating = Rating, createDate = CreateDate
+                 discount = Math.Ceiling((1 - SalePrice / Price) * 100), rating = Rating, createDate = CreateDate
             };
             ResponseUpdateSneaker result = SneakerService.ServiceClientInstance.UpdateSneaker(sneakers).Result;
             if (result.success)
             {
 
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool CreateSneaker(string Name, string Size, int Stock, double Price, string Description, string Category, double SalePrice, string Image)
+        {
+            RequestSneaker sneakers = new RequestSneaker
+            {
+                name = Name, size = Size, stock = Stock,price = Price, description = Description,
+                category = Category, salePrice = SalePrice, image = Image, discount = Math.Ceiling((1 - SalePrice/Price)*100), rating = 5,
+            };
+            ResponseUpdateSneaker result = SneakerService.ServiceClientInstance.AddSneaker(sneakers).Result;
+            if (result.success)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool DeleteSneaker(Guid id)
+        {
+            DeleteSneaker result = SneakerService.ServiceClientInstance.DeleteSneaker(id).Result;
+            if (result.success)
+            {
                 return true;
             }
             else

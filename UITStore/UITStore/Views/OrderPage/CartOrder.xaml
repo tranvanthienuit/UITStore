@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             x:Class="UITStore.Views.OrderPage.CartOrder" Title="Cart">
+             x:Class="UITStore.Views.OrderPage.CartOrder" Title="Giỏ hàng">
     <ContentPage.Content>
         <StackLayout>
             <ScrollView Margin="5">
@@ -68,7 +68,7 @@
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
-                    <Button x:Name="PayNow" Text="Pay Now " BackgroundColor="#38B6FF" Padding="5" HorizontalOptions="EndAndExpand" Margin="0, 10, 15, 10" 
+                    <Button x:Name="PayNow" Text="Mua ngay " BackgroundColor="#38B6FF" Padding="5" HorizontalOptions="EndAndExpand" Margin="0, 10, 15, 10" 
                             CornerRadius="15" FontAttributes="Bold" Clicked="PayNow_Clicked"></Button>
                 </Grid>
             </pancakeView:PancakeView>

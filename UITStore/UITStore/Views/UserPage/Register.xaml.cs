@@ -41,11 +41,11 @@ namespace UITStore.Views.UserPage
                 bool result = userViews.addNewUser();
                 if (result)
                 {
-                    bool signResult = await DisplayAlert("Successfully", "You sign up, successfully", "Yes", "No");
+                    bool signResult = await DisplayAlert("Thành công!", "Đăng ký thành công! Chuyển tới đăng nhập!", "Có", "Không");
                     if (signResult) await Navigation.PushAsync(new Login());
                 } else
                 {
-                    await DisplayAlert("Error", "User already exists!", "OK");
+                    await DisplayAlert("Lỗi", "Tài khoản đã tồn tại!", "OK");
                 }
             }
             ValidationUsername();

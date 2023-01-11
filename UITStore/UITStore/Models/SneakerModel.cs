@@ -27,4 +27,9 @@ namespace UITStore.Models
         public double discount { get; set; }
         public double rating { get; set; }
     }
+    public class DeleteSneaker
+    {
+        public bool success { get; set; }
+        public bool data { get; set; }
+    }
 }

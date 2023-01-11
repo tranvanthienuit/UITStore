@@ -65,22 +65,22 @@ namespace UITStore.Views.UserPage
             {
                 if (_user.password != password.Text)
                 {
-                    DisplayAlert("Error", "Password is wrong!", "OK");
+                    DisplayAlert("Lỗi", "Mật khẩu sai!", "OK");
                 } 
                 else if (newPassword.Text != verifyPassword.Text)
                 {
-                    DisplayAlert("Error", "Verify Password is wrong!", "OK");   
+                    DisplayAlert("Lỗi", "Xác nhận mật khẩu sai!", "OK");   
                 }
                 else
                 {
                     bool result = userViews.ChangePassword(_user.id, newPassword.Text);
                     if (result)
                     {
-                        _ = DisplayAlert("Successfully", "You updated password successfully", "Ok");
+                        _ = DisplayAlert("Thành công", "Cập nhật thành công", "Ok");
                     }
                     else
                     {
-                        _ = DisplayAlert("Error", "Fail", "Ok");
+                        _ = DisplayAlert("Lỗi", "Lỗi", "Ok");
                     }
                     password.Text = "";
                     newPassword.Text = "";

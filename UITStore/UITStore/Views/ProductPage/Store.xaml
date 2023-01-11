@@ -4,13 +4,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" xmlns:local="clr-namespace:UITStore.Components"
              BackgroundColor="#efefef"
-             Title="Store"
+             Title="Cửa hàng"
              x:Class="UITStore.Views.ProductPage.Store">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
                 <Frame Padding="0" CornerRadius="20" Margin="10">
-                    <local:CustomSearchBar BackgroundColor="AliceBlue" TextColor="#38B6FF" CancelButtonColor="#FF914D" Placeholder="Search" FontSize="18" TextTransform="Lowercase" TextChanged="SearchBar_TextChanged"></local:CustomSearchBar>
+                    <local:CustomSearchBar BackgroundColor="AliceBlue" TextColor="#38B6FF" CancelButtonColor="#FF914D" Placeholder="Tìm kiếm..." FontSize="18" TextTransform="Lowercase" TextChanged="SearchBar_TextChanged"></local:CustomSearchBar>
                 </Frame>
                 <Grid RowDefinitions="*,0.5*, *" ColumnDefinitions="*, *, *, *, *" Margin="20, 10, 20, 10" ColumnSpacing="10" RowSpacing="0" HeightRequest="90">
                     <Frame x:Name="FNike" Padding="10" CornerRadius="30" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
@@ -135,88 +135,5 @@
                 </CollectionView>
             </StackLayout>
         </ScrollView>
-        <!--<ScrollView>
-                <Grid Padding="25,0,0,0" ColumnDefinitions="Auto,*,*,Auto" RowDefinitions="Auto,Auto,*">
-                    --><!-- 1. Main header-->
-                    <!--Cart icon--><!--
-                    <SearchBar
-                        TextChanged="SearchBar_OnTextChanged"
-                        Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
-                        HorizontalOptions="Fill"
-                        VerticalOptions="StartAndExpand"
-                        Placeholder=""
-                        CancelButtonColor="Orange"
-                        PlaceholderColor="Orange"
-                        TextTransform="Lowercase"
-                        HorizontalTextAlignment="Start" />            --><!--Cart heart-->
-                    <!-- 2. Title--><!--
-                    <Label Grid.Row="1" Grid.ColumnSpan="4">
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <Span Text="UITStore" FontAttributes="Bold" FontSize="40" TextColor="Black" />
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
-                    --><!-- 3. Sneaker list--><!--
-                    <CollectionView Grid.Column="0" Margin="0,0,25,0"
-                                    Grid.Row="2" Grid.ColumnSpan="4"
-                                    VerticalScrollBarVisibility="Never"
-                                    x:Name="listSneaker"
-                                    VerticalOptions="StartAndExpand">
-                        <CollectionView.ItemsLayout>
-                            <GridItemsLayout Orientation="Vertical"
-                                             Span="2" />
-                        </CollectionView.ItemsLayout>
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <Grid ColumnDefinitions="*,*" Padding="8" HeightRequest="300">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="5" />
-                                    </Grid.RowDefinitions>
-                                    <pancakeView:PancakeView CornerRadius="20,20,20,20" Grid.Row="0" Grid.Column="0"
-                                                             Grid.ColumnSpan="2">
-                                        <Image Source="{Binding Sneakers.picture}" Aspect="AspectFill" />
-                                    </pancakeView:PancakeView>
-                                    <Button Grid.Row="0" Grid.Column="1" Margin="0,7,5,0" ImageSource="Heart24"
-                                            VerticalOptions="Start" HorizontalOptions="End" HeightRequest="40"
-                                            WidthRequest="40" CornerRadius="20" BackgroundColor="White" />
-                                    <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
-                                           Text="{Binding Sneakers.name}"
-                                           TextColor="Black"
-                                           Margin="0,13,0,6" />
-                                    <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
-                                        <Label.FormattedText>
-                                            <FormattedString>
-                                                <Span Text="$ " />
-                                                <Span Text="{Binding Sneakers.price}" FontAttributes="Bold"
-                                                      FontSize="22"
-                                                      TextColor="SlateGray" />
-                                            </FormattedString>
-                                        </Label.FormattedText>
-                                    </Label>
-                                    <Label Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
-                                        <Label.FormattedText>
-                                            <FormattedString>
-                                                <Span Text="Number" />
-                                                <Span Text="{Binding count}" FontAttributes="Bold"
-                                                      FontSize="22"
-                                                      TextColor="SlateGray" />
-                                            </FormattedString>
-                                        </Label.FormattedText>
-                                    </Label>
-                                    <Button Text="View Detail" Clicked="viewDetail" Grid.Row="4" Grid.ColumnSpan="2"
-                                            VerticalOptions="Center" />
-                                </Grid>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </CollectionView>
-                </Grid>
-            </ScrollView>
-            <Button Clicked="payNow" x:Name="Pay" TextColor="White" FontAttributes="Bold" BackgroundColor="Black"
-                    CornerRadius="10" Margin="5,5,10,20" HeightRequest="50" />-->
-        
     </ContentPage.Content>
 </ContentPage>

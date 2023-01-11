@@ -12,5 +12,7 @@ namespace UITStore.Services
         Task<ResponseUpdateSneaker> GetSneakerById(Guid id);
         Task<SneakerModel> SneakerFilter(int size, string type, string filter);
         Task<ResponseUpdateSneaker> UpdateSneaker(Sneakers sneakers);
+        Task<ResponseUpdateSneaker> AddSneaker(RequestSneaker sneaker);
+        Task<DeleteSneaker> DeleteSneaker(Guid id);
     }
 }

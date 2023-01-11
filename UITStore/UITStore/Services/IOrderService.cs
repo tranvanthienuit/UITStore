@@ -13,5 +13,7 @@ namespace UITStore.Services
         Task<DataDetailOrder> GetDataDetailOrder(Guid id);
         Task<DeleteOrder> DeleteOrder(Guid id);
         Task<DeleteOrder> DeleteDetailOrder(Guid id);
+        Task<OrderModel> UpdateOrder(Order order);
+        Task<ListOrder> GetListOrder();
     }
 }

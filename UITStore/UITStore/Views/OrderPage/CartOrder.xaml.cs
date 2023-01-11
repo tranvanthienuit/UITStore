@@ -120,8 +120,8 @@ namespace UITStore.Views.OrderPage
                 "Voucher 1: -20%", "Voucher 2: -50,000 VNĐ", "Voucher 3: -15%", "Voucher 4: -40,000 VNĐ"
             };
             string action;
-            action = await DisplayActionSheet("Voucher", "Cancel", null, listVoucher);
-            Voucher.Text = action != "Cancel" ? action : Voucher.Text;
+            action = await DisplayActionSheet("Voucher", "Hủy", null, listVoucher);
+            Voucher.Text = action != "Hủy" ? action : Voucher.Text;
             var db = new SQLiteDatabase();
             ShowTotal(db.getCart(_user.id));
         }

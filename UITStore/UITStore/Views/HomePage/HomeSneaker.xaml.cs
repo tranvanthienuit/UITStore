@@ -1,4 +1,4 @@
-using UITStore.ViewModels;
+﻿using UITStore.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -65,11 +65,11 @@ namespace UITStore.Views.HomePage
             var db = new SQLiteDatabase();
             if(db.ExistFavourite(favourite))
             {
-                DisplayAlert("Message", "Sneaker is already in your favourite.", "ok");
+                DisplayAlert("Thông báo", "Đã có trong yêu thích.", "ok");
             } else
             {
                 db.addFavourite(favourite);
-                DisplayAlert("Message", "Add Sneaker in your favourite successfully.", "ok");
+                DisplayAlert("Thông báo", "Thêm vào yêu thích thành công", "ok");
             }
         }
 

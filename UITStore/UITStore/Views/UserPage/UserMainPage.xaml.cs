@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UITStore.Models;
 using UITStore.ViewModels;
+using UITStore.Views.AdminPage;
 using UITStore.Views.StoragePage;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -31,6 +32,10 @@ namespace UITStore.Views.UserPage
             favourites = db.getFavourite(_user.id);
             favourite.Text = favourites.ToArray().Length > 0 ? favourites.ToArray().Length.ToString() : "0";
             Order.Text = orderVM.GetOrderByUserId(_user.id).ToArray().Length.ToString();
+            if(_user.role != "admin")
+            {
+                Main.Children.Remove(MainAdmin);
+            }
         }
         protected override void OnAppearing()
         {
@@ -44,7 +49,7 @@ namespace UITStore.Views.UserPage
         }
         private async void Logout_Clicked(object sender, EventArgs e)
         {
-            bool answer = await DisplayAlert("Warning", "Do you really want to logout?", "Yes", "No");
+            bool answer = await DisplayAlert("Cảnh báo!", "Bạn thực sự muốn đăng xuất?", "Có", "Không");
             if (answer)
             {
                 _ = Navigation.PushAsync(new Login());
@@ -60,7 +65,7 @@ namespace UITStore.Views.UserPage
         {
             var result = await MediaPicker.PickPhotoAsync(new MediaPickerOptions
             {
-                Title = "Please pick a avatar!"
+                Title = "Chọn avatar!"
             });
             if (result != null)
             {
@@ -87,6 +92,12 @@ namespace UITStore.Views.UserPage
         private void MyOrder_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new MyOrderPage());
+        }
+
+        private void Admin_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new AdminMainPage());
+            Application.Current.MainPage = new NavigationPage(new AdminMainPage());
         }
     }
 }

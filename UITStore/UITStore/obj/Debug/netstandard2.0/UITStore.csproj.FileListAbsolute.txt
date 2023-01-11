@@ -32,3 +32,7 @@ D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\UITStore.cspro
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\OrderPage\PaymentPage.xaml.g.cs
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\StoragePage\MyOrderPage.xaml.g.cs
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\StoragePage\DetailOrder.xaml.g.cs
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\AdminPage\ProductAdmin.xaml.g.cs
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\AdminPage\UserAdmin.xaml.g.cs
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\AdminPage\OrderAdmin.xaml.g.cs
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore\obj\Debug\netstandard2.0\Views\AdminPage\AddProduct.xaml.g.cs

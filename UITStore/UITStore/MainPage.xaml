@@ -1,16 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            xmlns:views2 ="clr-namespace:UITStore.BlogPage" xmlns:views4="clr-namespace:UITStore.Views.AdminPage"
+            xmlns:views2 ="clr-namespace:UITStore.BlogPage" 
             xmlns:views="clr-namespace:UITStore.Views.HomePage" xmlns:views3="clr-namespace:UITStore.Views.ProductPage"
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core" xmlns:views1="clr-namespace:UITStore.Views.UserPage"
             android:TabbedPage.ToolbarPlacement="Bottom" HeightRequest="20"  BarBackgroundColor="White"  
-            BarTextColor="Black" BackgroundColor="Beige" x:Class="UITStore.MainPage" x:Name="Main">
+            BarTextColor="Black" BackgroundColor="Beige" x:Class="UITStore.MainPage">
     <views:HomeSneaker Title="Home" IconImageSource="HomeIcon.png" />
-    <views3:Store Title="Store" IconImageSource="StoreIcon.png" />
+    <views3:Store Title="Cửa hàng" IconImageSource="StoreIcon.png" />
     <views2:Blogs Title="Blog" IconImageSource="BlogIcon.png" />
-    <views1:UserMainPage Title="User" IconImageSource="UserIcon.png"/>
-    <views4:AdminMainPage Title="Admin" IconImageSource="AdminIcon.png" x:Name="Admin"/>
+    <views1:UserMainPage Title="Tôi" IconImageSource="UserIcon.png"/>
     <NavigationPage.TitleView>
         <AbsoluteLayout VerticalOptions="CenterAndExpand">
             <Image Source="CTSneakerIconApp.png" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0, 0, 40, 40"></Image>

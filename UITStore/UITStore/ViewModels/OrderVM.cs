@@ -72,5 +72,35 @@ namespace UITStore.ViewModels
             }
             return true;
         }
+        public bool UpdateOrder(Guid Id, Guid UserId, string FullName, string Telephone, string Address, double Total, string Status)
+        {
+            Order order = new Order
+            {
+                id = Id, userId = UserId, fullName = FullName, telephone = Telephone,
+                address = Address, total = Total, status = Status,
+            };
+            OrderModel result = OrderService.ServiceClientInstance.UpdateOrder(order).Result;
+            if (result.success)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public List<Order> GetListOrder()
+        {
+            ListOrder result = OrderService.ServiceClientInstance.GetListOrder().Result;
+            if (result.success)
+            {
+                List<Order> orders = result.data;
+                return orders;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

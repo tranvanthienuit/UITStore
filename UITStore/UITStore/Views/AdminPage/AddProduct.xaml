@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:UITStore.Components"
+             x:Class="UITStore.Views.AdminPage.AddProduct">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid RowSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Text="Tên sản phẩm" FontSize="18" TextColor="#38B6FF" VerticalOptions="Center"  Grid.Column="0" Grid.Row="0" Margin="5"></Label>
+                <StackLayout Grid.Column="1" Grid.Row="0" Margin="5">
+                    <Grid>
+                        <Frame BorderColor="#FFD8A9" CornerRadius="5" HasShadow="False"/>
+                        <local:CustomEntry x:Name="name" BackgroundColor="Transparent" FontSize="18" ClearButtonVisibility="WhileEditing"/>
+                    </Grid>
+                </StackLayout>
+                <Label Text="Số lượng" FontSize="18" TextColor="#38B6FF" VerticalOptions="Center"  Grid.Column="0" Grid.Row="1" Margin="5" HorizontalOptions="Center"></Label>
+                <StackLayout Grid.Column="0" Grid.Row="2" Margin="5">
+                    <Grid>
+                        <Frame BorderColor="#FFD8A9" CornerRadius="5" HasShadow="False"/>
+                        <local:CustomEntry x:Name="stock" BackgroundColor="Transparent" FontSize="18" ClearButtonVisibility="WhileEditing" Keyboard="Numeric"/>
+                    </Grid>
+                </StackLayout>
+                <Label Text="Size" FontSize="18" TextColor="#38B6FF" VerticalOptions="Center"  Grid.Column="1" Grid.Row="1" Margin="5" HorizontalOptions="Center"></Label>
+                <StackLayout Grid.Column="1" Grid.Row="2" Margin="5">
+                    <Grid>
+                        <Frame BorderColor="#FFD8A9" CornerRadius="5" HasShadow="False"/>
+                        <local:CustomEntry x:Name="size" BackgroundColor="Transparent" FontSize="18" ClearButtonVisibility="WhileEditing" Keyboard="Numeric"/>
+                    </Grid>
+                </StackLayout>
+                <Label Text="Giá gốc" FontSize="18" TextColor="#38B6FF" VerticalOptions="Center"  Grid.Column="0" Grid.Row="3" Margin="5" HorizontalOptions="Center"></Label>
+                <StackLayout Grid.Column="0" Grid.Row="4" Margin="5">
+                    <Grid>
+                        <Frame BorderColor="#FFD8A9" CornerRadius="5" HasShadow="False"/>
+                        <local:CustomEntry x:Name="price" BackgroundColor="Transparent" FontSize="18" ClearButtonVisibility="WhileEditing" Keyboard="Numeric"/>
+                    </Grid>
+                </StackLayout>
+                <Label Text="Giá khuyến mãi" FontSize="18" TextColor="#38B6FF" VerticalOptions="Center"  Grid.Column="1" Grid.Row="3" Margin="5" HorizontalOptions="Center"></Label>
+                <StackLayout Grid.Column="1" Grid.Row="4" Margin="5">
+                    <Grid>
+                        <Frame BorderColor="#FFD8A9" CornerRadius="5" HasShadow="False"/>
+                        <local:CustomEntry x:Name="salePrice" BackgroundColor="Transparent" FontSize="18" ClearButtonVisibility="WhileEditing" Keyboard="Numeric"/>
+                    </Grid>
+                </StackLayout>
+                <Label Text="Phân loại" FontSize="18" TextColor="#38B6FF" VerticalOptions="Center"  Grid.Column="0" Grid.Row="5" Margin="5" HorizontalOptions="Center"></Label>
+                <StackLayout Grid.Column="0" Grid.Row="6" Margin="5">
+                    <Grid>
+                        <Frame BorderColor="#FFD8A9" CornerRadius="5" HasShadow="False"/>
+                        <local:CustomEntry x:Name="category" BackgroundColor="Transparent" FontSize="18" ClearButtonVisibility="WhileEditing"/>
+                    </Grid>
+                </StackLayout>
+                <Label Text="Ảnh" FontSize="18" TextColor="#38B6FF" VerticalOptions="Center"  Grid.Column="1" Grid.Row="5" Margin="5" HorizontalOptions="Center"></Label>
+                <StackLayout Grid.Column="1" Grid.Row="6" Margin="5">
+                    <Grid>
+                        <Frame BorderColor="#FFD8A9" CornerRadius="5" HasShadow="False"/>
+                        <local:CustomEntry x:Name="image" BackgroundColor="Transparent" FontSize="18" ClearButtonVisibility="WhileEditing"/>
+                    </Grid>
+                </StackLayout>
+                <Label Text="Mô tả" FontSize="18" TextColor="#38B6FF" VerticalOptions="Center"  Grid.Column="0" Grid.Row="7" Margin="5"></Label>
+                <StackLayout Grid.Column="1" Grid.Row="7" Grid.RowSpan="2" Margin="5">
+                    <Grid>
+                        <Frame BorderColor="#FFD8A9" CornerRadius="5" HasShadow="False"/>
+                        <local:CustomEntry x:Name="description" BackgroundColor="Transparent" FontSize="18" ClearButtonVisibility="WhileEditing"/>
+                    </Grid>
+                </StackLayout>
+            </Grid>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Frame Padding="0" HorizontalOptions="Center" CornerRadius="10" Margin="10">
+                    <Button x:Name="save_product" Clicked="save_product_Clicked" Text="Lưu" HorizontalOptions="Center" FontSize="20" FontAttributes="Bold"
+                                BackgroundColor="#38B6FF" TextColor="White" />
+                </Frame>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

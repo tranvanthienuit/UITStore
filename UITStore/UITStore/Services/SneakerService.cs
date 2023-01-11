@@ -88,5 +88,36 @@ namespace UITStore.Services
                 return null;
             }
         }
+
+        public async Task<ResponseUpdateSneaker> AddSneaker(RequestSneaker sneaker)
+        {
+            try
+            {
+                StringContent content = new StringContent(JsonConvert.SerializeObject(sneaker), Encoding.UTF8, "application/json");
+                HttpResponseMessage response = client.PostAsync("create", content).Result;
+                string responseRead = await response.Content.ReadAsStringAsync();
+                ResponseUpdateSneaker data = JsonConvert.DeserializeObject<ResponseUpdateSneaker>(responseRead);
+                return await Task.FromResult(data);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public async Task<DeleteSneaker> DeleteSneaker(Guid id)
+        {
+            try
+            {
+                HttpResponseMessage response = client.DeleteAsync($"{id}/delete").Result;
+                string responseRead = await response.Content.ReadAsStringAsync();
+                DeleteSneaker data = JsonConvert.DeserializeObject<DeleteSneaker>(responseRead);
+                return await Task.FromResult(data);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
     }
 }

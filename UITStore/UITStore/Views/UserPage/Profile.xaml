@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:UITStore.Components"
-             x:Class="UITStore.Views.UserPage.Profile" Title="Profile">
+             x:Class="UITStore.Views.UserPage.Profile" Title="Thông tin">
     <ContentPage.Content>
         <StackLayout>
             <Grid RowSpacing="0" Margin="10">
@@ -13,7 +13,7 @@
                 <Frame Margin="10" Padding="0" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="4" CornerRadius="100" VerticalOptions="Center" HorizontalOptions="Center">
                     <Image Source="{Binding avatar}" ></Image>
                 </Frame>
-                <Label Text="Username" FontSize="20" TextColor="#38B6FF" VerticalOptions="Center"  Grid.Column="2" Grid.Row="0"></Label>
+                <Label Text="Tên tài khoản" FontSize="20" TextColor="#38B6FF" VerticalOptions="Center"  Grid.Column="2" Grid.Row="0"></Label>
                 <StackLayout Grid.Column="2" Grid.Row="1">
                     <Grid>
                         <Frame BorderColor="#FFD8A9" CornerRadius="5" HasShadow="False"/>
@@ -21,14 +21,14 @@
                     </Grid>
                     <Label x:Name="vldUsername" TextColor="Red" HorizontalOptions="EndAndExpand" FontSize="12" Margin="0, -5, 0, -15"></Label>
                 </StackLayout>
-                <Label Text="Birthday" FontSize="20" TextColor="#38B6FF" VerticalOptions="Center" Grid.Column="2" Grid.Row="2"></Label>
+                <Label Text="Ngày sinh" FontSize="20" TextColor="#38B6FF" VerticalOptions="Center" Grid.Column="2" Grid.Row="2"></Label>
                 <StackLayout Grid.Column="2" Grid.Row="3">
                     <Grid>
                         <Frame BorderColor="#FFD8A9" CornerRadius="5" HasShadow="False"/>
                         <local:CustomDatePicker x:Name="birthday" Date="{Binding birthday, StringFormat='dd/MM/yyyy'}" IsEnabled="False" FontSize="20"></local:CustomDatePicker>
                     </Grid>
                 </StackLayout>
-                <Label Margin="0, 10, 0, 0" Text="Fullname" FontSize="20" TextColor="#38B6FF" VerticalOptions="Center" Grid.Column="0" Grid.Row="4"></Label>
+                <Label Margin="0, 10, 0, 0" Text="Họ tên" FontSize="20" TextColor="#38B6FF" VerticalOptions="Center" Grid.Column="0" Grid.Row="4"></Label>
                 <StackLayout Margin="0, 10, 0, 5" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2">
                     <Grid>
                         <Frame BorderColor="#FFD8A9" CornerRadius="5" HasShadow="False"/>
@@ -36,7 +36,7 @@
                     </Grid>
                     <Label x:Name="vldFullname" TextColor="Red" HorizontalOptions="EndAndExpand" FontSize="12" Margin="0, -5, 0, -15"></Label>
                 </StackLayout>
-                <Label Margin="0, 10, 0, 0" Text="Telephone" FontSize="20" TextColor="#38B6FF" VerticalOptions="Center" Grid.Column="0" Grid.Row="5"></Label>
+                <Label Margin="0, 10, 0, 0" Text="SĐT" FontSize="20" TextColor="#38B6FF" VerticalOptions="Center" Grid.Column="0" Grid.Row="5"></Label>
                 <StackLayout Margin="0, 10, 0, 5" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2">
                     <Grid>
                         <Frame BorderColor="#FFD8A9" CornerRadius="5" HasShadow="False"/>
@@ -52,7 +52,7 @@
                     </Grid>
                     <Label x:Name="vldEmail" TextColor="Red" HorizontalOptions="EndAndExpand" FontSize="12" Margin="0, -5, 0, -15"></Label>
                 </StackLayout>
-                <Label Margin="0, 10, 0, 5" Text="Address" FontSize="20" TextColor="#38B6FF" VerticalOptions="Center" Grid.Column="0" Grid.Row="7"></Label>
+                <Label Margin="0, 10, 0, 5" Text="Địa chỉ" FontSize="20" TextColor="#38B6FF" VerticalOptions="Center" Grid.Column="0" Grid.Row="7"></Label>
                 <StackLayout Margin="0, 10, 0, 0" Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="2">
                     <Grid>
                         <Frame BorderColor="#FFD8A9" CornerRadius="5" HasShadow="False"/>
@@ -63,11 +63,11 @@
             </Grid>
             <StackLayout Orientation="Horizontal" Margin="20" HorizontalOptions="Center">
                 <Frame Padding="0" HorizontalOptions="Center" CornerRadius="10" Margin="10">
-                    <Button x:Name="update_profile" Clicked="update_profile_Clicked" Text="Update" HorizontalOptions="Center" FontSize="20" FontAttributes="Bold"
+                    <Button x:Name="update_profile" Clicked="update_profile_Clicked" Text="Cập nhật" HorizontalOptions="Center" FontSize="20" FontAttributes="Bold"
                                 BackgroundColor="#38B6FF" TextColor="White" />
                 </Frame>
                 <Frame Padding="0" HorizontalOptions="Center" CornerRadius="10" Margin="10">
-                    <Button x:Name="cancel_profile" Clicked="cancel_profile_Clicked" Text="Cancel" HorizontalOptions="Center" FontSize="20" FontAttributes="Bold"
+                    <Button x:Name="cancel_profile" Clicked="cancel_profile_Clicked" Text="Hủy" HorizontalOptions="Center" FontSize="20" FontAttributes="Bold"
                                 BackgroundColor="#FF914D" TextColor="White" IsEnabled="False"/>
                 </Frame>
             </StackLayout>

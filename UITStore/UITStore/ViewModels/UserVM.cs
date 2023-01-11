@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using UITStore.Models;
@@ -199,6 +200,18 @@ namespace UITStore.ViewModels
                 return null;
             }
         }
-
+        public List<User> GetListUser()
+        {
+            ListUserModel result = UserService.ServiceClientInstance.GetListUser().Result;
+            if (result.success)
+            {
+                List<User> user = result.data;
+                return user;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

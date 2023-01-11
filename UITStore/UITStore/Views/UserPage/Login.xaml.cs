@@ -32,7 +32,7 @@ namespace UITStore.Views.UserPage
                 }
                 else
                 {
-                    _ = DisplayAlert("Error", "Your username or password is correct.\rPlease, Sign in again !", "Yes", "No");
+                    _ = DisplayAlert("Lỗi", "Tài khoản hoặc mật khẩu sai. Vui lòng thử lại!", "Có", "Không");
                 }
             }
             ValidationUsername();

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             x:Class="UITStore.Views.StoragePage.FavouritePage" Title="My Favourite">
+             x:Class="UITStore.Views.StoragePage.FavouritePage" Title="Yêu thích">
     <ContentPage.Content>
         <ScrollView>
             <CollectionView x:Name="DataFavourite"  Margin="5" >
@@ -10,7 +10,7 @@
                 </CollectionView.ItemsLayout>
                 <CollectionView.EmptyView>
                     <StackLayout>
-                        <Label Text="Not found Product Favourite" HorizontalOptions="Center"
+                        <Label Text="Không có sản phẩm" HorizontalOptions="Center"
                                TextColor="OrangeRed" FontSize="24" Margin="10"/>
                     </StackLayout>
                 </CollectionView.EmptyView>

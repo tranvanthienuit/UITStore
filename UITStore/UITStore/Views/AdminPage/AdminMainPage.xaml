@@ -1,20 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="UITStore.Views.AdminPage.AdminMainPage" BackgroundColor="#efefef">
+             x:Class="UITStore.Views.AdminPage.AdminMainPage" BackgroundColor="#efefef" Title="Quản lý">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="User" Clicked="ToolbarItem_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout Margin="10">
             <Frame Padding="0" HeightRequest="100" BackgroundColor="#B1EFFF">
                 <Grid ColumnDefinitions="*, 2*">
-                    <Image Source="ProductAdmin.png" Grid.Column="0" Margin="15"></Image>
-                    <Label Text="Product Management" Grid.Column="1" FontAttributes="Bold" FontSize="20" TextColor="Black" VerticalOptions="Center"></Label>
+                    <Image Source="UserAdmin.png" Grid.Column="0" Margin="15"></Image>
+                    <Label Text="Quản lý người dùng" Grid.Column="1" FontAttributes="Bold" FontSize="20" TextColor="Black" VerticalOptions="Center"></Label>
                 </Grid>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="MUser" Tapped="MUser_Tapped"></TapGestureRecognizer>
+                </Frame.GestureRecognizers>
+            </Frame>
+            <Frame Padding="0" HeightRequest="100" BackgroundColor="#B1EFFF">
+                <Grid ColumnDefinitions="*, 2*">
+                    <Image Source="ProductAdmin.png" Grid.Column="0" Margin="15"></Image>
+                    <Label Text="Quản lý sản phẩm" Grid.Column="1" FontAttributes="Bold" FontSize="20" TextColor="Black" VerticalOptions="Center"></Label>
+                </Grid>
+                <Frame.GestureRecognizers>
+                <TapGestureRecognizer x:Name="MProduct" Tapped="MProduct_Tapped"></TapGestureRecognizer>
+                </Frame.GestureRecognizers>
             </Frame>
             <Frame Padding="0" HeightRequest="100" BackgroundColor="#B1EFFF">
                 <Grid ColumnDefinitions="*, 2*">
                     <Image Source="ReceiptAdmin.png" Grid.Column="0" Margin="15"></Image>
-                    <Label Text="Order Management" Grid.Column="1" FontAttributes="Bold" FontSize="20" TextColor="Black" VerticalOptions="Center"></Label>
+                    <Label Text="Quản lý đơn hàng" Grid.Column="1" FontAttributes="Bold" FontSize="20" TextColor="Black" VerticalOptions="Center"></Label>
                 </Grid>
+                <Frame.GestureRecognizers>
+                <TapGestureRecognizer x:Name="MOrder" Tapped="MOrder_Tapped"></TapGestureRecognizer>
+                </Frame.GestureRecognizers>
             </Frame>
         </StackLayout>
     </ContentPage.Content>

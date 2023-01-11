@@ -13,5 +13,6 @@ namespace UITStore.Services
         Task<UserModel> UpdateUser(User user);
         Task<UserModel> ChangePassword(Guid id, string password);
         Task<UserModel> GetUserById(Guid id);
+        Task<ListUserModel> GetListUser();
     }
 }

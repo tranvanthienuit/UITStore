@@ -710,3 +710,5 @@ D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\res\drawable\vans3.
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\res\drawable\vans2.jpg
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\res\drawable\vans1.jpg
 D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\res\drawable\nb3.jpg
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\res\drawable\useradmin.png
+D:\UIT\Mobile\UITSTORE\UITStore\UITStore.Droid\obj\Debug\110\res\drawable\editicon.png

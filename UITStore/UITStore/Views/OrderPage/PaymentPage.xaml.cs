@@ -85,14 +85,14 @@ namespace UITStore.Views.OrderPage
 
             if (ValidationFullname() && ValidationPhone() && ValidationAddress())
             {
-                bool answer = await DisplayAlert("Confirm", "Payment confirmation", "Yes", "No");
+                bool answer = await DisplayAlert("Xác nhận", "Xác nhận đặt hàng", "Có", "Không");
                 if(answer)
                 {
                     double addPoint = Convert.ToDouble(Total.Text) / 50000;
                     bool result = orderVM.AddNewOrder(_user.id, fullname.Text, phone.Text, address.Text, Convert.ToDouble(Total.Text), listDetailOrders);
                     if(result)
                     {
-                        await DisplayAlert("Successfully", "Order successfully", "Ok");
+                        await DisplayAlert("Thành công", "Đặt hàng thành công", "Ok");
                         await Navigation.PushAsync(new MainPage());
                         Application.Current.MainPage = new NavigationPage(new MainPage());
                         db.deleteFullCart(_user.id);
@@ -101,11 +101,11 @@ namespace UITStore.Views.OrderPage
                         {
                             Sneakers sneaker = sneakerVM.GetSneakerById(item.productid);
                             sneakerVM.UpdateSneaker(sneaker.id, sneaker.name, sneaker.size, sneaker.stock - item.quantity, sneaker.price, sneaker.description, sneaker.category, sneaker.salePrice,
-                                sneaker.image, sneaker.discount, sneaker.rating, sneaker.createDate);
+                                sneaker.image, sneaker.rating, sneaker.createDate);
                         }
                     } else
                     {
-                        await DisplayAlert("Error", "Fail", "Ok");
+                        await DisplayAlert("Lỗi", "Lỗi", "Ok");
                     }
                 }
             }

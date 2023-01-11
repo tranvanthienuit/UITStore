@@ -30,9 +30,9 @@ namespace UITStore.Views.UserPage
         }
         private void update_profile_Clicked(object sender, EventArgs e)
         {
-            if(update_profile.Text == "Update")
+            if(update_profile.Text == "Cập nhật")
             {
-                update_profile.Text = "Save";
+                update_profile.Text = "Lưu";
                 username.IsEnabled = true;
                 birthday.IsEnabled = true;
                 fullname.IsEnabled = true;
@@ -41,7 +41,7 @@ namespace UITStore.Views.UserPage
                 address.IsEnabled = true;
                 cancel_profile.IsEnabled = true;
 
-            } else if (update_profile.Text == "Save")
+            } else if (update_profile.Text == "Lưu")
             {
                
                 if (ValidationUsername() && ValidationEmail() && ValidationFullname() && ValidationPhone() && ValidationAddress())
@@ -50,11 +50,11 @@ namespace UITStore.Views.UserPage
                         phone.Text, address.Text, birthday.Date, email.Text, _user.loyalPoint);
                     if (result)
                     {
-                        _ = DisplayAlert("Successfully", "You updated successfully", "Ok");
+                        _ = DisplayAlert("Thành công", "Cập nhật thành công", "Ok");
                     }
                     else
                     {
-                        _ = DisplayAlert("Error", "Fail", "Ok");
+                        _ = DisplayAlert("Lỗi", "Lỗi", "Ok");
                     }
                     username.IsEnabled = false;
                     birthday.IsEnabled = false;
@@ -63,7 +63,7 @@ namespace UITStore.Views.UserPage
                     email.IsEnabled = false;
                     address.IsEnabled = false;
                     cancel_profile.IsEnabled = false;
-                    update_profile.Text = "Update";
+                    update_profile.Text = "Cập nhật";
                 }
                 ValidationUsername();
                 ValidationFullname();
@@ -88,7 +88,7 @@ namespace UITStore.Views.UserPage
             email.IsEnabled = false;
             address.IsEnabled = false;
             cancel_profile.IsEnabled = false;
-            update_profile.Text = "Update";   
+            update_profile.Text = "Cập nhật";   
         }
 
         public bool ValidationUsername()

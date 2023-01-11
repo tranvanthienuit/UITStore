@@ -1,4 +1,5 @@
 ﻿
+using UITStore.Views.AdminPage;
 using UITStore.Views.UserPage;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

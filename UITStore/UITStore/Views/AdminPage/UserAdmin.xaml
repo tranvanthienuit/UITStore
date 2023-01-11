@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UITStore.Views.AdminPage.UserAdmin" Title="Quản lý người dùng">
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView Margin="5">
+                <CollectionView x:Name="dataUser">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="1" VerticalItemSpacing="5"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Frame Padding="0" BackgroundColor="AliceBlue" HeightRequest="120" CornerRadius="10">
+                                    <Grid ColumnDefinitions="*, *" RowDefinitions="*, *, *" Padding="5">
+                                        <Label Text="{Binding username}" TextColor="Black" FontSize="18" Grid.Row="0" Grid.Column="0" LineBreakMode="TailTruncation"></Label>
+                                        <Label Text="{Binding fullname}" TextColor="Black" FontSize="18" Grid.Row="1" Grid.Column="0" LineBreakMode="TailTruncation"></Label>
+                                        <Label Text="{Binding address}" TextColor="Black" FontSize="18" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" LineBreakMode="TailTruncation"></Label>
+                                        <Label Text="{Binding telephone}" TextColor="Black" FontSize="18" Grid.Row="0" Grid.Column="1" LineBreakMode="TailTruncation"></Label>
+                                        <Label Text="{Binding loyalPoint}" TextColor="Black" FontSize="18" Grid.Row="1" Grid.Column="1" LineBreakMode="TailTruncation"></Label>
+                                    </Grid>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

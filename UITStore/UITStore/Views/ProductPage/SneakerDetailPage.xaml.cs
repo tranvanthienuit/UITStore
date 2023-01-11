@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
@@ -83,12 +83,12 @@ namespace UITStore.Views.ProductPage
             string action;
             if (listSize.Length > 0)
             {
-                action = await DisplayActionSheet("Size", "Cancel", null, listSize);
-                size.Text = action != "Cancel" ? action : size.Text;
+                action = await DisplayActionSheet("Size", "Hủy", null, listSize);
+                size.Text = action != "Hủy" ? action : size.Text;
             }
             else
             {
-                await DisplayAlert("Size", "UnAvailable", "OK");
+                await DisplayAlert("Size", "Không có sẵn", "OK");
                 size.Text = "Null";
             }
         }
@@ -118,7 +118,7 @@ namespace UITStore.Views.ProductPage
                 var cart = new Cart { userid = _user.id, productid = sneaker.id ,img = sneaker.image, name = sneaker.name, price = sneaker.salePrice ,productsize = Convert.ToInt32(size.Text), quantity = Convert.ToInt32(Count.Text)};
                 var db = new SQLiteDatabase();
                 db.addCart(cart);
-                bool answer = await DisplayAlert("Notification", "Add to cart successfully! Do you want to go to the shopping cart page?", "Yes", "No");
+                bool answer = await DisplayAlert("Thông báo", "Thêm vào giỏ hàng thành công! Đi tới giỏ hàng?", "Có", "Không");
                 if(answer)
                 {
                     await Navigation.PushAsync(new CartOrder());
@@ -127,10 +127,10 @@ namespace UITStore.Views.ProductPage
             {
                 if(size.Text == null)
                 {
-                    await DisplayAlert("Notification", "Please chosse size sneaker.", "Ok");
+                    await DisplayAlert("Thông báo", "Vui lòng chọn size.", "Ok");
                 } else
                 {
-                    await DisplayAlert("Notification", "Out of stock.", "Ok");
+                    await DisplayAlert("Thông báo", "Hết hàng.", "Ok");
                 }
             }
         }
@@ -142,14 +142,14 @@ namespace UITStore.Views.ProductPage
                 bool answer = commentVM.AddNewComment(sneaker.id, _user.id, Rating.SelectedStarValue, Comment.Text);
                 if(answer)
                 {
-                    DisplayAlert("Successfully", "Add comment succesfully", "Ok");
+                    DisplayAlert("Thành công", "Thêm đánh giá thành công", "Ok");
                 } else
                 {
-                    DisplayAlert("Erorr", "Fail!", "Ok");
+                    DisplayAlert("Lỗi", "Lỗi!", "Ok");
                 }
             } else
             {
-                DisplayAlert("Warning", "Please fill in all the details!", "Ok");
+                DisplayAlert("Cảnh báo", "Điền đầy đủ thông tin", "Ok");
             }
             ListComment.ItemsSource = commentVM.GetComments(sneaker.id);
             BindingContext = sneakerVM.GetSneakerById(sneaker.id);

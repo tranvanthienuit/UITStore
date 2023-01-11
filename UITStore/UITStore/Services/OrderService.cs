@@ -104,5 +104,36 @@ namespace UITStore.Services
                 return null;
             }
         }
+
+        public async Task<OrderModel> UpdateOrder(Order order)
+        {
+            try
+            {
+                StringContent content = new StringContent(JsonConvert.SerializeObject(order), Encoding.UTF8, "application/json");
+                HttpResponseMessage response = client.PutAsync("update", content).Result;
+                string responseRead = await response.Content.ReadAsStringAsync();
+                OrderModel data = JsonConvert.DeserializeObject<OrderModel>(responseRead);
+                return await Task.FromResult(data);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public async Task<ListOrder> GetListOrder()
+        {
+            try
+            {
+                HttpResponseMessage response = client.GetAsync("list").Result;
+                string responseRead = await response.Content.ReadAsStringAsync();
+                ListOrder data = JsonConvert.DeserializeObject<ListOrder>(responseRead);
+                return await Task.FromResult(data);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
     }
 }
